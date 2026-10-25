@@ -238,6 +238,8 @@ select option{background:var(--panel);}
 .detail-row{display:grid;grid-template-columns:1fr;gap:6px;border-top:1px solid var(--border);padding:10px 0;margin-top:8px;}
 .detail-row-fields{display:flex;gap:8px;flex-wrap:wrap;}
 .detail-row-fields input{background:var(--panel-2);border:1px solid var(--border);border-radius:4px;color:var(--ink);padding:6px 8px;font-size:12.5px;font-family:'Work Sans',sans-serif;}
+.detail-row-fields select,.detail-due input{background:var(--panel-2);border:1px solid var(--border);border-radius:4px;color:var(--ink);padding:6px 8px;font-size:12.5px;font-family:'Work Sans',sans-serif;}
+.detail-due input{width:100%;box-sizing:border-box;}
 .detail-row-fields input.name{flex:1;min-width:100px;}
 .detail-row-fields input.link{flex:1;min-width:100px;}
 .detail-row-fields input.price{width:110px;font-variant-numeric:tabular-nums;}
@@ -284,6 +286,16 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-section-row{padding:0 18px;margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
 .nd-section-title{font:800 10px 'Sora';letter-spacing:.14em;color:#B3B4AB;}
 .nd-section-sub{font-size:10.5px;color:#C4C5BB;}
+
+
+/* Moodboard */
+.mb-grid{column-count:2;column-gap:10px;padding:0 14px;margin-top:4px;}
+.mb-tile{break-inside:avoid;margin-bottom:10px;border-radius:18px;overflow:hidden;position:relative;background:var(--nd-soft);cursor:pointer;box-shadow:0 6px 16px -10px var(--nd-shadow);}
+.mb-tile img{width:100%;display:block;}
+.mb-badge{position:absolute;left:8px;top:8px;font:700 9px 'Sora';letter-spacing:.04em;padding:3px 9px;border-radius:100px;background:rgba(255,255,255,.88);color:#3b3b36;}
+.mb-cap{padding:7px 10px 9px;font-size:11px;color:#6E6F68;line-height:1.35;background:#fff;}
+.mb-chip{flex:none;border:1px solid #E4E1D8;background:#fff;color:#6E6F68;font:700 11px 'Sora';padding:7px 13px;border-radius:100px;cursor:pointer;}
+.mb-chip.on{background:var(--nd-accent);border-color:var(--nd-accent);color:#fff;}
 
 /* Cards */
 .nd-hero{margin:12px 14px 0;border-radius:30px;padding:22px;color:#fff;background:var(--nd-grad);box-shadow:0 20px 40px -14px var(--nd-shadow);position:relative;overflow:hidden;}
@@ -576,104 +588,126 @@ function detailUid(){ return 'd' + uid(); }
 
 const PANDUAN_MD = `# Panduan Penggunaan — Rencana Anggaran Pernikahan
 
-Panduan singkat ini untuk kamu, pasangan, atau siapa pun yang bantu isi data di aplikasi ini (misalnya WO atau keluarga), supaya tidak perlu tanya-tanya cara pakainya satu-satu.
+Panduan singkat untuk kalian berdua, atau siapa pun yang dibolehkan ikut isi data (keluarga, WO). Isinya urut dari yang pertama kali dikerjakan.
 
 ## Cara Masuk
 
-1. Buka link/file aplikasinya.
-2. Akan muncul layar sambutan ("Halo, ...") — tekan **"Lanjut ke Dashboard"**.
-3. Kamu langsung masuk ke Dashboard. Saat ini **belum ada PIN/login** — siapa pun yang punya link bisa buka dan ubah data, jadi jaga baik-baik ke siapa link ini dibagikan.
+1. Buka link aplikasinya, lalu tekan **"Masuk dengan Google"**.
+2. Pakai akun Google yang emailnya sudah didaftarkan. Email lain **tidak bisa** membuka data ini.
+3. Muncul layar sambutan ("Halo, ...") — tekan **"Buka rencana kami"**.
 
-Semua menu diakses lewat satu tombol **"Menu: [nama tab]"** di bagian atas — tap untuk buka daftar semua menu, pilih salah satu, otomatis tertutup lagi.
+Data tersimpan otomatis di Firebase dan langsung sinkron di HP kalian berdua. Tidak perlu tombol simpan untuk mengisi data biasa. Kalau satu orang sedang mengetik, perubahan dari yang lain baru muncul setelah selesai.
 
-## Dashboard
+## Tombol di Bagian Atas
 
-Halaman ringkasan. Isinya:
-- **Ringkasan Singkat** — beberapa kalimat santai yang otomatis kasih tahu status kalian (misal "masih butuh nabung Rp X lagi").
-- **Hari Pernikahan** — hitung mundur ke hari H, plus kolom untuk isi tanggal nikah, jumlah target tamu, dan budget maksimal.
-- **Keuangan** — total estimasi vs budget maksimal, sudah dibayar, sisa, dana terkumpul dari tabungan.
-- **Tamu Undangan** — total tamu vs target, breakdown per pihak.
-- **Persiapan** — progress Roadmap, Dokumen, dan Vendor yang sudah dipilih.
-- **Yang Masih Perlu Dilengkapi** — daftar bagian yang belum diisi lengkap.
+- **Ikon mata** — sembunyikan/tampilkan semua nominal rupiah (jadi Rp ••••••). Berguna kalau layar dilihat orang lain.
+- **Bulatan warna** — ganti tema warna (5 pilihan).
+- **Ikon orang** — info akun dan tombol keluar.
 
-## Dokumen
+Menu utama ada di bar bawah: **Beranda, Budget, Tabungan, Dokumen, Lainnya**. Tombol **Lainnya** membuka daftar: Tamu, Roadmap, Timeline, Moodboard, Pengaturan.
 
-Daftar syarat administrasi nikah (KTP, KK, dll), dikelompokkan jadi **Pihak Wanita** dan **Pihak Pria** — nama pihaknya ambil dari yang kamu isi di tab Pengaturan.
+## Urutan Isi Pertama Kali
 
-- Tap judul grup untuk buka/tutup semua dokumen di grup itu.
-- Tap satu dokumen untuk lihat/ubah detail dan tandai statusnya: **Belum → Proses → Sudah**.
+Supaya Beranda langsung kebaca, isi dengan urutan ini:
 
-## Roadmap
+1. **Pengaturan → Target**: tanggal nikah, jumlah target tamu, budget maksimal, persen dana risiko dan dana setelah nikah.
+2. **Pengaturan → Identitas**: nama pengantin wanita dan pria.
+3. **Budget**: isi rincian tiap item (lihat bagian Budget).
+4. **Tabungan**: catat nabung tiap bulan.
+5. Sisanya (Dokumen, Roadmap, Tamu, Timeline) isi bertahap.
 
-Checklist 22 langkah persiapan (survei venue, booking vendor, dst), lengkap dengan prioritas (Wajib/Penting/Tambahan/Luxury), status, dan deadline.
+## Beranda
+
+Ringkasan semua yang kalian isi, dihitung otomatis:
+
+- **Sisa waktu** — hitung mundur ke hari H, plus dana terkumpul vs total estimasi.
+- **Kebutuhan / Surplus dana** dan **Budget terpakai** (persen dari budget maksimal).
+- **Agenda terdekat** — gabungan jatuh tempo bayar (dari rincian Budget yang belum lunas), deadline Roadmap, dan deadline Timeline, diurutkan dari yang paling dekat. Yang sudah lewat tanggal ditandai merah **"Terlambat"**. Tap satu baris untuk langsung ke tab-nya.
+- **Ringkasan pembayaran** — sudah dibayar, sisa dibayar, dan budget maksimal.
+- **Target nabung** — berapa yang harus ditabung per bulan sampai hari H (budget + dana risiko + dana setelah nikah, dikurangi tabungan sekarang), dibandingkan dengan rata-rata nabung kalian saat ini.
+- **Alokasi bertingkat** — tabungan dipakai berurutan: budget acara, lalu dana risiko, lalu dana setelah nikah. Kelihatan jelas kurangnya di bagian mana.
+- **Saran** — kalimat singkat otomatis soal kondisi kalian.
+- **Tamu terdaftar**, progress **Roadmap, Dokumen, Rincian lunas, Timeline**, dan **Perlu dilengkapi**.
+
+Hampir semua kartu bisa di-tap untuk lompat ke tab yang bersangkutan.
 
 ## Budget
 
-Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominalnya tidak diisi langsung** — harus lewat fitur **Detail Rincian**:
+Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi langsung di item** — lewat **Detail Rincian**:
 
-1. Tap salah satu item Budget sampai terbuka.
-2. Tap tombol **"Tambah Detail Rincian"** — muncul popup dari bawah.
-3. Di popup: tambah **sub-item** (misal "Alat sholat"), lalu di dalamnya tambah **rincian** (misal "Sajadah") dengan Nama, Link Toko/Vendor, No HP, Nominal, dan status Sudah/Belum dibayar.
-4. Total, sudah dibayar, dan belum dibayar di level item **otomatis terhitung** dari semua rincian di dalamnya.
+1. Tap satu item Budget sampai terbuka, lalu tap **"Kelola Detail Rincian"**. Popup muncul dari bawah.
+2. Tambah **sub-item** (misal "Alat sholat"), lalu di dalamnya tambah **rincian** (misal "Sajadah").
+3. Tiap rincian punya: **Nama, Link Toko/Vendor, No HP, Nominal, status bayar, DP, dan Jatuh tempo pelunasan**.
+4. Tekan **"Simpan"** di bawah popup kalau sudah selesai.
 
-Centang kotak di sebelah kiri tiap item kalau mau hapus beberapa sekaligus (tombol "Hapus yang dipilih" akan muncul).
+Cara pakai bagian pembayaran:
+
+- **DP**: isi kolom DP. Yang dihitung "sudah dibayar" hanya sebesar DP, sisanya tetap belum. Sisa otomatis tampil di sebelahnya.
+- **Lunas**: ubah status ke **Sudah dibayar** — dihitung lunas penuh.
+- **Jatuh tempo**: isi tanggalnya, nanti muncul di Agenda Terdekat di Beranda dan di bagian atas halaman Budget.
+- **Catering / souvenir**: centang **"Hitung per orang"**, lalu isi harga per porsi. Total otomatis dikali jumlah tamu. Kalau kolom jumlah tamu dikosongkan, ikut target tamu di Pengaturan; atau ketik jumlah sendiri (misal souvenir 250).
+- Total, sudah dibayar, dan sisa di tiap item **terhitung otomatis** dari semua rinciannya.
+
+Untuk membandingkan beberapa vendor sebelum memilih, cukup catat semuanya sebagai rincian dengan nominal masing-masing, lalu hapus yang tidak jadi dipilih.
 
 ## Tabungan
 
-Catat nabung bulanan untuk **2 orang** (nama sesuai yang diisi di Pengaturan), plus tempat uangnya disimpan (rekening/e-wallet apa).
+Catat nabung bulanan untuk **2 orang** (nama sesuai Pengaturan), plus tempat uangnya disimpan (rekening/e-wallet). Totalnya masuk ke "Dana terkumpul" di Beranda.
 
-## Pembayaran
+## Dokumen
 
-**Khusus vendor besar yang bayarnya bertahap** (DP → Termin 2 → Pelunasan), misalnya venue atau catering. Untuk status "sudah/belum dibayar" per item biasa, catat di tab **Budget**, bukan di sini.
+Daftar syarat administrasi nikah (KTP, KK, dll), dikelompokkan per pihak wanita dan pria.
 
-## Tamu
+- Tap judul grup untuk buka/tutup semua dokumen di grup itu.
+- Tap badge status untuk ganti: **Belum → Proses → Sudah**.
+- Centang beberapa dokumen kalau mau hapus sekaligus.
 
-Daftar tamu, dikelompokkan per pihak. Ada:
-- **Ringkasan** total tamu vs target, dan yang sudah konfirmasi hadir.
-- **Pencarian** nama tamu.
-- **Import dari Excel** — download dulu template-nya, isi di Excel/Sheets, lalu upload lagi lewat tombol di bawahnya. Data baru akan **ditambahkan**, bukan menimpa yang sudah ada.
+## Lainnya
 
-## Vendor
-
-Buku alamat kontak vendor saja (nama, kontak, paket, link, status Survei/Dipertimbangkan/Dipilih). Harga dan status bayar tetap dicatat di tab Budget.
-
-## Timeline
-
-Peta 8 fase menuju hari H, dari H-180 sampai Hari H.
+- **Tamu** — daftar tamu per pihak, ada pencarian nama dan ringkasan yang sudah konfirmasi hadir. Untuk input banyak sekaligus, pakai **Import dari Excel**: download template, isi, lalu upload lagi. Tamu dari file **ditambahkan**, tidak menimpa yang sudah ada.
+- **Roadmap** — checklist persiapan lengkap dengan prioritas (Wajib/Penting/Tambahan/Luxury), status, dan deadline. Isi deadline supaya muncul di Agenda Terdekat.
+- **Timeline** — peta fase menuju hari H, dari H-180 sampai Hari H. Deadline juga masuk ke Agenda Terdekat.
+- **Moodboard** — kumpulan foto inspirasi (dekorasi, busana, makeup, venue, warna, seserahan). Pilih kategori, tekan **"+ Tambah foto"**, lalu pilih satu atau beberapa foto dari galeri HP; foto otomatis dikompres. Tap foto untuk memperbesar, ganti kategori, menulis catatan, atau menghapus. Maksimal 50 foto. Foto moodboard tidak ikut di Export/Import, jadi simpan sendiri kalau ingin cadangan.
 
 ## Pengaturan
 
-- **Identitas** — nama pengantin wanita & pria (dipakai otomatis di tab Tabungan, Dokumen, Tamu).
-- **Tema Tampilan** — 4 pilihan warna, tinggal tap untuk ganti.
-- **Pemanis Latar** — 5 sentuhan visual opsional (gradasi, pola titik, dll), nyalakan sesuai selera.
-- **Sambutan Awal** — atur teks di layar "Halo, ..." (nama & pesan, ada batas karakter).
-- **Export & Import Data** — lihat bagian Backup di bawah.
+Urutan kartu di tab Pengaturan:
+
+- **Target** — tanggal nikah, target tamu, budget maksimal, persen dana risiko dan dana setelah nikah.
+- **Identitas** — nama pengantin wanita dan pria.
+- **Nama Tampilan & Sambutan** — nama yang tampil di Beranda dan pesan di layar "Halo, ...".
+- **Warna Tema** — Sage Green, Mocha Mousse, Butter Yellow, Dusty Rose, atau Emerald Green.
+- **Foto Pre-wedding** — pilih foto dari galeri, otomatis dikompres jadi kecil. Tampil di layar sambutan.
+- **Latar Belakang** — nyalakan/matikan hiasan latar dan gradasi lembut.
+- **Export & Import Data** — untuk backup (lihat di bawah).
+- **Zona Bahaya** — tombol reset.
 
 ## Backup Data (Penting!)
 
-Karena penyimpanan otomatis di aplikasi ini pernah beberapa kali gagal, **biasakan backup manual secara rutin**:
+Data sudah tersimpan di Firebase, tapi tetap **biasakan backup manual** sebagai cadangan, misalnya seminggu sekali:
 
-1. Buka tab **Pengaturan** → bagian **Export & Import Data**.
-2. Tekan **"Unduh sebagai file (.json)"** — file otomatis tersimpan ke HP.
-3. Pindahkan file itu ke tempat aman (Google Drive, email ke diri sendiri, dsb).
+1. Buka **Pengaturan → Export & Import Data**.
+2. Tekan **"Unduh sebagai file (.json)"** — file tersimpan di HP.
+3. Pindahkan ke tempat aman (Google Drive, atau kirim ke email sendiri).
 
-Dashboard akan otomatis mengingatkan lewat "Yang Masih Perlu Dilengkapi" kalau sudah lebih dari **seminggu** sejak backup terakhir.
+Beranda akan mengingatkan lewat "Perlu dilengkapi" kalau sudah lebih dari **seminggu** sejak backup terakhir.
 
-**Kalau perlu mengembalikan data** (restore): buka Pengaturan → Import → tekan **"Pilih file"** di kolom upload → pilih file backup \`.json\` → tekan **"Import Data"** → konfirmasi.
+**Restore:** Pengaturan → Import → pilih file backup \`.json\` → tekan **"Import Data"** → konfirmasi. Ingat, import **menimpa** semua data yang ada sekarang.
 
 ## Reset Data
 
-Di bagian bawah tiap halaman ada tombol **"Reset ke template awal"** — ini akan **menghapus semua yang sudah diisi** dan mengembalikan ke data contoh awal. Gunakan hati-hati, dan sebaiknya backup dulu sebelum reset.
+Di **Pengaturan → Zona Bahaya** ada tombol **"Reset ke template awal"**. Ini **menghapus semua yang sudah diisi**. Backup dulu sebelum menekannya.
 
 ---
-*Ada pertanyaan atau menemukan masalah? Catat detailnya (tab mana, apa yang terjadi) dan tanyakan ke Claude untuk dibantu.*
+*Ada yang tidak jalan atau membingungkan? Catat tab mana dan apa yang terjadi, lalu tanyakan ke Claude.*
 `;
 
 function miniMarkdownToHtml(md){
   const lines = md.split('\n');
   let html = '';
-  let inList = false;
-  const closeList = () => { if(inList){ html += '</ul>'; inList = false; } };
+  let inList = false, listTag = 'ul';
+  const closeList = () => { if(inList){ html += `</${listTag}>`; inList = false; } };
+  const openList = (tag) => { if(inList && listTag !== tag) closeList(); if(!inList){ html += `<${tag} style="margin:6px 0;padding-left:18px;">`; inList = true; listTag = tag; } };
   lines.forEach(line => {
     let l = line.trim();
     if(l === '' ){ closeList(); return; }
@@ -681,14 +715,192 @@ function miniMarkdownToHtml(md){
     l = l.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     if(l.startsWith('# ')){ closeList(); html += `<h3 style="font-size:16px;margin-top:16px;">${l.slice(2)}</h3>`; return; }
     if(l.startsWith('## ')){ closeList(); html += `<h4 style="font-size:14px;color:var(--gold);margin-top:16px;">${l.slice(3)}</h4>`; return; }
-    if(l.startsWith('- ')){ if(!inList){ html += '<ul style="margin:6px 0;padding-left:18px;">'; inList = true; } html += `<li style="font-size:13px;color:var(--ink);margin-top:3px;">${l.slice(2)}</li>`; return; }
-    if(/^\d+\.\s/.test(l)){ if(!inList){ html += '<ol style="margin:6px 0;padding-left:18px;">'; inList = true; } html += `<li style="font-size:13px;color:var(--ink);margin-top:3px;">${l.replace(/^\d+\.\s/, '')}</li>`; return; }
+    if(l.startsWith('- ')){ openList('ul'); html += `<li style="font-size:13px;color:var(--ink);margin-top:3px;">${l.slice(2)}</li>`; return; }
+    if(/^\d+\.\s/.test(l)){ openList('ol'); html += `<li style="font-size:13px;color:var(--ink);margin-top:3px;">${l.replace(/^\d+\.\s/, '')}</li>`; return; }
     if(l.startsWith('*') && l.endsWith('*')){ closeList(); html += `<p style="font-size:12px;color:var(--ink-dim);font-style:italic;margin-top:10px;">${l.slice(1,-1)}</p>`; return; }
     closeList();
     html += `<p style="font-size:13px;color:var(--ink);margin-top:8px;line-height:1.6;">${l}</p>`;
   });
   closeList();
   return html;
+}
+
+/* ================= MOODBOARD ================= */
+// Tiap foto = 1 dokumen sendiri di koleksi 'weddingBudget' (id 'mb_...', kind:'moodboard').
+// Dipisah dari dokumen utama supaya batas 1MB per dokumen tidak terlewati. Aturan keamanan
+// Firestore yang sudah ada (wildcard {document}) sudah mencakupnya, tidak perlu ubah Rules.
+const MOOD_CATS = ['Dekorasi','Busana','Makeup','Venue','Warna','Seserahan','Lainnya'];
+const MOOD_MAX = 50;
+const MOOD_MAX_CHARS = 160000; // ~120KB per foto setelah dikompres
+let moodboard = [];
+let moodUnsub = null;
+let moodFilter = 'Semua';
+let moodLastCat = 'Dekorasi';
+let moodMsg = '';
+
+function moodIsLocal(){ return !currentUserEmail; } // mode preview: hanya di memori, tidak tersimpan
+
+function startMoodboardSync(){
+  if(moodUnsub || !db) return;
+  moodUnsub = db.collection('weddingBudget').where('kind','==','moodboard').onSnapshot(snap => {
+    moodboard = snap.docs.map(d => Object.assign({id:d.id}, d.data())).sort((a,b) => (b.createdAt||0) - (a.createdAt||0));
+    if(localActiveTab === 'moodboard' && !isModalOpen && !isTypingActive) renderTabContent();
+  }, err => console.error('Gagal sinkron moodboard', err));
+}
+function stopMoodboardSync(){
+  if(moodUnsub){ moodUnsub(); moodUnsub = null; }
+  moodboard = [];
+}
+
+function moodSave(item){
+  if(moodIsLocal()) return Promise.resolve();
+  const {id, ...rest} = item;
+  return db.collection('weddingBudget').doc(id).set(rest);
+}
+function moodUpdate(item, fields){
+  Object.assign(item, fields);
+  if(moodIsLocal()) return Promise.resolve();
+  return db.collection('weddingBudget').doc(item.id).update(fields);
+}
+function moodDelete(item){
+  if(moodIsLocal()){ moodboard = moodboard.filter(x => x.id !== item.id); return Promise.resolve(); }
+  return db.collection('weddingBudget').doc(item.id).delete();
+}
+
+async function moodAddFiles(files, cat){
+  const list = Array.from(files).filter(f => /^image\//.test(f.type) || /\.(jpe?g|png|webp|heic|heif)$/i.test(f.name));
+  if(list.length === 0){ moodMsg = 'Pilih file gambar (jpg/png).'; renderTabContent(); return; }
+  const room = MOOD_MAX - moodboard.length;
+  if(room <= 0){ moodMsg = `Moodboard sudah penuh (maks. ${MOOD_MAX} foto). Hapus beberapa dulu.`; renderTabContent(); return; }
+  const todo = list.slice(0, room);
+  let ok = 0, fail = 0;
+  for(let i = 0; i < todo.length; i++){
+    moodMsg = `Memproses foto ${i+1} dari ${todo.length}...`; updateMoodMsg();
+    try{
+      const img = await compressImageToDataURL(todo[i], MOOD_MAX_CHARS);
+      const item = {id:'mb_' + uid() + Date.now().toString(36), kind:'moodboard', cat, note:'', img, createdAt: Date.now() + i, by: currentUserEmail || ''};
+      await moodSave(item);
+      if(moodIsLocal()) moodboard.unshift(item);
+      ok++;
+    }catch(e){ console.error('Foto moodboard gagal', e); fail++; }
+  }
+  const skipped = list.length - todo.length;
+  moodMsg = `${ok} foto ditambahkan.` + (fail ? ` ${fail} gagal diproses.` : '') + (skipped ? ` ${skipped} dilewati karena batas ${MOOD_MAX} foto.` : '');
+  renderTabContent();
+}
+function updateMoodMsg(){
+  const el = document.getElementById('moodMsg');
+  if(el) el.textContent = moodMsg;
+}
+
+function openMoodViewer(item){
+  openModal(sheet => {
+    const head = document.createElement('div');
+    head.className = 'modal-head';
+    head.innerHTML = `<div class="modal-title">Foto Moodboard</div><button class="modal-close" id="modalCloseBtn">&times;</button>`;
+    sheet.appendChild(head);
+    head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
+    const body = document.createElement('div');
+    body.innerHTML = `
+      <img src="${item.img}" style="width:100%;border-radius:14px;display:block;margin-top:10px;">
+      <div style="margin-top:12px;font-size:11px;color:var(--ink-dim);">Kategori</div>
+      <select id="mbCat" style="width:100%;margin-top:4px;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel-2);color:var(--ink);font-size:13px;">
+        ${MOOD_CATS.map(c => `<option value="${c}" ${c===item.cat?'selected':''}>${c}</option>`).join('')}
+      </select>
+      <div style="margin-top:12px;font-size:11px;color:var(--ink-dim);">Catatan</div>
+      <textarea id="mbNote" rows="3" maxlength="200" placeholder="Misal: suka warna bunganya, tanya vendor harga rangkaian ini" style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel-2);color:var(--ink);font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+      <button id="mbDel" style="width:100%;margin-top:14px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;">Hapus foto</button>
+    `;
+    sheet.appendChild(body);
+    const note = body.querySelector('#mbNote');
+    note.value = item.note || '';
+    body.querySelector('#mbCat').addEventListener('change', e => { moodUpdate(item, {cat:e.target.value}).catch(err => console.error(err)); });
+    let t = null;
+    note.addEventListener('input', e => {
+      item.note = e.target.value;
+      clearTimeout(t);
+      t = setTimeout(() => { moodUpdate(item, {note:item.note}).catch(err => console.error(err)); }, 600);
+    });
+    note.addEventListener('blur', () => { clearTimeout(t); moodUpdate(item, {note:note.value}).catch(err => console.error(err)); });
+    body.querySelector('#mbDel').addEventListener('click', () => {
+      if(!confirm('Hapus foto ini dari moodboard?')) return;
+      moodDelete(item).then(() => { closeModal(); }).catch(err => { alert('Gagal menghapus: ' + (err && err.message || err)); });
+    });
+  });
+}
+
+function renderMoodboardSectionND(container){
+  const counts = {};
+  moodboard.forEach(m => { counts[m.cat] = (counts[m.cat]||0) + 1; });
+  if(moodFilter !== 'Semua' && !counts[moodFilter]) moodFilter = 'Semua';
+
+  const head = document.createElement('div');
+  head.className = 'nd-card-soft';
+  head.innerHTML = `
+    <div class="nd-card-hdr" style="color:var(--nd-deep-ink);opacity:.8;">MOODBOARD</div>
+    <div style="font:800 24px 'Sora';margin-top:6px;color:var(--nd-deep-ink);">${moodboard.length} <span style="font-size:13px;font-weight:600;opacity:.6;">/ ${MOOD_MAX} foto</span></div>
+    <div style="font-size:12px;color:var(--nd-deep-ink);opacity:.75;margin-top:6px;line-height:1.5;">Kumpulkan inspirasi dekor, busana, makeup, dan warna. Kalian berdua bisa lihat dan menambah dari HP masing-masing.</div>
+    ${moodIsLocal() ? `<div style="font-size:11px;color:#C4574A;margin-top:8px;">Mode preview: foto tidak tersimpan.</div>` : ''}
+  `;
+  container.appendChild(head);
+
+  // Tambah foto
+  const add = document.createElement('div');
+  add.className = 'nd-card';
+  add.innerHTML = `
+    <div style="display:flex;gap:8px;align-items:center;">
+      <select id="mbAddCat" style="flex:none;padding:11px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;color:#181B17;">
+        ${MOOD_CATS.map(c => `<option value="${c}" ${c===moodLastCat?'selected':''}>${c}</option>`).join('')}
+      </select>
+      <button id="mbAddBtn" style="flex:1;padding:13px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px 'Sora';cursor:pointer;">+ Tambah foto</button>
+    </div>
+    <input type="file" id="mbFile" accept="image/*" multiple style="display:none;">
+    <div id="moodMsg" style="font-size:11.5px;color:#9A9B93;margin-top:8px;min-height:14px;">${moodMsg}</div>
+  `;
+  container.appendChild(add);
+  const sel = add.querySelector('#mbAddCat');
+  sel.addEventListener('change', () => { moodLastCat = sel.value; });
+  const fileI = add.querySelector('#mbFile');
+  add.querySelector('#mbAddBtn').addEventListener('click', () => { moodMsg = ''; fileI.click(); });
+  fileI.addEventListener('change', () => {
+    if(fileI.files && fileI.files.length){ moodLastCat = sel.value; moodAddFiles(fileI.files, sel.value); }
+    fileI.value = '';
+  });
+
+  // Filter kategori
+  if(moodboard.length > 0){
+    const bar = document.createElement('div');
+    bar.style.cssText = 'display:flex;gap:7px;overflow-x:auto;padding:4px 14px 10px;-webkit-overflow-scrolling:touch;';
+    ['Semua', ...MOOD_CATS.filter(c => counts[c])].forEach(c => {
+      const b = document.createElement('button');
+      b.className = 'mb-chip' + (moodFilter === c ? ' on' : '');
+      b.textContent = c === 'Semua' ? `Semua ${moodboard.length}` : `${c} ${counts[c]}`;
+      b.addEventListener('click', () => { moodFilter = c; renderTabContent(); });
+      bar.appendChild(b);
+    });
+    container.appendChild(bar);
+  }
+
+  const shown = moodboard.filter(m => moodFilter === 'Semua' || m.cat === moodFilter);
+  if(shown.length === 0){
+    const empty = document.createElement('div');
+    empty.style.cssText = 'text-align:center;padding:30px 24px;font-size:13px;color:#9A9B93;line-height:1.6;';
+    empty.textContent = 'Belum ada foto. Tekan "+ Tambah foto" untuk mulai mengumpulkan inspirasi.';
+    container.appendChild(empty);
+    return;
+  }
+  const grid = document.createElement('div');
+  grid.className = 'mb-grid';
+  shown.forEach(m => {
+    const tile = document.createElement('div');
+    tile.className = 'mb-tile';
+    tile.innerHTML = `<img loading="lazy" alt="${(m.cat||'').replace(/"/g,'')}" src="${m.img}"><div class="mb-badge">${(m.cat||'Lainnya').toUpperCase()}</div>${m.note ? `<div class="mb-cap"></div>` : ''}`;
+    if(m.note) tile.querySelector('.mb-cap').textContent = m.note;
+    tile.addEventListener('click', () => openMoodViewer(m));
+    grid.appendChild(tile);
+  });
+  container.appendChild(grid);
+  const spacer = document.createElement('div'); spacer.style.height = '20px'; container.appendChild(spacer);
 }
 
 let currentUserEmail = '';
@@ -715,6 +927,7 @@ function renderAccountModal(sheet){
     closeModal();
     clearMyPresence();
     if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
+    stopMoodboardSync();
     setTimeout(() => { auth.signOut(); }, 150);
   });
 }
@@ -780,7 +993,7 @@ function renderBudgetDetailModal(sheet, row){
     row.subItems.forEach((sub, subIdx) => {
       const subCard = document.createElement('div');
       subCard.className = 'subitem-card';
-      const subTotal = (sub.details||[]).reduce((s,d) => s + (Number(d.price)||0), 0);
+      const subTotal = (sub.details||[]).reduce((s,d) => s + (detailTotal(d)), 0);
       const isOpen = !!sub.open;
 
       const head = document.createElement('div');
@@ -831,6 +1044,19 @@ function renderBudgetDetailModal(sheet, row){
                 <option value="Sudah" ${det.status==='Sudah'?'selected':''}>Sudah dibayar</option>
               </select>
             </div>
+            <div class="detail-row-fields detail-pp-row" style="margin-top:6px;align-items:center;">
+              <label style="font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;"><input type="checkbox" class="pp" style="width:auto;padding:0;" ${det.perOrang?'checked':''}> Hitung per orang</label>
+              <input type="number" class="qty" min="0" placeholder="Jml tamu (${Number(data.guestTarget)||0})" value="${det.qty||''}" style="width:120px;${det.perOrang?'':'display:none;'}">
+              <div class="pp-total" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
+            </div>
+            <div class="detail-row-fields detail-dp-row" style="margin-top:6px;align-items:center;">
+              <input type="number" class="dp" placeholder="DP / uang muka (Rp)" min="0" value="${det.dp||''}">
+              <div class="dp-sisa" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
+            </div>
+            <div class="detail-due" style="margin-top:6px;">
+              <label style="font-size:11px;opacity:.7;display:block;margin-bottom:3px;">Jatuh tempo pelunasan</label>
+              <input type="date" class="due" value="${det.dueDate||''}">
+            </div>
             <div style="display:flex;justify-content:flex-end;">
               <button class="detail-del">Hapus rincian</button>
             </div>
@@ -840,15 +1066,45 @@ function renderBudgetDetailModal(sheet, row){
           const phoneI = dRow.querySelector('.phone');
           const priceI = dRow.querySelector('.price');
           const statusI = dRow.querySelector('.status');
+          const dpI = dRow.querySelector('.dp');
+          const dueI = dRow.querySelector('.due');
+          const ppI = dRow.querySelector('.pp');
+          const qtyI = dRow.querySelector('.qty');
+          const ppTotal = dRow.querySelector('.pp-total');
+          function refreshPp(){
+            priceI.placeholder = det.perOrang ? 'Harga per orang' : 'Nominal';
+            qtyI.style.display = det.perOrang ? '' : 'none';
+            if(det.perOrang){
+              const q = Number(det.qty) > 0 ? Number(det.qty) : (Number(data.guestTarget)||0);
+              ppTotal.textContent = `${rupiah(Number(det.price)||0)} × ${q} = ${rupiah(detailTotal(det))}`;
+            } else ppTotal.textContent = '';
+          }
+          const dpSisa = dRow.querySelector('.dp-sisa');
+          function refreshDp(){
+            const price = detailTotal(det), dp = Number(det.dp)||0;
+            if(det.status === 'Sudah'){ dpSisa.textContent = 'Lunas'; dpI.disabled = true; }
+            else {
+              dpI.disabled = false;
+              dpSisa.textContent = dp > price && price > 0 ? 'DP melebihi harga!' : (dp > 0 ? `Sisa ${rupiah(Math.max(price-dp,0))}` : '');
+            }
+          }
           function refreshTotals(){
-            subCard.querySelector('.subitem-total').textContent = `${sub.details.length} rincian · ${rupiah(sub.details.reduce((s,d)=>s+(Number(d.price)||0),0))}`;
+            refreshPp();
+            refreshDp();
+            subCard.querySelector('.subitem-total').textContent = `${sub.details.length} rincian · ${rupiah(sub.details.reduce((s,d)=>s+(detailTotal(d)),0))}`;
             updateModalSummary();
           }
           nameI.addEventListener('input', e => { det.name = e.target.value; scheduleSave(); });
           linkI.addEventListener('input', e => { det.link = e.target.value; scheduleSave(); });
           phoneI.addEventListener('input', e => { det.phone = e.target.value; scheduleSave(); });
           priceI.addEventListener('input', e => { det.price = e.target.value; scheduleSave(); refreshTotals(); });
+          ppI.addEventListener('change', e => { det.perOrang = e.target.checked; scheduleSave(); refreshTotals(); });
+          qtyI.addEventListener('input', e => { det.qty = e.target.value; scheduleSave(); refreshTotals(); });
+          dueI.addEventListener('input', e => { det.dueDate = e.target.value; scheduleSave(); });
+          dpI.addEventListener('input', e => { det.dp = e.target.value; scheduleSave(); refreshTotals(); });
           statusI.addEventListener('change', e => { det.status = e.target.value; scheduleSave(); refreshTotals(); });
+          refreshPp();
+          refreshDp();
           dRow.querySelector('.detail-del').addEventListener('click', () => {
             sub.details.splice(detIdx,1); scheduleSave(); renderDetails(); refreshTotals();
           });
@@ -862,7 +1118,7 @@ function renderBudgetDetailModal(sheet, row){
       addDetailBtn.textContent = '+ Tambah rincian';
       addDetailBtn.addEventListener('click', () => {
         if(!Array.isArray(sub.details)) sub.details = [];
-        sub.details.push({id: detailUid(), name:'', link:'', phone:'', price:0, status:'Belum'});
+        sub.details.push({id: detailUid(), name:'', link:'', phone:'', price:0, dp:0, dueDate:'', status:'Belum', perOrang:false, qty:''});
         scheduleSave(); renderDetails();
       });
       subBody.appendChild(addDetailBtn);
@@ -890,8 +1146,8 @@ function renderBudgetDetailModal(sheet, row){
       <div style="font-size:11px;color:var(--ink-dim);">Total keseluruhan</div>
       <div class="n">${rupiah(t.total)}</div>
       <div class="stat-grid" style="margin-top:10px;">
-        <div class="stat-box"><div class="lbl">Sudah dibeli</div><div class="val small">${rupiah(t.paid)}</div></div>
-        <div class="stat-box"><div class="lbl">Belum dibeli</div><div class="val small">${rupiah(t.belum)}</div></div>
+        <div class="stat-box"><div class="lbl">Sudah dibayar</div><div class="val small">${rupiah(t.paid)}</div></div>
+        <div class="stat-box"><div class="lbl">Sisa dibayar</div><div class="val small">${rupiah(t.belum)}</div></div>
       </div>
     `;
   }
@@ -1041,7 +1297,7 @@ function defaultData(){
     postWeddingPercent: 15,
     name1: 'Pengantin Wanita',
     name2: 'Pengantin Pria',
-    greetingName: 'Dandi & Nada',
+    greetingName: 'Pasangan Pria & Pasangan Wanita',
     greetingMessage: 'Semoga persiapan kalian lancar sampai hari H!',
     lastBackupAt: null,
     theme: 'ivory-editorial',
@@ -1053,9 +1309,7 @@ function defaultData(){
     dokumen: defaultDokumen(),
     budget: defaultBudget(),
     tabungan: [],
-    pembayaran: [],
     tamu: [],
-    vendor: [],
     timeline: defaultTimeline(),
   };
 }
@@ -1063,7 +1317,7 @@ function defaultData(){
 let data = defaultData();
 
 function loadLocalActiveTab(){
-  try{ return sessionStorage.getItem('wedding_active_tab') || 'dashboard'; }
+  try{ const t = sessionStorage.getItem('wedding_active_tab'); return (!t || t === 'pembayaran' || t === 'vendor') ? 'dashboard' : t; }
   catch(e){ return 'dashboard'; }
 }
 function saveLocalActiveTab(tab){
@@ -1164,17 +1418,53 @@ function applyDecor(){
 
 let unsubscribeSnapshot = null;
 
+// Tab Vendor dihapus: data lama dipindah jadi rincian Budget (idempoten lewat id 'vm_...')
+function migrateVendorsToBudget(){
+  const vs = Array.isArray(data.vendor) ? data.vendor : [];
+  let changed = false;
+  vs.forEach(v => {
+    if(!v || (!v.name && !v.contact && !v.link)) return;
+    const did = 'vm_' + (v.id || v.name);
+    if(data.budget.some(b => (b.subItems||[]).some(si => (si.details||[]).some(dt => dt.id === did)))) return;
+    const cat = String(v.category||'').trim().toLowerCase();
+    let row = null;
+    if(cat){
+      row = data.budget.find(b => {
+        const a = String(b.item||'').toLowerCase();
+        return a === cat || (a.length > 2 && (a.includes(cat) || cat.includes(a)));
+      }) || null;
+    }
+    if(!row){
+      row = data.budget.find(b => b.id === 'vendor_lama');
+      if(!row){
+        row = {id:'vendor_lama', open:false, category:'Opsional', item:'Vendor (dipindah dari tab Vendor)', estimate:0, vendor:'', dpTermin:0, paid:0, dueDate:'', status:'Belum', note:'', subItems:[]};
+        data.budget.push(row);
+      }
+    }
+    if(!Array.isArray(row.subItems)) row.subItems = [];
+    let si = row.subItems.find(x => x.name === 'Dari tab Vendor');
+    if(!si){ si = {id:'sv_'+uid(), name:'Dari tab Vendor', open:false, details:[]}; row.subItems.push(si); }
+    if(!Array.isArray(si.details)) si.details = [];
+    si.details.push({id:did, name:(v.name||'') + (v.package ? ' – '+v.package : ''), link:v.link||'', phone:v.contact||'', price:0, dp:0, dueDate:'', status:'Belum'});
+    changed = true;
+  });
+  delete data.vendor;
+  if(changed) setTimeout(() => { try{ scheduleSave(); }catch(e){} }, 0);
+}
+
 function normalizeData(remote){
   const base = defaultData();
   data = Object.assign(base, remote);
-  ['roadmap','dokumen','budget','tabungan','pembayaran','tamu','vendor','timeline'].forEach(k => {
+  ['roadmap','dokumen','budget','tabungan','tamu','timeline'].forEach(k => {
     if(!Array.isArray(data[k])) data[k] = [];
     data[k].forEach(r => { if(!r.id) r.id = uid(); if(r.open === undefined) r.open = false; if(k==='budget' && !Array.isArray(r.subItems)) r.subItems = []; });
   });
   data.dokumen = migrateDokumenSides(data.dokumen);
+  migrateVendorsToBudget();
+  delete data.pembayaran; // menu Pembayaran sudah digabung ke Budget (DP & jatuh tempo per rincian)
   if(!data.name1) data.name1 = 'Pengantin Wanita';
   if(!data.name2) data.name2 = 'Pengantin Pria';
-  if(!data.greetingName) data.greetingName = 'Dandi & Nada';
+  if(!data.greetingName) data.greetingName = 'Pasangan Pria & Pasangan Wanita';
   if(!data.greetingMessage) data.greetingMessage = 'Semoga persiapan kalian lancar sampai hari H!';
   if(!data.theme || !THEMES[data.theme]) data.theme = 'ivory-editorial';
   if(!data.themeND || !THEMES_ND[data.themeND]) data.themeND = 'sage';
@@ -1428,12 +1718,34 @@ function statusClass(val){
 
 function tabunganActual(row){ return (Number(row.actualMe)||0) + (Number(row.actualPartner)||0); }
 
+// Total harga 1 rincian. Kalau "per orang": harga satuan × jumlah tamu (kosong = ikut target tamu di Beranda)
+function detailTotal(d){
+  const p = Number(d.price)||0;
+  if(!d.perOrang) return p;
+  const q = Number(d.qty) > 0 ? Number(d.qty) : (Number(data.guestTarget)||0);
+  return p * q;
+}
+// Nominal yang sudah dibayar untuk 1 rincian: lunas = seluruh harga, kalau belum lunas = DP (maks. sebesar harga)
+function detailPaid(d){
+  const p = detailTotal(d);
+  if(d.status === 'Sudah') return p;
+  return Math.min(Math.max(Number(d.dp)||0, 0), p);
+}
+// Jatuh tempo terdekat dari rincian yang belum lunas (untuk 1 item budget, atau semua item bila row tidak diisi)
+function nearestDueDetail(rows){
+  let best = null;
+  rows.forEach(row => (row.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
+    if(!d.dueDate || d.status === 'Sudah') return;
+    if(detailPaid(d) >= (detailTotal(d)) && (detailTotal(d)) > 0) return;
+    if(!best || d.dueDate < best.dueDate) best = {dueDate:d.dueDate, name:d.name || si.name || row.item, item:row.item};
+  })));
+  return best;
+}
 function budgetItemTotals(row){
   let total = 0, paid = 0;
   (row.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
-    const p = Number(d.price)||0;
-    total += p;
-    if(d.status === 'Sudah') paid += p;
+    total += detailTotal(d);
+    paid += detailPaid(d);
   }));
   return {total, paid, belum: total - paid};
 }
@@ -1441,8 +1753,8 @@ function budgetStatusBadge(row){
   const t = budgetItemTotals(row);
   if(t.total === 0) return {text:'Belum ada rincian', cls:'s-todo'};
   if(t.paid >= t.total) return {text:'Lunas', cls:'s-done'};
-  if(t.paid <= 0) return {text:'Belum dibeli', cls:'s-todo'};
-  return {text: Math.round((t.paid/t.total)*100) + '% dibeli', cls:'s-mid'};
+  if(t.paid <= 0) return {text:'Belum dibayar', cls:'s-todo'};
+  return {text: Math.round((t.paid/t.total)*100) + '% dibayar', cls:'s-mid'};
 }
 
 function migrateDokumenSides(dokArray){
@@ -1468,6 +1780,44 @@ function daysUntilWedding(){
 }
 
 /* ================= DASHBOARD ================= */
+// Rincian yang masih ada kewajiban bayar (belum lunas)
+function detailUnpaid(d){
+  const p = detailTotal(d);
+  return d.status !== 'Sudah' && !(p > 0 && detailPaid(d) >= p);
+}
+function diffHariDariHariIni(dateStr){
+  const t = new Date(dateStr + 'T00:00:00');
+  if(isNaN(t.getTime())) return null;
+  const n = new Date();
+  return Math.round((t - new Date(n.getFullYear(), n.getMonth(), n.getDate())) / 86400000);
+}
+// Gabungan semua tanggal penting: jatuh tempo bayar (Budget), deadline Roadmap, deadline Timeline
+function computeAgenda(){
+  const out = [];
+  data.budget.forEach(row => (row.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
+    if(!d.dueDate || !detailUnpaid(d)) return;
+    const sisa = Math.max((detailTotal(d)) - detailPaid(d), 0);
+    out.push({date:d.dueDate, kind:'Bayar', label:`${d.name || si.name || 'Rincian'} (${row.item||'-'})`, extra: sisa>0 ? 'sisa '+rupiah(sisa) : '', tab:'budget'});
+  })));
+  data.roadmap.forEach(r => {
+    if(r.deadline && r.status !== 'Selesai') out.push({date:r.deadline, kind:'Roadmap', label:r.name||'(tanpa nama)', extra:'', tab:'roadmap'});
+  });
+  data.timeline.forEach(r => {
+    if(r.deadline && r.status !== 'Selesai') out.push({date:r.deadline, kind:'Timeline', label:[r.periode, r.fokus].filter(Boolean).join(' · ')||'(tanpa nama)', extra:'', tab:'timeline'});
+  });
+  out.forEach(o => { o.diff = diffHariDariHariIni(o.date); });
+  return out.filter(o => o.diff !== null).sort((a,b) => a.date.localeCompare(b.date));
+}
+// Target nabung per bulan sampai hari H (budget + dana risiko + dana setelah nikah - tabungan sekarang)
+function computeTargetNabung(d, days){
+  const kebutuhan = Math.max(0, d.totalEstimasi + d.danaRisiko + d.danaSetelahNikah - d.danaTerkumpul);
+  const bulanAktif = data.tabungan.filter(r => tabunganActual(r) > 0).length;
+  const rataSekarang = bulanAktif > 0 ? Math.round(d.danaTerkumpul / bulanAktif) : 0;
+  if(kebutuhan === 0) return {status:'tercapai', kebutuhan, rataSekarang};
+  if(days === null || days <= 0) return {status:'tanpa-tanggal', kebutuhan, rataSekarang};
+  const bulan = Math.max(1, Math.ceil(days / 30.44));
+  return {status:'hitung', kebutuhan, bulan, perBulan: Math.ceil(kebutuhan / bulan), rataSekarang};
+}
 function computeDashboard(){
   const budgetTotalsAll = data.budget.map(r => budgetItemTotals(r));
   const totalEstimasi = budgetTotalsAll.reduce((s,t) => s + t.total, 0);
@@ -1509,8 +1859,12 @@ function computeDashboard(){
   const dokSelesai = data.dokumen.filter(d => d.status === 'Sudah').length;
   const progressDokumen = data.dokumen.length ? (dokSelesai / data.dokumen.length) * 100 : 0;
 
-  const vendorTercatat = data.vendor.length;
-  const vendorBooked = data.vendor.filter(v => v.status === 'Dipilih').length;
+  let rincianTotal = 0, rincianLunas = 0;
+  data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(dt => {
+    rincianTotal++;
+    const tot = detailTotal(dt);
+    if(dt.status === 'Sudah' || (tot > 0 && detailPaid(dt) >= tot)) rincianLunas++;
+  })));
   const budgetVendorTerisi = data.budget.filter(b => (b.subItems||[]).length > 0).length;
 
   const tStats = tamuStats();
@@ -1518,7 +1872,7 @@ function computeDashboard(){
   return {totalEstimasi, totalDibayar, sisaPembayaran, danaTerkumpul, danaRisiko, danaSetelahNikah,
     progressPersiapan, progressDana, budgetAllocPct, statusBudget, kebutuhanDana, alokasi, selesai, totalRoadmap:data.roadmap.length,
     dokSelesai, totalDokumen:data.dokumen.length, progressDokumen,
-    vendorTercatat, vendorBooked, budgetVendorTerisi, totalBudgetItems:data.budget.length,
+    rincianTotal, rincianLunas, budgetVendorTerisi, totalBudgetItems:data.budget.length,
     tamuTotal: tStats.total, tamuConfirmed: tStats.confirmed, tamuGroups: tStats.groups};
 }
 
@@ -1544,9 +1898,7 @@ function computeChecklist(){
   items.push({label:`Dokumen administrasi belum lengkap (${dokBelum} dari ${data.dokumen.length} belum "Sudah")`, done: dokBelum===0, tab:'dokumen'});
   const rincianMissing = data.budget.filter(b => !(b.subItems||[]).length).length;
   items.push({label: `Rincian item budget belum lengkap (${rincianMissing} dari ${data.budget.length} item belum ada rincian)`, done: rincianMissing===0, tab:'budget'});
-  items.push({label:'Data vendor belum dicatat', done: data.vendor.length>0, tab:'vendor'});
   items.push({label:'Tabungan belum mulai dicatat', done: data.tabungan.length>0, tab:'tabungan'});
-  items.push({label:'Jadwal pembayaran vendor belum dibuat', done: data.pembayaran.length>0, tab:'pembayaran'});
   items.push({label:'Daftar tamu belum diisi', done: data.tamu.length>0, tab:'tamu'});
   const roadmapBelum = data.roadmap.filter(r => r.status !== 'Selesai').length;
   items.push({label:`Roadmap persiapan belum selesai semua (${roadmapBelum} item belum selesai)`, done: roadmapBelum===0, tab:'roadmap'});
@@ -1630,6 +1982,34 @@ function renderDashboard(container){
   grid1.appendChild(tileBudget);
   container.appendChild(grid1);
 
+  // ==== Kartu agenda terdekat ====
+  {
+    const agenda = computeAgenda();
+    const cardAgenda = document.createElement('div');
+    cardAgenda.className = 'nd-card';
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">AGENDA TERDEKAT</div><div style="font-size:10px;color:#9A9B93;">jatuh tempo · deadline</div></div>`;
+    if(agenda.length === 0){
+      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#9A9B93;line-height:1.5;">Belum ada tanggal. Isi <strong>jatuh tempo</strong> di rincian Budget atau <strong>deadline</strong> di Roadmap/Timeline, nanti muncul di sini otomatis.</div>`;
+    } else {
+      agenda.slice(0,5).forEach((a,i) => {
+        const late = a.diff < 0;
+        const when = late ? `Terlambat ${-a.diff} hari` : a.diff === 0 ? 'Hari ini' : a.diff === 1 ? 'Besok' : `${a.diff} hari lagi`;
+        const col = late ? '#C4574A' : a.diff <= 7 ? '#9C7A1E' : '#9A9B93';
+        h += `<div class="nd-agenda-row" data-i="${i}" style="display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #EFEBE2;cursor:pointer;">
+          <div style="flex:none;font:700 9px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${a.kind.toUpperCase()}</div>
+          <div style="flex:1;min-width:0;"><div style="font:600 12.5px 'Sora';color:#181B17;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${a.label}</div>
+          <div style="font-size:11px;color:#9A9B93;margin-top:2px;">${formatTanggalPendekND(a.date)}${a.extra ? ' · '+a.extra : ''}</div></div>
+          <div style="flex:none;font:700 11px 'Sora';color:${col};text-align:right;">${when}</div></div>`;
+      });
+      if(agenda.length > 5) h += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${agenda.length-5} agenda lagi</div>`;
+    }
+    cardAgenda.innerHTML = h;
+    container.appendChild(cardAgenda);
+    cardAgenda.querySelectorAll('.nd-agenda-row').forEach(el => {
+      el.addEventListener('click', () => goToTab(agenda[Number(el.dataset.i)].tab));
+    });
+  }
+
   // ==== Kartu ringkasan pembayaran ====
   const cardBayar = document.createElement('div');
   cardBayar.className = 'nd-card';
@@ -1637,8 +2017,8 @@ function renderDashboard(container){
   cardBayar.innerHTML = `
     <div class="nd-card-hdr">RINGKASAN PEMBAYARAN</div>
     <div class="nd-chiprow">
-      <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibeli</div><div class="nd-chip-val">${rupiah(d.totalDibayar)}</div></div>
-      <div class="nd-chip"><div class="nd-chip-lbl">Belum dibeli</div><div class="nd-chip-val">${rupiah(d.sisaPembayaran)}</div></div>
+      <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibayar</div><div class="nd-chip-val">${rupiah(d.totalDibayar)}</div></div>
+      <div class="nd-chip"><div class="nd-chip-lbl">Sisa dibayar</div><div class="nd-chip-val">${rupiah(d.sisaPembayaran)}</div></div>
       <div class="nd-chip"><div class="nd-chip-lbl">Budget maks</div><div class="nd-chip-val">${rupiah(data.targetBudget)}</div></div>
     </div>
     <div class="nd-bar-track"><div class="nd-bar-fill" style="width:${Math.min(100,budgetPct)}%"></div></div>
@@ -1646,6 +2026,28 @@ function renderDashboard(container){
   `;
   cardBayar.addEventListener('click', () => goToTab('budget'));
   container.appendChild(cardBayar);
+
+  // ==== Kartu target nabung ====
+  {
+    const tn = computeTargetNabung(d, days);
+    const cardNab = document.createElement('div');
+    cardNab.className = 'nd-card';
+    cardNab.style.cursor = 'pointer';
+    let body;
+    if(tn.status === 'tercapai'){
+      body = `<div style="font:700 14px 'Sora';color:#3E7A4E;margin-top:8px;">Target dana sudah tercapai ✓</div><div style="font-size:12px;color:#9A9B93;margin-top:4px;">Tabungan sudah cukup untuk budget, dana risiko, dan dana setelah nikah.</div>`;
+    } else if(tn.status === 'tanpa-tanggal'){
+      body = `<div style="font-size:12.5px;color:#9A9B93;margin-top:8px;line-height:1.5;">Masih kurang ${rupiah(tn.kebutuhan)}. Atur tanggal nikah di Pengaturan supaya target per bulan bisa dihitung.</div>`;
+    } else {
+      const cukup = tn.rataSekarang >= tn.perBulan;
+      body = `<div style="font:800 22px 'Sora';margin-top:6px;">${rupiah(tn.perBulan)} <span style="font-size:12px;font-weight:600;color:#9A9B93;">/ bulan</span></div>
+        <div style="font-size:11.5px;color:#9A9B93;margin-top:3px;">kurang ${rupiah(tn.kebutuhan)} untuk ${tn.bulan} bulan ke depan (budget + risiko + setelah nikah)</div>
+        <div style="font-size:12px;margin-top:10px;font-weight:600;color:${tn.rataSekarang===0?'#9A9B93':cukup?'#3E7A4E':'#C4574A'};">${tn.rataSekarang===0 ? 'Belum ada catatan nabung bulanan' : `Rata-rata nabung kalian ${rupiah(tn.rataSekarang)} / bulan — ${cukup ? 'sudah di jalur' : 'masih kurang '+rupiah(tn.perBulan-tn.rataSekarang)+' / bulan'}`}</div>`;
+    }
+    cardNab.innerHTML = `<div class="nd-card-hdr">TARGET NABUNG</div>` + body;
+    cardNab.addEventListener('click', () => goToTab('tabungan'));
+    container.appendChild(cardNab);
+  }
 
   // ==== Kartu alokasi bertingkat ====
   const cardAlloc = document.createElement('div');
@@ -1702,7 +2104,7 @@ function renderDashboard(container){
   const progItems = [
     {label:'ROADMAP', val: `${d.selesai}/${d.totalRoadmap}`, go:'roadmap'},
     {label:'DOKUMEN', val: `${d.dokSelesai}/${d.totalDokumen}`, go:'dokumen'},
-    {label:'VENDOR', val: `${d.vendorBooked}/${d.vendorTercatat}`, go:'vendor'},
+    {label:'RINCIAN LUNAS', val: `${d.rincianLunas}/${d.rincianTotal}`, go:'budget'},
     {label:'TIMELINE', val: `${data.timeline.filter(t=>t.status==='Selesai').length}/${data.timeline.length}`, go:'timeline'},
   ];
   progItems.forEach(p => {
@@ -1764,8 +2166,8 @@ function getSections(){
       const t = budgetItemTotals(row);
       return [
         {label:'Total keseluruhan', value: rupiah(t.total)},
-        {label:'Sudah dibeli', value: rupiah(t.paid)},
-        {label:'Belum dibeli', value: rupiah(t.belum)},
+        {label:'Sudah dibayar', value: rupiah(t.paid)},
+        {label:'Sisa dibayar', value: rupiah(t.belum)},
       ];
     },
     summary: (row) => ({title: row.item || '(belum diberi nama)', sub: rupiah(budgetItemTotals(row).total)}),
@@ -1792,28 +2194,6 @@ function getSections(){
     summary: (row) => ({title: row.month || '(bulan belum diisi)', sub: rupiah(tabunganActual(row)) + (row.location ? ' · ' + row.location : '')}),
     badges: () => [],
   },
-  pembayaran: {
-    title: 'Jadwal Cicilan Vendor Besar',
-    fields: [
-      {key:'vendor', label:'Vendor', type:'text'},
-      {key:'item', label:'Item', type:'text'},
-      {key:'total', label:'Total (Rp)', type:'number'},
-      {key:'dp', label:'DP (Rp)', type:'number'},
-      {key:'termin2', label:'Termin 2 (Rp)', type:'number'},
-      {key:'pelunasan', label:'Pelunasan (Rp)', type:'number'},
-      {key:'dueDate', label:'Jatuh Tempo', type:'date'},
-      {key:'status', label:'Status', type:'select', options:['Belum','Proses','Lunas'], colorBy:'status'},
-      {key:'note', label:'Catatan', type:'text', wide:true},
-    ],
-    newRow: () => ({id:uid(), open:true, vendor:'', item:'', total:0, dp:0, termin2:0, pelunasan:0, dueDate:'', status:'Belum', note:''}),
-    extras: (row) => {
-      const dibayar = (Number(row.dp)||0) + (Number(row.termin2)||0) + (Number(row.pelunasan)||0);
-      const sisa = (Number(row.total)||0) - dibayar;
-      return [{label:'Total dibayar', value: rupiah(dibayar)}, {label:'Sisa', value: rupiah(sisa)}];
-    },
-    summary: (row) => ({title: row.vendor || '(vendor belum diisi)', sub: row.item || ''}),
-    badges: (row) => [{text:row.status, cls:statusClass(row.status)}],
-  },
   tamu: {
     title: 'Daftar Tamu',
     fields: [
@@ -1828,21 +2208,6 @@ function getSections(){
     newRow: () => ({id:uid(), open:true, name:'', side:'Bersama', category:'Teman', count:1, invited:'Belum', confirmed:'Belum', note:''}),
     summary: (row) => ({title: row.name || '(nama belum diisi)', sub: row.category || ''}),
     badges: (row) => [{text:row.confirmed, cls:statusClass(row.confirmed)}],
-  },
-  vendor: {
-    title: 'Data Vendor',
-    fields: [
-      {key:'category', label:'Kategori', type:'text'},
-      {key:'name', label:'Vendor', type:'text'},
-      {key:'contact', label:'Kontak', type:'text'},
-      {key:'package', label:'Paket', type:'text'},
-      {key:'link', label:'Kontrak/Link', type:'text', wide:true},
-      {key:'status', label:'Status', type:'select', options:['Survei','Dipertimbangkan','Dipilih'], colorBy:'status'},
-      {key:'note', label:'Catatan', type:'text', wide:true},
-    ],
-    newRow: () => ({id:uid(), open:true, category:'', name:'', contact:'', package:'', link:'', status:'Survei', note:''}),
-    summary: (row) => ({title: row.name || '(vendor belum diisi)', sub: row.category || ''}),
-    badges: (row) => [{text:row.status, cls:statusClass(row.status)}],
   },
   timeline: {
     title: 'Timeline Menuju Hari H',
@@ -2133,261 +2498,6 @@ function renderRoadmapSectionND(container){
   addBtn.textContent = '+ Tambah roadmap';
   addBtn.addEventListener('click', () => {
     data.roadmap.push({id:uid(), open:true, name:'', priority:'Penting', deadline:'', status:'Belum mulai', note:''});
-    scheduleSave(); renderTabContent();
-  });
-  container.appendChild(addBtn);
-}
-
-const VENDOR_STATUS_CYCLE = ['Survei','Dipertimbangkan','Dipilih'];
-
-function renderVendorSectionND(container){
-  const dipilih = data.vendor.filter(v => v.status === 'Dipilih').length;
-  const survei = data.vendor.filter(v => v.status === 'Survei').length;
-
-  const header = document.createElement('div');
-  header.className = 'nd-card-soft';
-  header.innerHTML = `
-    <div class="nd-card-hdr" style="color:var(--nd-deep-ink);opacity:.8;">DATA VENDOR</div>
-    <div style="font-size:13px;line-height:1.5;margin-top:8px;color:var(--nd-deep-ink);font-weight:600;">${dipilih} vendor sudah dipilih, ${survei} masih tahap survei, dari total ${data.vendor.length} vendor tercatat.</div>
-    <div style="font-size:11px;color:var(--nd-deep-ink);opacity:.7;margin-top:8px;">Tap badge status buat ganti langsung: Survei → Dipertimbangkan → Dipilih.</div>
-  `;
-  container.appendChild(header);
-
-  const listWrap = document.createElement('div');
-  listWrap.style.marginTop = '12px';
-  container.appendChild(listWrap);
-
-  if(data.vendor.length === 0){
-    const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
-    empty.textContent = 'Belum ada vendor tercatat.';
-    listWrap.appendChild(empty);
-  }
-
-  const page = sectionPage.vendor || 1;
-  const end = page * PAGE_SIZE;
-  const visible = data.vendor.slice(0, end);
-  const statusColors = {'Survei':'#9A9B93','Dipertimbangkan':'#9C7A1E','Dipilih':'#3E7A4E'};
-  const statusBg = {'Survei':'#F4F1EB','Dipertimbangkan':'#FDF2DC','Dipilih':'#EAF4E8'};
-
-  visible.forEach(row => {
-    const isOpen = !!row.open;
-    const card = document.createElement('div');
-    card.className = 'nd-card';
-    card.style.cssText = 'padding:0;overflow:hidden;';
-
-    const head = document.createElement('div');
-    head.style.cssText = 'display:flex;align-items:center;gap:10px;padding:16px 18px;cursor:pointer;';
-    head.innerHTML = `
-      <div style="flex:1;min-width:0;">
-        <div style="font:700 13.5px 'Sora';color:#181B17;">${row.name || '(vendor belum diisi)'}</div>
-        <div style="font-size:11px;color:#9A9B93;margin-top:3px;">${row.category||''}${row.contact ? ' · '+row.contact : ''}</div>
-        ${row.package ? `<div style="font-size:11px;color:#9A9B93;margin-top:2px;">${row.package}</div>` : ''}
-      </div>
-      <button id="vStatus" style="font:700 9.5px 'Sora';padding:5px 11px;border-radius:100px;background:${statusBg[row.status]||'#F4F1EB'};color:${statusColors[row.status]||'#8A8B85'};border:none;cursor:pointer;flex:none;">${row.status}</button>
-    `;
-    head.querySelector('#vStatus').addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      const i = VENDOR_STATUS_CYCLE.indexOf(row.status);
-      row.status = VENDOR_STATUS_CYCLE[(i+1) % VENDOR_STATUS_CYCLE.length];
-      scheduleSave(); renderTabContent();
-    });
-    head.addEventListener('click', () => { row.open = !row.open; renderTabContent(); });
-    card.appendChild(head);
-
-    if(isOpen){
-      const body = document.createElement('div');
-      body.style.cssText = 'padding:0 18px 18px;';
-      body.innerHTML = `
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Kategori</div><input type="text" id="vCat" value="${(row.category||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nama vendor</div><input type="text" id="vName" value="${(row.name||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-        </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Kontak</div>
-        <input type="text" id="vContact" value="${(row.contact||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Paket</div>
-        <input type="text" id="vPackage" value="${(row.package||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Kontrak/Link</div>
-        <input type="text" id="vLink" value="${(row.link||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="vNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div id="vSaveSlot" style="margin-top:14px;"></div>
-        <button id="vDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus vendor</button>
-      `;
-      card.appendChild(body);
-      body.querySelector('#vCat').addEventListener('input', e => { row.category = e.target.value; scheduleSave(); });
-      body.querySelector('#vName').addEventListener('input', e => { row.name = e.target.value; scheduleSave(); });
-      body.querySelector('#vContact').addEventListener('input', e => { row.contact = e.target.value; scheduleSave(); });
-      body.querySelector('#vPackage').addEventListener('input', e => { row.package = e.target.value; scheduleSave(); });
-      body.querySelector('#vLink').addEventListener('input', e => { row.link = e.target.value; scheduleSave(); });
-      body.querySelector('#vNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
-      body.querySelector('#vDel').addEventListener('click', () => {
-        if(confirm(`Hapus vendor "${row.name||'ini'}"?`)){
-          const i = data.vendor.indexOf(row);
-          if(i>-1) data.vendor.splice(i,1);
-          scheduleSave(); renderTabContent();
-        }
-      });
-      const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
-      body.querySelector('#vSaveSlot').appendChild(saveBtn);
-    }
-    listWrap.appendChild(card);
-    const spacer = document.createElement('div'); spacer.style.height='10px'; listWrap.appendChild(spacer);
-  });
-
-  if(end < data.vendor.length){
-    const moreBtn = document.createElement('button');
-    moreBtn.style.cssText = 'width:calc(100% - 28px);margin:4px 14px 0;padding:13px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px \'Sora\';cursor:pointer;font-family:inherit;';
-    moreBtn.textContent = `Muat ${Math.min(PAGE_SIZE, data.vendor.length-end)} lagi`;
-    moreBtn.addEventListener('click', () => { sectionPage.vendor = page + 1; renderTabContent(); });
-    listWrap.appendChild(moreBtn);
-  }
-
-  const addBtn = document.createElement('button');
-  addBtn.style.cssText = 'width:calc(100% - 28px);margin:10px 14px 20px;padding:15px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px \'Sora\';cursor:pointer;font-family:inherit;';
-  addBtn.textContent = '+ Tambah vendor';
-  addBtn.addEventListener('click', () => {
-    data.vendor.push({id:uid(), open:true, category:'', name:'', contact:'', package:'', link:'', status:'Survei', note:''});
-    scheduleSave(); renderTabContent();
-  });
-  container.appendChild(addBtn);
-}
-
-const PEMBAYARAN_STATUS_CYCLE = ['Belum','Proses','Lunas'];
-
-function renderPembayaranSectionND(container){
-  let totalDibayar = 0, totalSisa = 0;
-  data.pembayaran.forEach(row => {
-    const dibayar = (Number(row.dp)||0) + (Number(row.termin2)||0) + (Number(row.pelunasan)||0);
-    totalDibayar += dibayar;
-    totalSisa += Math.max(0, (Number(row.total)||0) - dibayar);
-  });
-  const nearestDue = data.pembayaran.filter(r => r.dueDate && r.status !== 'Lunas').sort((a,b) => a.dueDate.localeCompare(b.dueDate))[0];
-
-  const header = document.createElement('div');
-  header.className = 'nd-card';
-  header.innerHTML = `
-    <div class="nd-card-hdr">RINGKASAN CICILAN</div>
-    <div class="nd-chiprow" style="margin-top:10px;">
-      <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibayar</div><div class="nd-chip-val">${rupiah(totalDibayar)}</div></div>
-      <div class="nd-chip"><div class="nd-chip-lbl">Sisa cicilan</div><div class="nd-chip-val">${rupiah(totalSisa)}</div></div>
-    </div>
-    ${nearestDue ? `<div style="font-size:12px;color:#9A9B93;margin-top:12px;">Jatuh tempo terdekat: <strong style="color:#181B17;">${nearestDue.vendor||'-'}</strong>, ${nearestDue.dueDate}</div>` : ''}
-  `;
-  container.appendChild(header);
-
-  const listWrap = document.createElement('div');
-  listWrap.style.marginTop = '12px';
-  container.appendChild(listWrap);
-
-  if(data.pembayaran.length === 0){
-    const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
-    empty.textContent = 'Belum ada jadwal cicilan vendor.';
-    listWrap.appendChild(empty);
-  }
-
-  const page = sectionPage.pembayaran || 1;
-  const end = page * PAGE_SIZE;
-  const visible = data.pembayaran.slice(0, end);
-  const statusColors = {'Belum':'#9A9B93','Proses':'#9C7A1E','Lunas':'#3E7A4E'};
-  const statusBg = {'Belum':'#F4F1EB','Proses':'#FDF2DC','Lunas':'#EAF4E8'};
-
-  visible.forEach(row => {
-    const dibayar = (Number(row.dp)||0) + (Number(row.termin2)||0) + (Number(row.pelunasan)||0);
-    const sisa = Math.max(0, (Number(row.total)||0) - dibayar);
-    const miniPct = Number(row.total) > 0 ? Math.min(100, Math.round((dibayar/Number(row.total))*100)) : 0;
-    const isOpen = !!row.open;
-
-    const card = document.createElement('div');
-    card.className = 'nd-card';
-    card.style.cssText = 'padding:0;overflow:hidden;';
-
-    const head = document.createElement('div');
-    head.style.cssText = 'display:flex;align-items:center;gap:10px;padding:16px 18px;cursor:pointer;';
-    head.innerHTML = `
-      <div style="flex:1;min-width:0;">
-        <div style="font:700 13.5px 'Sora';color:#181B17;">${row.vendor || '(vendor belum diisi)'}</div>
-        <div style="font-size:11px;color:#9A9B93;margin-top:3px;">${row.item||''}</div>
-        <div class="nd-bar-track" style="height:5px;margin-top:8px;"><div class="nd-bar-fill" style="width:${miniPct}%"></div></div>
-      </div>
-      <div style="text-align:right;flex:none;">
-        <div style="font:800 13px 'Sora';">${rupiah(Number(row.total)||0)}</div>
-        <button id="pStatus" style="font:700 9.5px 'Sora';padding:4px 10px;border-radius:100px;background:${statusBg[row.status]||'#F4F1EB'};color:${statusColors[row.status]||'#8A8B85'};border:none;cursor:pointer;margin-top:5px;">${row.status}</button>
-        ${row.dueDate ? `<div style="font-size:10px;color:#9A9B93;margin-top:4px;">${row.dueDate}</div>` : ''}
-      </div>
-    `;
-    head.querySelector('#pStatus').addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      const i = PEMBAYARAN_STATUS_CYCLE.indexOf(row.status);
-      row.status = PEMBAYARAN_STATUS_CYCLE[(i+1) % PEMBAYARAN_STATUS_CYCLE.length];
-      scheduleSave(); renderTabContent();
-    });
-    head.addEventListener('click', () => { row.open = !row.open; renderTabContent(); });
-    card.appendChild(head);
-
-    if(isOpen){
-      const body = document.createElement('div');
-      body.style.cssText = 'padding:0 18px 18px;';
-      body.innerHTML = `
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Vendor</div><input type="text" id="pVendor" value="${(row.vendor||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Item</div><input type="text" id="pItem" value="${(row.item||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-        </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Total (Rp)</div>
-        <input type="number" id="pTotal" value="${Number(row.total)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">DP</div><input type="number" id="pDp" value="${Number(row.dp)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Termin 2</div><input type="number" id="pTermin2" value="${Number(row.termin2)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Pelunasan</div><input type="number" id="pPelunasan" value="${Number(row.pelunasan)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-        </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Jatuh tempo</div>
-        <input type="date" id="pDue" value="${row.dueDate||''}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="pNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div class="nd-chiprow" style="margin-top:14px;">
-          <div class="nd-chip"><div class="nd-chip-lbl">Dibayar</div><div class="nd-chip-val">${rupiah(dibayar)}</div></div>
-          <div class="nd-chip"><div class="nd-chip-lbl">Sisa</div><div class="nd-chip-val">${rupiah(sisa)}</div></div>
-        </div>
-        <div id="pSaveSlot" style="margin-top:14px;"></div>
-        <button id="pDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus jadwal cicilan</button>
-      `;
-      card.appendChild(body);
-      body.querySelector('#pVendor').addEventListener('input', e => { row.vendor = e.target.value; scheduleSave(); });
-      body.querySelector('#pItem').addEventListener('input', e => { row.item = e.target.value; scheduleSave(); });
-      body.querySelector('#pTotal').addEventListener('input', e => { row.total = Number(e.target.value)||0; scheduleSave(); });
-      body.querySelector('#pDp').addEventListener('input', e => { row.dp = Number(e.target.value)||0; scheduleSave(); });
-      body.querySelector('#pTermin2').addEventListener('input', e => { row.termin2 = Number(e.target.value)||0; scheduleSave(); });
-      body.querySelector('#pPelunasan').addEventListener('input', e => { row.pelunasan = Number(e.target.value)||0; scheduleSave(); });
-      body.querySelector('#pDue').addEventListener('input', e => { row.dueDate = e.target.value; scheduleSave(); });
-      body.querySelector('#pNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
-      body.querySelector('#pDel').addEventListener('click', () => {
-        if(confirm(`Hapus jadwal cicilan "${row.vendor||'ini'}"?`)){
-          const i = data.pembayaran.indexOf(row);
-          if(i>-1) data.pembayaran.splice(i,1);
-          scheduleSave(); renderTabContent();
-        }
-      });
-      const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
-      body.querySelector('#pSaveSlot').appendChild(saveBtn);
-    }
-    listWrap.appendChild(card);
-    const spacer = document.createElement('div'); spacer.style.height='10px'; listWrap.appendChild(spacer);
-  });
-
-  if(end < data.pembayaran.length){
-    const moreBtn = document.createElement('button');
-    moreBtn.style.cssText = 'width:calc(100% - 28px);margin:4px 14px 0;padding:13px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px \'Sora\';cursor:pointer;font-family:inherit;';
-    moreBtn.textContent = `Muat ${Math.min(PAGE_SIZE, data.pembayaran.length-end)} lagi`;
-    moreBtn.addEventListener('click', () => { sectionPage.pembayaran = page + 1; renderTabContent(); });
-    listWrap.appendChild(moreBtn);
-  }
-
-  const addBtn = document.createElement('button');
-  addBtn.style.cssText = 'width:calc(100% - 28px);margin:10px 14px 20px;padding:15px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px \'Sora\';cursor:pointer;font-family:inherit;';
-  addBtn.textContent = '+ Tambah jadwal cicilan';
-  addBtn.addEventListener('click', () => {
-    data.pembayaran.push({id:uid(), open:true, vendor:'', item:'', total:0, dp:0, termin2:0, pelunasan:0, dueDate:'', status:'Belum', note:''});
     scheduleSave(); renderTabContent();
   });
   container.appendChild(addBtn);
@@ -2888,6 +2998,15 @@ function renderBudgetSectionND(container){
     <div class="nd-bar-caption" style="color:var(--nd-deep-ink);opacity:.75;"><span>${budgetPct}% dari budget maksimal</span><span>${d.statusBudget}</span></div>
   `;
   container.appendChild(header);
+  {
+    const due = nearestDueDetail(data.budget);
+    if(due){
+      const dd = document.createElement('div');
+      dd.style.cssText = 'font-size:12px;color:#9A9B93;margin:-4px 18px 10px;';
+      dd.innerHTML = `Jatuh tempo terdekat: <strong style="color:#181B17;">${due.name||'-'}</strong> (${due.item||'-'}), ${due.dueDate}`;
+      container.appendChild(dd);
+    }
+  }
 
   // Filter chips
   const filterRow = document.createElement('div');
@@ -2967,8 +3086,8 @@ function renderBudgetSectionND(container){
         <input type="text" id="bNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div class="nd-chiprow" style="margin-top:14px;">
           <div class="nd-chip"><div class="nd-chip-lbl">Total</div><div class="nd-chip-val">${rupiah(t.total)}</div></div>
-          <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibeli</div><div class="nd-chip-val">${rupiah(t.paid)}</div></div>
-          <div class="nd-chip"><div class="nd-chip-lbl">Belum dibeli</div><div class="nd-chip-val">${rupiah(t.belum)}</div></div>
+          <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibayar</div><div class="nd-chip-val">${rupiah(t.paid)}</div></div>
+          <div class="nd-chip"><div class="nd-chip-lbl">Sisa dibayar</div><div class="nd-chip-val">${rupiah(t.belum)}</div></div>
         </div>
         <button id="bDetail" style="width:100%;margin-top:14px;padding:13px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px 'Sora';cursor:pointer;font-family:inherit;">Kelola Detail Rincian (${(row.subItems||[]).length} sub-item)</button>
         <div id="bSaveSlot" style="margin-top:12px;"></div>
@@ -3488,19 +3607,6 @@ function renderRecordSection(container, sectionKey){
   h.textContent = cfg.title;
   card.appendChild(h);
 
-  if(sectionKey === 'pembayaran'){
-    const p = document.createElement('p');
-    p.style.cssText = 'font-size:12px;color:var(--ink-dim);margin-top:4px;';
-    p.textContent = 'Khusus untuk vendor besar yang bayarnya bertahap (DP → Termin → Pelunasan). Untuk status "sudah dibayar atau belum" per item, catat di tab Budget.';
-    card.appendChild(p);
-  }
-  if(sectionKey === 'vendor'){
-    const p = document.createElement('p');
-    p.style.cssText = 'font-size:12px;color:var(--ink-dim);margin-top:4px;';
-    p.textContent = 'Buku alamat kontak vendor saja. Harga & status pembayaran per item dicatat di tab Budget, bukan di sini.';
-    card.appendChild(p);
-  }
-
   if(rows.length === 0){
     const empty = document.createElement('div');
     empty.className = 'empty-note';
@@ -3600,7 +3706,7 @@ function renderRecordSection(container, sectionKey){
       const detailBtn = document.createElement('button');
       detailBtn.className = 'add-row-btn';
       const subCount = (row.subItems||[]).length;
-      const subTotal = (row.subItems||[]).reduce((s,si) => s + (si.details||[]).reduce((s2,d) => s2 + (Number(d.price)||0), 0), 0);
+      const subTotal = (row.subItems||[]).reduce((s,si) => s + (si.details||[]).reduce((s2,d) => s2 + (detailTotal(d)), 0), 0);
       detailBtn.textContent = subCount > 0
         ? `Kelola Detail Rincian (${subCount} sub-item · ${rupiah(subTotal)})`
         : '+ Tambah Detail Rincian';
@@ -3691,9 +3797,7 @@ const TAB_LIST = [
   {key:'roadmap', label:'Roadmap'},
   {key:'budget', label:'Budget'},
   {key:'tabungan', label:'Tabungan'},
-  {key:'pembayaran', label:'Pembayaran'},
   {key:'tamu', label:'Tamu'},
-  {key:'vendor', label:'Vendor'},
   {key:'timeline', label:'Timeline'},
   {key:'pengaturan', label:'Pengaturan'},
 ];
@@ -3707,9 +3811,8 @@ const ND_DIRECT_TABS = [
 const ND_LAINNYA_TABS = [
   {key:'tamu', label:'Tamu', sub:'Daftar & konfirmasi tamu undangan'},
   {key:'roadmap', label:'Roadmap Persiapan', sub:'Checklist tahapan menuju hari H'},
-  {key:'pembayaran', label:'Pembayaran', sub:'Jadwal cicilan vendor besar'},
-  {key:'vendor', label:'Vendor', sub:'Daftar & status vendor'},
   {key:'timeline', label:'Timeline', sub:'Periode menuju hari H'},
+  {key:'moodboard', label:'Moodboard', sub:'Inspirasi foto dekor, busana, warna'},
   {key:'pengaturan', label:'Pengaturan', sub:'Tema, identitas, backup'},
 ];
 const ND_ALL_TABS = [...ND_DIRECT_TABS, ...ND_LAINNYA_TABS];
@@ -3853,6 +3956,54 @@ function renderPengaturanSection(container){
   saveBtnId.style.marginTop = '12px';
   cardId.appendChild(saveBtnId);
 
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <h3 style="font-size:14px;">Nama Tampilan & Sambutan</h3>
+    <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;">Nama ini muncul di bar paling atas di SEMUA halaman, dan di layar sambutan awal sebelum masuk Beranda.</p>
+    <div class="settings-field">
+      <label>Nama yang ditampilkan (contoh: "Dandi & Nada")</label>
+      <input type="text" id="fGreetingName" maxlength="${GREETING_NAME_MAX}">
+      <div class="char-count" id="cntGreetingName"></div>
+    </div>
+    <div class="settings-field">
+      <label>Pesan sambutan</label>
+      <textarea id="fGreetingMsg" maxlength="${GREETING_MSG_MAX}"></textarea>
+      <div class="char-count" id="cntGreetingMsg"></div>
+    </div>
+  `;
+  container.appendChild(card);
+
+  const nameInput = card.querySelector('#fGreetingName');
+  const msgInput = card.querySelector('#fGreetingMsg');
+  const nameCnt = card.querySelector('#cntGreetingName');
+  const msgCnt = card.querySelector('#cntGreetingMsg');
+
+  nameInput.value = data.greetingName || '';
+  msgInput.value = data.greetingMessage || '';
+
+  function updateCount(el, input, max){
+    const len = input.value.length;
+    el.textContent = `${len}/${max}`;
+    el.classList.toggle('warn', len >= max);
+  }
+  updateCount(nameCnt, nameInput, GREETING_NAME_MAX);
+  updateCount(msgCnt, msgInput, GREETING_MSG_MAX);
+
+  nameInput.addEventListener('input', e => {
+    data.greetingName = e.target.value;
+    scheduleSave();
+    updateCount(nameCnt, nameInput, GREETING_NAME_MAX);
+  });
+  msgInput.addEventListener('input', e => {
+    data.greetingMessage = e.target.value;
+    scheduleSave();
+    updateCount(msgCnt, msgInput, GREETING_MSG_MAX);
+  });
+  const saveBtnGreet = createInlineSaveButton('item-save-btn');
+  saveBtnGreet.style.marginTop = '12px';
+  card.appendChild(saveBtnGreet);
+
   const cardPanduan = document.createElement('div');
   cardPanduan.className = 'card';
   cardPanduan.innerHTML = `
@@ -3955,54 +4106,6 @@ function renderPengaturanSection(container){
   });
   container.appendChild(cardBg);
 
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.innerHTML = `
-    <h3 style="font-size:14px;">Sambutan Awal</h3>
-    <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;">Teks ini muncul di layar sambutan sebelum masuk ke Dashboard.</p>
-    <div class="settings-field">
-      <label>Nama yang ditampilkan (contoh: "Dandi & Nada")</label>
-      <input type="text" id="fGreetingName" maxlength="${GREETING_NAME_MAX}">
-      <div class="char-count" id="cntGreetingName"></div>
-    </div>
-    <div class="settings-field">
-      <label>Pesan sambutan</label>
-      <textarea id="fGreetingMsg" maxlength="${GREETING_MSG_MAX}"></textarea>
-      <div class="char-count" id="cntGreetingMsg"></div>
-    </div>
-  `;
-  container.appendChild(card);
-
-  const nameInput = card.querySelector('#fGreetingName');
-  const msgInput = card.querySelector('#fGreetingMsg');
-  const nameCnt = card.querySelector('#cntGreetingName');
-  const msgCnt = card.querySelector('#cntGreetingMsg');
-
-  nameInput.value = data.greetingName || '';
-  msgInput.value = data.greetingMessage || '';
-
-  function updateCount(el, input, max){
-    const len = input.value.length;
-    el.textContent = `${len}/${max}`;
-    el.classList.toggle('warn', len >= max);
-  }
-  updateCount(nameCnt, nameInput, GREETING_NAME_MAX);
-  updateCount(msgCnt, msgInput, GREETING_MSG_MAX);
-
-  nameInput.addEventListener('input', e => {
-    data.greetingName = e.target.value;
-    scheduleSave();
-    updateCount(nameCnt, nameInput, GREETING_NAME_MAX);
-  });
-  msgInput.addEventListener('input', e => {
-    data.greetingMessage = e.target.value;
-    scheduleSave();
-    updateCount(msgCnt, msgInput, GREETING_MSG_MAX);
-  });
-  const saveBtnGreet = createInlineSaveButton('item-save-btn');
-  saveBtnGreet.style.marginTop = '12px';
-  card.appendChild(saveBtnGreet);
-
   const cardIO = document.createElement('div');
   cardIO.className = 'card';
   cardIO.innerHTML = `
@@ -4102,11 +4205,12 @@ function renderPengaturanSection(container){
     if(!confirm('Import akan menimpa semua data yang ada sekarang di sini. Lanjutkan?')) return;
     const base = defaultData();
     data = Object.assign(base, parsed);
-    ['roadmap','dokumen','budget','tabungan','pembayaran','tamu','vendor','timeline'].forEach(k => {
+    ['roadmap','dokumen','budget','tabungan','tamu','timeline'].forEach(k => {
       if(!Array.isArray(data[k])) data[k] = [];
       data[k].forEach(r => { if(!r.id) r.id = uid(); if(r.open === undefined) r.open = false; if(k==='budget' && !Array.isArray(r.subItems)) r.subItems = []; });
     });
     data.dokumen = migrateDokumenSides(data.dokumen);
+    migrateVendorsToBudget(); delete data.pembayaran;
     scheduleSave();
     msg.textContent = 'Data berhasil diimpor.';
     msg.style.color = 'var(--sage)';
@@ -4170,10 +4274,8 @@ function renderTabContent(){
       renderTamuSectionND(c);
     } else if(localActiveTab === 'roadmap'){
       renderRoadmapSectionND(c);
-    } else if(localActiveTab === 'vendor'){
-      renderVendorSectionND(c);
-    } else if(localActiveTab === 'pembayaran'){
-      renderPembayaranSectionND(c);
+    } else if(localActiveTab === 'moodboard'){
+      renderMoodboardSectionND(c);
     } else if(localActiveTab === 'timeline'){
       renderTimelineSectionND(c);
     } else if(localActiveTab === 'pengaturan'){
@@ -4252,6 +4354,7 @@ auth.onAuthStateChanged(user => {
 
   if(!user){
     if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
+    stopMoodboardSync();
     stopPresence();
     authScreen.style.display = 'block';
     document.getElementById('ndRoot').style.display = 'none';
@@ -4274,6 +4377,7 @@ auth.onAuthStateChanged(user => {
   currentUserEmail = user.email;
   authScreen.style.display = 'none';
   startPresence(user.email);
+  startMoodboardSync();
   startSync(() => {
     document.getElementById('ndRoot').style.display = 'block';
     if(hasSeenSplashThisSession()){
