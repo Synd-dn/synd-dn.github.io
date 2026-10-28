@@ -618,18 +618,39 @@ Supaya Beranda langsung kebaca, isi dengan urutan ini:
 
 ## Beranda
 
-Ringkasan semua yang kalian isi, dihitung otomatis:
+Ringkasan semua yang kalian isi, dihitung otomatis. Dibaca dari atas ke bawah:
 
-- **Sisa waktu** — hitung mundur ke hari H, plus dana terkumpul vs total estimasi.
-- **Kebutuhan / Surplus dana** dan **Budget terpakai** (persen dari budget maksimal).
-- **Agenda terdekat** — gabungan jatuh tempo bayar (dari rincian Budget yang belum lunas), deadline Roadmap, dan deadline Timeline, diurutkan dari yang paling dekat. Yang sudah lewat tanggal ditandai merah **"Terlambat"**. Tap satu baris untuk langsung ke tab-nya.
+- **Sisa waktu** — hitung mundur ke hari H. Ring **Dana** = tabungan kalian dibanding total estimasi.
+- **Kebutuhan / Surplus dana** — kekurangan (atau kelebihan) tabungan kalian dibanding total estimasi. **Budget terpakai** = total estimasi dibanding budget maksimal.
+- **Agenda terdekat** — jatuh tempo bayar, deadline Roadmap, dan deadline Timeline dalam satu daftar. Merah = sudah lewat tanggal.
+- **Rincian Budget** — jumlah rincian Lunas / Sudah DP / Belum bayar, lalu tiap item Budget: sudah dibayar, total, dan sisa. Diurutkan dari sisa terbesar supaya yang paling berat kelihatan dulu.
 - **Ringkasan pembayaran** — sudah dibayar, sisa dibayar, dan budget maksimal.
-- **Target nabung** — berapa yang harus ditabung per bulan sampai hari H (budget + dana risiko + dana setelah nikah, dikurangi tabungan sekarang), dibandingkan dengan rata-rata nabung kalian saat ini.
-- **Alokasi bertingkat** — tabungan dipakai berurutan: budget acara, lalu dana risiko, lalu dana setelah nikah. Kelihatan jelas kurangnya di bagian mana.
-- **Saran** — kalimat singkat otomatis soal kondisi kalian.
-- **Tamu terdaftar**, progress **Roadmap, Dokumen, Rincian lunas, Timeline**, dan **Perlu dilengkapi**.
+- **Target nabung** — tabungan per bulan yang dibutuhkan sampai hari H, dibanding rata-rata nabung kalian sekarang.
+- **Sumber dana** — per orang: terkumpul, rencana (DP dan pelunasan yang dialokasikan ke dia), terpakai (yang sudah benar-benar dibayar), dan sisa.
+- **Alokasi bertingkat** — tabungan dipakai berurutan: budget acara, dana risiko, dana setelah nikah.
+- **Saran**, **Tamu**, enam kotak progres, dan **Perlu dilengkapi** (termasuk peringatan: sumber dana belum dipilih, tabungan kurang, DP melebihi harga).
 
 Hampir semua kartu bisa di-tap untuk lompat ke tab yang bersangkutan.
+
+## Cara Membaca Angka (Istilah & Rumus)
+
+- **Total estimasi** = jumlah semua rincian di Budget. Ini biaya penuh acara.
+- **Kebutuhan dana** = total estimasi − tabungan terkumpul. Kalau negatif jadi **Surplus**.
+- **Sudah dibayar** = DP yang diisi (dibatasi sebesar harga); kalau status **Sudah dibayar**, dihitung penuh.
+- **Sisa dibayar** = total − sudah dibayar.
+- **Terkumpul** = total nabung yang dicatat di tab Tabungan. **Rencana** = yang dialokasikan ke sumber itu di Budget. **Terpakai** = bagian rencana yang sudah dibayar.
+- **Target nabung / bulan** = (total estimasi + dana risiko + dana setelah nikah − tabungan) ÷ sisa bulan.
+
+Warna: **hijau** = aman/cukup, **kuning** = perlu perhatian atau belum lengkap, **merah** = kurang, terlambat, atau melebihi batas.
+
+**Kalau angka terasa janggal, cek berurutan:** (1) Pengaturan → target tamu dan budget maksimal, (2) rincian Budget: nominal dan jumlah tamu pada rincian per orang, (3) sumber dana di tiap DP/Lunas, (4) status Sudah dibayar yang terlanjur dipilih.
+
+## Rutinitas Pemakaian
+
+- **Sekali di awal:** isi Pengaturan (target dan identitas), lalu Budget dan rinciannya.
+- **Tiap ada pembayaran:** buka rincian, isi DP (nominal + sumber dana) atau ubah status ke Sudah dibayar.
+- **Tiap bulan:** catat nabung di Tabungan, lalu lihat Target Nabung dan Sumber Dana di Beranda.
+- **Tiap minggu:** buka Beranda, baca Agenda Terdekat dan Perlu Dilengkapi, lalu backup.
 
 ## Budget
 
@@ -642,8 +663,8 @@ Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi lang
 
 Cara pakai bagian pembayaran:
 
-- **DP**: isi kolom DP. Yang dihitung "sudah dibayar" hanya sebesar DP, sisanya tetap belum. Sisa otomatis tampil di sebelahnya.
-- **Lunas**: ubah status ke **Sudah dibayar** — dihitung lunas penuh.
+- **DP bertahap**: ada **DP 1, DP 2, DP 3**. Isi nominal tiap DP dan pilih **sumber dananya** (Tabungan pengantin 1 atau Tabungan pengantin 2). Status otomatis jadi **DP** begitu ada nominal DP, dan yang dihitung "sudah dibayar" sebesar total DP.
+- **Lunas**: ubah status ke **Sudah dibayar**. Sisa setelah DP otomatis jadi nominal pelunasan; pilih juga sumber dananya di baris **Lunas**.
 - **Jatuh tempo**: isi tanggalnya, nanti muncul di Agenda Terdekat di Beranda dan di bagian atas halaman Budget.
 - **Catering / souvenir**: centang **"Hitung per orang"**, lalu isi harga per porsi. Total otomatis dikali jumlah tamu. Kalau kolom jumlah tamu dikosongkan, ikut target tamu di Pengaturan; atau ketik jumlah sendiri (misal souvenir 250).
 - Total, sudah dibayar, dan sisa di tiap item **terhitung otomatis** dari semua rinciannya.
@@ -653,6 +674,8 @@ Untuk membandingkan beberapa vendor sebelum memilih, cukup catat semuanya sebaga
 ## Tabungan
 
 Catat nabung bulanan untuk **2 orang** (nama sesuai Pengaturan), plus tempat uangnya disimpan (rekening/e-wallet). Totalnya masuk ke "Dana terkumpul" di Beranda.
+
+Kartu **Sumber Dana** menunjukkan per orang: terkumpul, terpakai (DP dan pelunasan yang dipilih di rincian Budget), dan sisanya. Kalau tabungan salah satu sudah kurang, tampil merah **"Kurang"**.
 
 ## Dokumen
 
@@ -667,7 +690,7 @@ Daftar syarat administrasi nikah (KTP, KK, dll), dikelompokkan per pihak wanita 
 - **Tamu** — daftar tamu per pihak, ada pencarian nama dan ringkasan yang sudah konfirmasi hadir. Untuk input banyak sekaligus, pakai **Import dari Excel**: download template, isi, lalu upload lagi. Tamu dari file **ditambahkan**, tidak menimpa yang sudah ada.
 - **Roadmap** — checklist persiapan lengkap dengan prioritas (Wajib/Penting/Tambahan/Luxury), status, dan deadline. Isi deadline supaya muncul di Agenda Terdekat.
 - **Timeline** — peta fase menuju hari H, dari H-180 sampai Hari H. Deadline juga masuk ke Agenda Terdekat.
-- **Moodboard** — kumpulan foto inspirasi (dekorasi, busana, makeup, venue, warna, seserahan). Pilih kategori, tekan **"+ Tambah foto"**, lalu pilih satu atau beberapa foto dari galeri HP; foto otomatis dikompres. Tap foto untuk memperbesar, ganti kategori, menulis catatan, atau menghapus. Maksimal 50 foto. Foto moodboard tidak ikut di Export/Import, jadi simpan sendiri kalau ingin cadangan.
+- **Moodboard** — kumpulan foto inspirasi (dekorasi, busana, makeup, venue, warna, seserahan). Pilih kategori, tekan **"+ Tambah foto"**, lalu pilih satu atau beberapa foto dari galeri HP; foto otomatis dikompres. Tap foto untuk memperbesar, ganti kategori, menulis catatan, atau menghapus. Tekan **"Unduh PowerPoint"** di kartu **Bagikan ke vendor** untuk mendapat file .pptx (sampul + satu bagian per kategori) yang bisa dikirim ke vendor; judul, pesan, kategori, dan catatan bisa diatur dulu. Maksimal 50 foto. Foto moodboard tidak ikut di Export/Import, jadi simpan sendiri kalau ingin cadangan.
 
 ## Pengaturan
 
@@ -793,6 +816,93 @@ function updateMoodMsg(){
   if(el) el.textContent = moodMsg;
 }
 
+/* ---- Ekspor moodboard ke PowerPoint untuk vendor ---- */
+let pptxLoadPromise = null;
+function loadPptx(){
+  if(window.PptxGenJS) return Promise.resolve();
+  if(pptxLoadPromise) return pptxLoadPromise;
+  pptxLoadPromise = new Promise((resolve, reject) => {
+    const sc = document.createElement('script');
+    sc.src = 'https://cdn.jsdelivr.net/npm/pptxgenjs@4.0.1/dist/pptxgen.bundle.js';
+    sc.onload = () => resolve();
+    sc.onerror = () => { pptxLoadPromise = null; reject(new Error('Gagal memuat library PowerPoint. Cek koneksi internet.')); };
+    document.head.appendChild(sc);
+  });
+  return pptxLoadPromise;
+}
+const moodExp = {title:'', msg:'', excl:new Set(), notes:true, busy:false, status:''}; // excl = kategori yang TIDAK disertakan (kategori baru otomatis ikut)
+function moodImgSize(dataUrl){
+  return new Promise(res => {
+    const im = new Image();
+    im.onload = () => res({w: im.naturalWidth || 4, h: im.naturalHeight || 3});
+    im.onerror = () => res({w:4, h:3});
+    im.src = dataUrl;
+  });
+}
+async function exportMoodboardPptx(){
+  const cats = MOOD_CATS.filter(c => !moodExp.excl.has(c) && moodboard.some(m => m.cat === c));
+  if(cats.length === 0) throw new Error('Pilih minimal satu kategori yang ada fotonya.');
+  await loadPptx();
+  const th = THEMES_ND[data.themeND] || THEMES_ND.sage;
+  const hex = (c, fb) => /^#[0-9a-f]{6}$/i.test(c||'') ? c.slice(1).toUpperCase() : fb;
+  const ACC = hex(th.accent, '8A9873'), SOFT = hex(th.soft, 'F2EFDF'), DEEP = hex(th.deep, '2B3323');
+  const names = (data.greetingName || '').trim() || 'Calon Pengantin';
+  const title = (moodExp.title || '').trim() || ('Moodboard Pernikahan ' + names);
+  const pptx = new PptxGenJS();
+  pptx.layout = 'LAYOUT_WIDE'; // 13.33 x 7.5 inci
+  pptx.title = title;
+  const imgData = u => String(u).replace(/^data:/, '');
+
+  // Sampul
+  const cover = pptx.addSlide();
+  cover.background = {color: SOFT};
+  cover.addShape('rect', {x:0, y:0, w:0.35, h:7.5, fill:{color: ACC}, line:{color: ACC}});
+  cover.addText('MOODBOARD', {x:0.9, y:1.3, w:6.2, h:0.4, fontFace:'Calibri', fontSize:14, bold:true, color: ACC, charSpacing:6});
+  cover.addText(title, {x:0.9, y:1.8, w:6.2, h:2.4, fontFace:'Georgia', fontSize:36, color: DEEP, valign:'top', fit:'shrink'});
+  cover.addText(names + (data.weddingDate ? '\n' + formatTanggalPanjangND(data.weddingDate) : ''), {x:0.9, y:4.3, w:6.2, h:0.9, fontFace:'Calibri', fontSize:16, color: DEEP, valign:'top'});
+  if((moodExp.msg || '').trim()) cover.addText(moodExp.msg.trim(), {x:0.9, y:5.35, w:6.2, h:1.5, fontFace:'Calibri', fontSize:13, italic:true, color:'555555', valign:'top', fit:'shrink'});
+  const first = moodboard.find(m => m.cat === cats[0]) || moodboard[0];
+  if(first){
+    const d0 = await moodImgSize(first.img);
+    const bw = 5.2, bh = 6.1, sc = Math.min(bw/d0.w, bh/d0.h);
+    const w = d0.w*sc, h = d0.h*sc;
+    cover.addImage({data: imgData(first.img), x: 7.4 + (bw-w)/2, y: 0.7 + (bh-h)/2, w, h});
+  }
+
+  // Slide per kategori (maks. 6 foto per slide)
+  for(const cat of cats){
+    const photos = moodboard.filter(m => m.cat === cat).sort((a,b) => (a.createdAt||0) - (b.createdAt||0));
+    for(let off = 0; off < photos.length; off += 6){
+      const chunk = photos.slice(off, off + 6);
+      const sl = pptx.addSlide();
+      sl.background = {color:'FFFFFF'};
+      sl.addShape('rect', {x:0, y:0, w:13.33, h:0.95, fill:{color: SOFT}, line:{color: SOFT}});
+      sl.addText(cat.toUpperCase() + (photos.length > 6 ? `  (${off/6+1}/${Math.ceil(photos.length/6)})` : ''), {x:0.6, y:0.18, w:9, h:0.6, fontFace:'Georgia', fontSize:24, color: DEEP, bold:true});
+      sl.addText(`${photos.length} foto`, {x:10.7, y:0.28, w:2.0, h:0.4, fontFace:'Calibri', fontSize:12, color: ACC, align:'right'});
+      sl.addText(names, {x:0.6, y:7.05, w:8, h:0.3, fontFace:'Calibri', fontSize:9, color:'999999'});
+      const n = chunk.length;
+      const cols = n <= 3 ? n : (n === 4 ? 2 : 3);
+      const rows = Math.ceil(n / cols);
+      const X0 = 0.6, Y0 = 1.25, AW = 12.13, AH = 5.65, GAP = 0.25;
+      const cw = (AW - (cols-1)*GAP) / cols, ch = (AH - (rows-1)*GAP) / rows;
+      for(let i = 0; i < n; i++){
+        const m = chunk[i];
+        const cx = X0 + (i % cols) * (cw + GAP), cy = Y0 + Math.floor(i / cols) * (ch + GAP);
+        const hasNote = moodExp.notes && (m.note || '').trim();
+        const capH = hasNote ? 0.55 : 0;
+        const bh = ch - capH;
+        const dm = await moodImgSize(m.img);
+        const sc = Math.min(cw/dm.w, bh/dm.h);
+        const w = dm.w*sc, h = dm.h*sc;
+        sl.addImage({data: imgData(m.img), x: cx + (cw-w)/2, y: cy + (bh-h)/2, w, h});
+        if(hasNote) sl.addText(m.note.trim(), {x: cx, y: cy + bh + 0.04, w: cw, h: capH - 0.04, fontFace:'Calibri', fontSize:12, color:'444444', align:'center', valign:'top', fit:'shrink'});
+      }
+    }
+  }
+  const slug = names.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'pernikahan';
+  await pptx.writeFile({fileName: `Moodboard-${slug}.pptx`});
+}
+
 function openMoodViewer(item){
   openModal(sheet => {
     const head = document.createElement('div');
@@ -866,6 +976,56 @@ function renderMoodboardSectionND(container){
     if(fileI.files && fileI.files.length){ moodLastCat = sel.value; moodAddFiles(fileI.files, sel.value); }
     fileI.value = '';
   });
+
+  // Bagikan ke vendor (unduh PowerPoint)
+  if(moodboard.length > 0){
+    const ex = document.createElement('div');
+    ex.className = 'nd-card';
+    ex.innerHTML = `
+      <div class="nd-card-hdr">BAGIKAN KE VENDOR</div>
+      <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;line-height:1.5;">Unduh moodboard sebagai file PowerPoint (.pptx): sampul, lalu satu bagian per kategori. Bisa dibuka di PowerPoint atau Google Slides, dan dikirim lewat WhatsApp atau email.</div>
+      <div style="font-size:11px;color:#9A9B93;margin-top:12px;">Judul</div>
+      <input type="text" id="mbxTitle" maxlength="80" placeholder="Moodboard Pernikahan ${(data.greetingName||'').replace(/"/g,'')}" style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px 12px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;">
+      <div style="font-size:11px;color:#9A9B93;margin-top:10px;">Pesan untuk vendor (opsional, tampil di sampul)</div>
+      <textarea id="mbxMsg" rows="2" maxlength="200" placeholder="Misal: Kami suka suasana hangat dengan bunga putih, tolong beri penawaran paket." style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px 12px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
+      <div style="font-size:11px;color:#9A9B93;margin-top:10px;">Kategori yang disertakan</div>
+      <div id="mbxCats" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;"></div>
+      <label style="display:flex;gap:8px;align-items:center;font-size:12.5px;margin-top:12px;cursor:pointer;"><input type="checkbox" id="mbxNotes" ${moodExp.notes?'checked':''}> Sertakan catatan di bawah tiap foto</label>
+      <button id="mbxBtn" style="width:100%;margin-top:14px;padding:14px;border-radius:100px;border:none;background:var(--nd-accent);color:#fff;font:700 13px 'Sora';cursor:pointer;">Unduh PowerPoint</button>
+      <div id="mbxStatus" style="font-size:11.5px;color:#9A9B93;margin-top:8px;min-height:14px;">${moodExp.status||''}</div>
+    `;
+    container.appendChild(ex);
+    const ti = ex.querySelector('#mbxTitle'), ms = ex.querySelector('#mbxMsg');
+    ti.value = moodExp.title; ms.value = moodExp.msg;
+    ti.addEventListener('input', () => { moodExp.title = ti.value; });
+    ms.addEventListener('input', () => { moodExp.msg = ms.value; });
+    ex.querySelector('#mbxNotes').addEventListener('change', e => { moodExp.notes = e.target.checked; });
+    const chipsWrap = ex.querySelector('#mbxCats');
+    MOOD_CATS.filter(c => counts[c]).forEach(c => {
+      const b = document.createElement('button');
+      const paint = () => { b.className = 'mb-chip' + (!moodExp.excl.has(c) ? ' on' : ''); b.textContent = `${c} ${counts[c]}`; };
+      paint();
+      b.addEventListener('click', () => { if(moodExp.excl.has(c)) moodExp.excl.delete(c); else moodExp.excl.add(c); paint(); });
+      chipsWrap.appendChild(b);
+    });
+    const btn = ex.querySelector('#mbxBtn'), st = ex.querySelector('#mbxStatus');
+    btn.addEventListener('click', async () => {
+      if(moodExp.busy) return;
+      moodExp.busy = true; btn.disabled = true; btn.style.opacity = '.6';
+      st.style.color = '#9A9B93'; st.textContent = 'Menyiapkan file PowerPoint...';
+      try{
+        await exportMoodboardPptx();
+        moodExp.status = 'File berhasil diunduh. Cek folder Unduhan di HP atau laptop.';
+        st.style.color = '#3E7A4E';
+      }catch(e){
+        console.error('Ekspor moodboard gagal', e);
+        moodExp.status = 'Gagal: ' + (e && e.message ? e.message : 'coba lagi');
+        st.style.color = '#C4574A';
+      }
+      st.textContent = moodExp.status;
+      moodExp.busy = false; btn.disabled = false; btn.style.opacity = '1';
+    });
+  }
 
   // Filter kategori
   if(moodboard.length > 0){
@@ -1030,6 +1190,7 @@ function renderBudgetDetailModal(sheet, row){
         detailsWrap.innerHTML = '';
         (sub.details||[]).forEach((det, detIdx) => {
           const dRow = document.createElement('div');
+          ensureDps(det);
           dRow.className = 'detail-row';
           dRow.innerHTML = `
             <div class="detail-row-fields">
@@ -1040,7 +1201,8 @@ function renderBudgetDetailModal(sheet, row){
               <input type="text" class="phone" placeholder="No HP" value="${(det.phone||'').replace(/"/g,'&quot;')}">
               <input type="number" class="price" placeholder="Nominal" value="${det.price||0}">
               <select class="status">
-                <option value="Belum" ${det.status!=='Sudah'?'selected':''}>Belum dibayar</option>
+                <option value="Belum" ${(det.status!=='Sudah' && det.status!=='DP')?'selected':''}>Belum dibayar</option>
+                <option value="DP" ${det.status==='DP'?'selected':''}>DP</option>
                 <option value="Sudah" ${det.status==='Sudah'?'selected':''}>Sudah dibayar</option>
               </select>
             </div>
@@ -1049,9 +1211,20 @@ function renderBudgetDetailModal(sheet, row){
               <input type="number" class="qty" min="0" placeholder="Jml tamu (${Number(data.guestTarget)||0})" value="${det.qty||''}" style="width:120px;${det.perOrang?'':'display:none;'}">
               <div class="pp-total" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
             </div>
-            <div class="detail-row-fields detail-dp-row" style="margin-top:6px;align-items:center;">
-              <input type="number" class="dp" placeholder="DP / uang muka (Rp)" min="0" value="${det.dp||''}">
-              <div class="dp-sisa" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
+            <div class="detail-dp-block" style="margin-top:10px;">
+              <div style="font-size:11px;opacity:.7;">Pembayaran bertahap</div>
+              ${[0,1,2].map(i => `
+              <div class="detail-row-fields" style="margin-top:6px;align-items:center;">
+                <span style="width:40px;font-size:12px;">DP ${i+1}</span>
+                <input type="number" class="dpamt" data-i="${i}" placeholder="Nominal" min="0" value="${det.dps[i].amt||''}" style="width:105px;">
+                <select class="dpsrc" data-i="${i}" style="flex:1;min-width:120px;">${danaOptionsHtml(det.dps[i].src)}</select>
+              </div>`).join('')}
+              <div class="detail-row-fields" style="margin-top:6px;align-items:center;">
+                <span style="width:40px;font-size:12px;">Lunas</span>
+                <div class="lunas-amt" style="width:105px;font-size:12px;"></div>
+                <select class="lunassrc" style="flex:1;min-width:120px;">${danaOptionsHtml(det.lunasSrc)}</select>
+              </div>
+              <div class="dp-sisa" style="font-size:12px;opacity:.75;text-align:right;margin-top:5px;"></div>
             </div>
             <div class="detail-due" style="margin-top:6px;">
               <label style="font-size:11px;opacity:.7;display:block;margin-bottom:3px;">Jatuh tempo pelunasan</label>
@@ -1066,7 +1239,8 @@ function renderBudgetDetailModal(sheet, row){
           const phoneI = dRow.querySelector('.phone');
           const priceI = dRow.querySelector('.price');
           const statusI = dRow.querySelector('.status');
-          const dpI = dRow.querySelector('.dp');
+          const lunasAmt = dRow.querySelector('.lunas-amt');
+          const lunasSrcI = dRow.querySelector('.lunassrc');
           const dueI = dRow.querySelector('.due');
           const ppI = dRow.querySelector('.pp');
           const qtyI = dRow.querySelector('.qty');
@@ -1081,12 +1255,12 @@ function renderBudgetDetailModal(sheet, row){
           }
           const dpSisa = dRow.querySelector('.dp-sisa');
           function refreshDp(){
-            const price = detailTotal(det), dp = Number(det.dp)||0;
-            if(det.status === 'Sudah'){ dpSisa.textContent = 'Lunas'; dpI.disabled = true; }
-            else {
-              dpI.disabled = false;
-              dpSisa.textContent = dp > price && price > 0 ? 'DP melebihi harga!' : (dp > 0 ? `Sisa ${rupiah(Math.max(price-dp,0))}` : '');
-            }
+            const price = detailTotal(det), dpSum = detailDpSum(det);
+            const sisa = Math.max(price - dpSum, 0);
+            lunasAmt.textContent = rupiah(sisa);
+            if(det.status === 'Sudah') dpSisa.textContent = 'Lunas';
+            else if(dpSum > price && price > 0) dpSisa.textContent = 'DP melebihi harga!';
+            else dpSisa.textContent = dpSum > 0 ? `Sudah DP ${rupiah(dpSum)} · sisa ${rupiah(sisa)}` : '';
           }
           function refreshTotals(){
             refreshPp();
@@ -1101,7 +1275,13 @@ function renderBudgetDetailModal(sheet, row){
           ppI.addEventListener('change', e => { det.perOrang = e.target.checked; scheduleSave(); refreshTotals(); });
           qtyI.addEventListener('input', e => { det.qty = e.target.value; scheduleSave(); refreshTotals(); });
           dueI.addEventListener('input', e => { det.dueDate = e.target.value; scheduleSave(); });
-          dpI.addEventListener('input', e => { det.dp = e.target.value; scheduleSave(); refreshTotals(); });
+          dRow.querySelectorAll('.dpamt').forEach(inp => inp.addEventListener('input', e => {
+            det.dps[Number(inp.dataset.i)].amt = e.target.value;
+            if(det.status !== 'Sudah'){ det.status = detailDpSum(det) > 0 ? 'DP' : 'Belum'; statusI.value = det.status; }
+            scheduleSave(); refreshTotals();
+          }));
+          dRow.querySelectorAll('.dpsrc').forEach(sl => sl.addEventListener('change', e => { det.dps[Number(sl.dataset.i)].src = e.target.value; scheduleSave(); }));
+          lunasSrcI.addEventListener('change', e => { det.lunasSrc = e.target.value; scheduleSave(); });
           statusI.addEventListener('change', e => { det.status = e.target.value; scheduleSave(); refreshTotals(); });
           refreshPp();
           refreshDp();
@@ -1118,7 +1298,7 @@ function renderBudgetDetailModal(sheet, row){
       addDetailBtn.textContent = '+ Tambah rincian';
       addDetailBtn.addEventListener('click', () => {
         if(!Array.isArray(sub.details)) sub.details = [];
-        sub.details.push({id: detailUid(), name:'', link:'', phone:'', price:0, dp:0, dueDate:'', status:'Belum', perOrang:false, qty:''});
+        sub.details.push({id: detailUid(), name:'', link:'', phone:'', price:0, dps:[{amt:0,src:''},{amt:0,src:''},{amt:0,src:''}], lunasSrc:'', dueDate:'', status:'Belum', perOrang:false, qty:''});
         scheduleSave(); renderDetails();
       });
       subBody.appendChild(addDetailBtn);
@@ -1445,7 +1625,7 @@ function migrateVendorsToBudget(){
     let si = row.subItems.find(x => x.name === 'Dari tab Vendor');
     if(!si){ si = {id:'sv_'+uid(), name:'Dari tab Vendor', open:false, details:[]}; row.subItems.push(si); }
     if(!Array.isArray(si.details)) si.details = [];
-    si.details.push({id:did, name:(v.name||'') + (v.package ? ' – '+v.package : ''), link:v.link||'', phone:v.contact||'', price:0, dp:0, dueDate:'', status:'Belum'});
+    si.details.push({id:did, name:(v.name||'') + (v.package ? ' – '+v.package : ''), link:v.link||'', phone:v.contact||'', price:0, dps:[{amt:0,src:''},{amt:0,src:''},{amt:0,src:''}], lunasSrc:'', dueDate:'', status:'Belum'});
     changed = true;
   });
   delete data.vendor;
@@ -1461,6 +1641,7 @@ function normalizeData(remote){
   });
   data.dokumen = migrateDokumenSides(data.dokumen);
   migrateVendorsToBudget();
+  normalizeDetails();
   delete data.pembayaran; // menu Pembayaran sudah digabung ke Budget (DP & jatuh tempo per rincian)
   if(!data.name1) data.name1 = 'Pengantin Wanita';
   if(!data.name2) data.name2 = 'Pengantin Pria';
@@ -1726,10 +1907,93 @@ function detailTotal(d){
   return p * q;
 }
 // Nominal yang sudah dibayar untuk 1 rincian: lunas = seluruh harga, kalau belum lunas = DP (maks. sebesar harga)
+// Sumber dana pembayaran: s1 = tabungan pengantin 1 (name1), s2 = tabungan pengantin 2 (name2)
+function danaLabel(k){
+  if(k === 's1') return 'Tabungan ' + (data.name1 || 'Pasangan 1');
+  if(k === 's2') return 'Tabungan ' + (data.name2 || 'Pasangan 2');
+  return '';
+}
+function danaOptionsHtml(sel){
+  return '<option value="">Sumber dana…</option>' + ['s1','s2'].map(k => `<option value="${k}" ${sel===k?'selected':''}>${danaLabel(k)}</option>`).join('');
+}
+// Pastikan 1 rincian punya 3 slot DP (nominal + sumber dana). Data lama (satu kolom 'dp') dipindah ke DP 1.
+function ensureDps(d){
+  if(!Array.isArray(d.dps)) d.dps = [{amt:Number(d.dp)||0, src:''}];
+  delete d.dp;
+  while(d.dps.length < 3) d.dps.push({amt:0, src:''});
+  if(d.lunasSrc === undefined) d.lunasSrc = '';
+  // sumber ke-3 sudah dihapus: pilihan lama dikosongkan
+  d.dps.forEach(x => { if(x.src === 's3') x.src = ''; });
+  if(d.lunasSrc === 's3') d.lunasSrc = '';
+  return d;
+}
+function detailDpSum(d){
+  ensureDps(d);
+  return d.dps.reduce((s,x) => s + Math.max(0, Number(x.amt)||0), 0);
+}
 function detailPaid(d){
   const p = detailTotal(d);
   if(d.status === 'Sudah') return p;
-  return Math.min(Math.max(Number(d.dp)||0, 0), p);
+  return Math.min(detailDpSum(d), p);
+}
+// DP 1-3 dialokasikan berurutan dan dibatasi sebesar harga, supaya total terpakai per sumber selalu sama dengan total "sudah dibayar"
+function dpAllocations(d){
+  ensureDps(d);
+  let remaining = detailTotal(d);
+  const out = [];
+  d.dps.forEach(x => {
+    const want = Math.max(0, Number(x.amt)||0);
+    const a = Math.min(want, Math.max(0, remaining));
+    if(a > 0){ out.push({src:x.src, amt:a}); remaining -= a; }
+  });
+  return out;
+}
+// Pemakaian dana per sumber: DP 1-3 sesuai sumber masing-masing; pelunasan (sisa) hanya dihitung kalau status Sudah dibayar
+function computeFundUsage(){
+  const use = {s1:0, s2:0, none:0};
+  const add = (src, amt) => { use[(src && use.hasOwnProperty(src)) ? src : 'none'] += amt; };
+  data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
+    const p = detailTotal(d);
+    let dpSum = 0;
+    dpAllocations(d).forEach(x => { dpSum += x.amt; add(x.src, x.amt); });
+    if(d.status === 'Sudah'){ const rest = Math.max(0, p - dpSum); if(rest > 0) add(d.lunasSrc, rest); }
+  })));
+  return use;
+}
+// Rencana beban per sumber: DP sesuai sumbernya + sisa pelunasan ke sumber yang dipilih di baris Lunas
+// (dihitung walau belum dibayar, supaya kelihatan seberapa besar tabungan tiap orang sudah "terikat").
+function computeFundPlan(){
+  const plan = {s1:0, s2:0, none:0};
+  data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
+    const p = detailTotal(d);
+    let dpSum = 0;
+    dpAllocations(d).forEach(x => { dpSum += x.amt; plan[(x.src && plan.hasOwnProperty(x.src)) ? x.src : 'none'] += x.amt; });
+    const rest = Math.max(0, p - dpSum);
+    if(rest > 0 && d.lunasSrc && plan.hasOwnProperty(d.lunasSrc)) plan[d.lunasSrc] += rest;
+  })));
+  return plan;
+}
+// Ringkasan sumber dana untuk Beranda & Tabungan (satu sumber kebenaran)
+function fundSummary(){
+  const use = computeFundUsage(), plan = computeFundPlan();
+  const kumpul = {
+    s1: data.tabungan.reduce((x,r) => x + (Number(r.actualMe)||0), 0),
+    s2: data.tabungan.reduce((x,r) => x + (Number(r.actualPartner)||0), 0),
+  };
+  const total = data.budget.reduce((x,b) => x + budgetItemTotals(b).total, 0);
+  const alokasi = plan.s1 + plan.s2;
+  return {use, plan, kumpul,
+    tanpaSumber: use.none, belumDialokasi: Math.max(0, total - alokasi)};
+}
+// Status satu rincian: 'lunas' | 'dp' | 'belum'
+function detailState(d){
+  const p = detailTotal(d), paid = detailPaid(d);
+  if(d.status === 'Sudah' || (p > 0 && paid >= p)) return 'lunas';
+  if(paid > 0) return 'dp';
+  return 'belum';
+}
+function normalizeDetails(){
+  data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(ensureDps)));
 }
 // Jatuh tempo terdekat dari rincian yang belum lunas (untuk 1 item budget, atau semua item bila row tidak diisi)
 function nearestDueDetail(rows){
@@ -1899,6 +2163,16 @@ function computeChecklist(){
   const rincianMissing = data.budget.filter(b => !(b.subItems||[]).length).length;
   items.push({label: `Rincian item budget belum lengkap (${rincianMissing} dari ${data.budget.length} item belum ada rincian)`, done: rincianMissing===0, tab:'budget'});
   items.push({label:'Tabungan belum mulai dicatat', done: data.tabungan.length>0, tab:'tabungan'});
+  {
+    const fs = fundSummary();
+    items.push({label:`${rupiah(fs.tanpaSumber)} sudah dibayar tapi sumber dananya belum dipilih`, done: fs.tanpaSumber === 0, tab:'budget'});
+    ['s1','s2'].forEach(k => {
+      items.push({label:`${danaLabel(k)} kurang ${rupiah(Math.max(0, fs.plan[k]-fs.kumpul[k]))} untuk rencana pembayaran`, done: fs.plan[k] <= fs.kumpul[k], tab:'tabungan'});
+    });
+    let dpLebih = 0;
+    data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(dt => { if(detailTotal(dt) > 0 && detailDpSum(dt) > detailTotal(dt)) dpLebih++; })));
+    items.push({label:`${dpLebih} rincian punya DP melebihi harga`, done: dpLebih === 0, tab:'budget'});
+  }
   items.push({label:'Daftar tamu belum diisi', done: data.tamu.length>0, tab:'tamu'});
   const roadmapBelum = data.roadmap.filter(r => r.status !== 'Selesai').length;
   items.push({label:`Roadmap persiapan belum selesai semua (${roadmapBelum} item belum selesai)`, done: roadmapBelum===0, tab:'roadmap'});
@@ -2010,6 +2284,41 @@ function renderDashboard(container){
     });
   }
 
+  // ==== Kartu rincian budget (status + per item) ====
+  {
+    const st = {lunas:0, dp:0, belum:0};
+    data.budget.forEach(b => (b.subItems||[]).forEach(si => (si.details||[]).forEach(dt => { st[detailState(dt)]++; })));
+    const rows = data.budget.map(b => ({b, t:budgetItemTotals(b), badge:budgetStatusBadge(b)})).filter(x => x.t.total > 0)
+      .sort((a,c) => c.t.belum - a.t.belum);
+    const tanpaRincian = data.budget.filter(b => !(b.subItems||[]).length).length;
+    const card = document.createElement('div');
+    card.className = 'nd-card';
+    card.style.cursor = 'pointer';
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">RINCIAN BUDGET</div><div style="font-size:10px;color:#9A9B93;">urut sisa terbesar</div></div>
+      <div class="nd-chiprow">
+        <div class="nd-chip"><div class="nd-chip-lbl">Lunas</div><div class="nd-chip-val">${st.lunas}</div></div>
+        <div class="nd-chip"><div class="nd-chip-lbl">Sudah DP</div><div class="nd-chip-val">${st.dp}</div></div>
+        <div class="nd-chip"><div class="nd-chip-lbl">Belum bayar</div><div class="nd-chip-val">${st.belum}</div></div>
+      </div>`;
+    if(rows.length === 0){
+      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#9A9B93;line-height:1.5;">Belum ada rincian berisi nominal. Isi lewat tab Budget → Kelola Detail Rincian.</div>`;
+    } else {
+      rows.slice(0,6).forEach(x => {
+        const pct = x.t.total > 0 ? Math.min(100, Math.round((x.t.paid/x.t.total)*100)) : 0;
+        const col = x.badge.cls==='s-done' ? '#3E7A4E' : x.badge.cls==='s-mid' ? '#9C7A1E' : '#9A9B93';
+        h += `<div style="padding:10px 0;border-top:1px solid #EFEBE2;margin-top:8px;">
+          <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline;"><span style="font:700 12.5px 'Sora';color:#181B17;">${x.b.item||'(tanpa nama)'}</span><span style="font:700 10.5px 'Sora';color:${col};">${x.badge.text}</span></div>
+          <div class="nd-bar-track" style="height:5px;margin-top:7px;"><div class="nd-bar-fill" style="width:${pct}%"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#9A9B93;margin-top:5px;"><span>Dibayar ${rupiah(x.t.paid)} dari ${rupiah(x.t.total)}</span><span>Sisa ${rupiah(x.t.belum)}</span></div></div>`;
+      });
+      if(rows.length > 6) h += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${rows.length-6} item lagi di tab Budget</div>`;
+    }
+    if(tanpaRincian > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${tanpaRincian} item Budget belum punya rincian.</div>`;
+    card.innerHTML = h;
+    card.addEventListener('click', () => goToTab('budget'));
+    container.appendChild(card);
+  }
+
   // ==== Kartu ringkasan pembayaran ====
   const cardBayar = document.createElement('div');
   cardBayar.className = 'nd-card';
@@ -2047,6 +2356,26 @@ function renderDashboard(container){
     cardNab.innerHTML = `<div class="nd-card-hdr">TARGET NABUNG</div>` + body;
     cardNab.addEventListener('click', () => goToTab('tabungan'));
     container.appendChild(cardNab);
+  }
+
+  // ==== Kartu sumber dana ====
+  {
+    const fs = fundSummary();
+    const card = document.createElement('div');
+    card.className = 'nd-card';
+    card.style.cursor = 'pointer';
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:10px;color:#9A9B93;">terkumpul · rencana · terpakai</div></div>`;
+    ['s1','s2'].forEach(k => {
+      const sisa = fs.kumpul[k] - fs.plan[k];
+      const neg = sisa < 0;
+      h += `<div style="padding:10px 0;border-top:1px solid #EFEBE2;margin-top:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 12.5px 'Sora';">${danaLabel(k)}</span><span style="font:700 11.5px 'Sora';color:${neg?'#C4574A':'#3E7A4E'};">${neg ? 'Kurang ' + rupiah(-sisa) : 'Sisa ' + rupiah(sisa)}</span></div>
+        <div style="font-size:11px;color:#9A9B93;margin-top:4px;">Terkumpul ${rupiah(fs.kumpul[k])} · rencana ${rupiah(fs.plan[k])} · terpakai ${rupiah(fs.use[k])}</div></div>`;
+    });
+    if(fs.belumDialokasi > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${rupiah(fs.belumDialokasi)} dari total belum dipilih sumber dananya di rincian Budget.</div>`;
+    card.innerHTML = h;
+    card.addEventListener('click', () => goToTab('tabungan'));
+    container.appendChild(card);
   }
 
   // ==== Kartu alokasi bertingkat ====
@@ -2105,6 +2434,8 @@ function renderDashboard(container){
     {label:'ROADMAP', val: `${d.selesai}/${d.totalRoadmap}`, go:'roadmap'},
     {label:'DOKUMEN', val: `${d.dokSelesai}/${d.totalDokumen}`, go:'dokumen'},
     {label:'RINCIAN LUNAS', val: `${d.rincianLunas}/${d.rincianTotal}`, go:'budget'},
+    {label:'TAMU HADIR', val: `${d.tamuConfirmed}/${d.tamuTotal}`, go:'tamu'},
+    {label:'MOODBOARD', val: `${moodboard.length} foto`, go:'moodboard'},
     {label:'TIMELINE', val: `${data.timeline.filter(t=>t.status==='Selesai').length}/${data.timeline.length}`, go:'timeline'},
   ];
   progItems.forEach(p => {
@@ -2125,9 +2456,10 @@ function renderDashboard(container){
   if(belumItems.length === 0){
     checkHtml += `<div style="padding:14px 0;color:#3E7A4E;font-weight:600;font-size:13px;">Semua bagian sudah diisi. Mantap!</div>`;
   } else {
-    belumItems.slice(0,4).forEach((it,i) => {
+    belumItems.slice(0,6).forEach((it,i) => {
       checkHtml += `<div class="nd-check-row" data-idx="${i}"><div class="nd-check-box"></div><div class="nd-check-label">${it.label}</div><div class="nd-check-arrow">→</div></div>`;
     });
+    if(belumItems.length > 6) checkHtml += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;">+ ${belumItems.length-6} hal lagi yang belum lengkap</div>`;
   }
   cardCheck.innerHTML = checkHtml;
   container.appendChild(cardCheck);
@@ -2254,6 +2586,30 @@ function renderTabunganSectionND(container){
     ${saranTabungan ? `<div style="font-size:12px;line-height:1.5;margin-top:12px;color:var(--nd-deep-ink);font-weight:600;">✦ ${saranTabungan.text}</div>` : ''}
   `;
   container.appendChild(header);
+
+  // Kartu sumber dana: tabungan terkumpul vs terpakai (dari DP/pelunasan di rincian Budget)
+  {
+    const use = computeFundUsage();
+    const plan = computeFundPlan();
+    const kumpul = {
+      s1: data.tabungan.reduce((s,r) => s + (Number(r.actualMe)||0), 0),
+      s2: data.tabungan.reduce((s,r) => s + (Number(r.actualPartner)||0), 0),
+    };
+    const card = document.createElement('div');
+    card.className = 'nd-card';
+    let h = `<div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:11px;color:#9A9B93;margin-top:4px;">Terpakai = DP dan pelunasan yang sudah dibayar dari tabungan masing-masing.</div>`;
+    ['s1','s2'].forEach(k => {
+      const sisa = kumpul[k] - use[k];
+      const neg = sisa < 0;
+      h += `<div style="padding:11px 0;border-top:1px solid #EFEBE2;margin-top:10px;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 13px 'Sora';">${danaLabel(k)}</span>
+        <span style="font:700 12px 'Sora';color:${neg?'#C4574A':'#3E7A4E'};">${neg ? 'Kurang ' + rupiah(-sisa) : 'Sisa ' + rupiah(sisa)}</span></div>
+        <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;">Terkumpul ${rupiah(kumpul[k])} · terpakai ${rupiah(use[k])}</div></div>`;
+    });
+    if(use.none > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${rupiah(use.none)} sudah dibayar tapi sumber dananya belum dipilih.</div>`;
+    card.innerHTML = h;
+    container.appendChild(card);
+  }
 
   const listWrap = document.createElement('div');
   listWrap.style.marginTop = '12px';
@@ -4210,7 +4566,7 @@ function renderPengaturanSection(container){
       data[k].forEach(r => { if(!r.id) r.id = uid(); if(r.open === undefined) r.open = false; if(k==='budget' && !Array.isArray(r.subItems)) r.subItems = []; });
     });
     data.dokumen = migrateDokumenSides(data.dokumen);
-    migrateVendorsToBudget(); delete data.pembayaran;
+    migrateVendorsToBudget(); normalizeDetails(); delete data.pembayaran;
     scheduleSave();
     msg.textContent = 'Data berhasil diimpor.';
     msg.style.color = 'var(--sage)';
