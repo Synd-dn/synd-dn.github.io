@@ -404,7 +404,7 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-palette-lbl{font-size:11.5px;color:#6E6F68;margin-top:7px;font-weight:700;}
 .nd-palette-apply{margin:20px 22px 0;text-align:center;padding:16px;border-radius:100px;background:var(--nd-grad);color:#fff;font:700 13.5px 'Sora';cursor:pointer;box-shadow:0 12px 26px -8px var(--nd-shadow);border:none;width:calc(100% - 44px);font-family:inherit;}
 
-.nd-toast{position:fixed;left:16px;right:16px;bottom:88px;max-width:428px;margin:0 auto;background:#181B17;color:#fff;border-radius:16px;padding:14px 17px;font:700 12.5px 'Sora';box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:60;display:none;}
+.nd-toast{z-index:1200 !important;position:fixed;left:16px;right:16px;bottom:88px;max-width:428px;margin:0 auto;background:#181B17;color:#fff;border-radius:16px;padding:14px 17px;font:700 12.5px 'Sora';box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:60;display:none;}
 .nd-toast.show{display:block;}
 
 /* ===== Keselarasan tampilan: Pengaturan, popup & komponen lama ikut gaya Beranda ===== */
@@ -526,6 +526,25 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #modalOverlay .rc-today{white-space:nowrap;}
 #modalOverlay .rc-field > label span{white-space:nowrap;}
 #modalOverlay .rc-seg .seg-st{padding:10px 2px;font-size:11.5px;white-space:nowrap;}
+
+
+/* ===== Daftar rincian ringkas + tombol Detail ===== */
+#modalOverlay .rc-item{margin-top:10px;border:1px solid #ECE7DF;border-radius:18px;background:#fff;overflow:hidden;}
+#modalOverlay .rc-item.open{border-color:var(--nd-accent);box-shadow:0 8px 20px -14px var(--nd-shadow);}
+#modalOverlay .rc-sum{display:flex;align-items:center;gap:10px;padding:12px;}
+#modalOverlay .rc-sum-main{flex:1;min-width:0;cursor:pointer;}
+#modalOverlay .rc-sum-name{font:700 14px 'Sora',sans-serif;color:#181B17;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#modalOverlay .rc-sum-name.empty{color:#8A8B83;font-weight:600;font-style:italic;}
+#modalOverlay .rc-sum-sub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;margin-top:5px;font-size:12px;color:#4B4C46;font-weight:600;}
+#modalOverlay .rc-sum-due{color:#6F7068;font-weight:500;}
+#modalOverlay .rc-chip{font-size:10.5px;font-weight:800;padding:3px 8px;border-radius:100px;}
+#modalOverlay .rc-chip-lunas{background:#EAF4E8;color:#2F6B40;}
+#modalOverlay .rc-chip-dp{background:#FBF0D6;color:#8A6112;}
+#modalOverlay .rc-chip-belum{background:#F1EEE7;color:#6F7068;}
+#modalOverlay .rc-copy{margin-top:7px;border:1px solid #DDD8CE;background:#fff;color:var(--nd-accent);border-radius:100px;padding:5px 11px;font:700 11.5px 'Plus Jakarta Sans',sans-serif;cursor:pointer;}
+#modalOverlay .rc-detail{flex:none;border:none;background:#F1EEE7;color:#4B4C46;border-radius:100px;padding:9px 13px;font:800 12px 'Plus Jakarta Sans',sans-serif;cursor:pointer;white-space:nowrap;}
+#modalOverlay .rc-item.open .rc-detail{background:var(--nd-grad);color:#fff;}
+#modalOverlay .rc-item .rc-full{margin:0;padding:4px 12px 12px;border-top:1px solid #F0ECE4;background:#FDFCFA;}
 
 /* ===== Cetak ringkasan ===== */
 #printArea{display:none;}
@@ -1288,7 +1307,18 @@ function renderPanduanModal(sheet){
   sheet.appendChild(content);
 }
 
+const rcOpen = new Set(); // id rincian yang sedang dibuka lengkap (hanya di layar, tidak disimpan)
+async function copyText(t){
+  try{ await navigator.clipboard.writeText(t); return true; }
+  catch(e){
+    const ta = document.createElement('textarea'); ta.value = t; ta.style.cssText = 'position:fixed;opacity:0;top:0;left:0;';
+    document.body.appendChild(ta); ta.focus(); ta.select(); let ok = false;
+    try{ ok = document.execCommand('copy'); }catch(e2){}
+    document.body.removeChild(ta); return ok;
+  }
+}
 function openBudgetDetailModal(row){
+  rcOpen.clear();
   if(!Array.isArray(row.subItems)) row.subItems = [];
   openModal((sheet) => renderBudgetDetailModal(sheet, row));
 }
@@ -1357,9 +1387,11 @@ function renderBudgetDetailModal(sheet, row){
       function renderDetails(){
         detailsWrap.innerHTML = '';
         (sub.details||[]).forEach((det, detIdx) => {
+          const item = document.createElement('div');
+          item.className = 'rc-item';
           const dRow = document.createElement('div');
           ensureDps(det);
-          dRow.className = 'detail-row';
+          dRow.className = 'detail-row rc-full';
           dRow.innerHTML = `
             <div class="rc-field"><label>Nama rincian</label><input type="text" class="name" placeholder="Misal: Sajadah, Paket Prasmanan" value="${esc(det.name||'')}"></div>
             <div class="rc-grid2">
@@ -1413,6 +1445,44 @@ function renderBudgetDetailModal(sheet, row){
               <button class="detail-del">Hapus rincian</button>
             </div>
           `;
+          // ----- Baris ringkas (nama, harga, status, salin link, tombol Detail) -----
+          const sum = document.createElement('div');
+          sum.className = 'rc-sum';
+          sum.innerHTML = `
+            <div class="rc-sum-main" role="button" tabindex="0">
+              <div class="rc-sum-name"></div>
+              <div class="rc-sum-sub"></div>
+              <button type="button" class="rc-copy" style="display:none;">Salin link</button>
+            </div>
+            <button type="button" class="rc-detail" aria-expanded="false">Detail ▾</button>`;
+          const sName = sum.querySelector('.rc-sum-name'), sSub = sum.querySelector('.rc-sum-sub'), copyBtn = sum.querySelector('.rc-copy'), detailBtn = sum.querySelector('.rc-detail');
+          function refreshSum(){
+            sName.textContent = det.name || '(belum diberi nama)';
+            sName.classList.toggle('empty', !det.name);
+            const st = detailState(det);
+            const lbl = {lunas:'Lunas', dp:'Sudah DP', belum:'Belum dibayar'}[st];
+            sSub.innerHTML = `<span class="rc-sum-price">${esc(rupiah(detailTotal(det)))}</span><span class="rc-chip rc-chip-${st}">${lbl}</span>` +
+              (det.dueDate && st !== 'lunas' ? `<span class="rc-sum-due">Tempo ${esc(formatTanggalPendekND(det.dueDate))}</span>` : '');
+            copyBtn.style.display = (det.link || '').trim() ? '' : 'none';
+          }
+          function setOpen(o){
+            if(o) rcOpen.add(det.id); else rcOpen.delete(det.id);
+            dRow.style.display = o ? '' : 'none';
+            item.classList.toggle('open', o);
+            detailBtn.textContent = o ? 'Tutup ▴' : 'Detail ▾';
+            detailBtn.setAttribute('aria-expanded', String(o));
+          }
+          detailBtn.addEventListener('click', () => setOpen(!rcOpen.has(det.id)));
+          sum.querySelector('.rc-sum-main').addEventListener('click', (ev) => { if(ev.target.closest('.rc-copy')) return; setOpen(!rcOpen.has(det.id)); });
+          sum.querySelector('.rc-sum-main').addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); setOpen(!rcOpen.has(det.id)); } });
+          copyBtn.addEventListener('click', async (ev) => {
+            ev.stopPropagation();
+            const ok = await copyText((det.link || '').trim());
+            copyBtn.textContent = ok ? 'Tersalin ✓' : 'Gagal, salin manual';
+            setTimeout(() => { copyBtn.textContent = 'Salin link'; }, 1600);
+          });
+          item.appendChild(sum);
+          item.appendChild(dRow);
           const nameI = dRow.querySelector('.name');
           const linkI = dRow.querySelector('.link');
           const phoneI = dRow.querySelector('.phone');
@@ -1465,16 +1535,17 @@ function renderBudgetDetailModal(sheet, row){
             refreshPp();
             refreshDp();
             paintSeg();
+            refreshSum();
             subCard.querySelector('.subitem-total').textContent = `${sub.details.length} rincian · ${rupiah(sub.details.reduce((s,d)=>s+(detailTotal(d)),0))}`;
             updateModalSummary();
           }
-          nameI.addEventListener('input', e => { det.name = e.target.value; scheduleSave(); });
-          linkI.addEventListener('input', e => { det.link = e.target.value; scheduleSave(); });
+          nameI.addEventListener('input', e => { det.name = e.target.value; scheduleSave(); refreshSum(); });
+          linkI.addEventListener('input', e => { det.link = e.target.value; scheduleSave(); refreshSum(); });
           phoneI.addEventListener('input', e => { det.phone = e.target.value; scheduleSave(); });
           priceI.addEventListener('input', e => { det.price = e.target.value; scheduleSave(); refreshTotals(); });
           ppI.addEventListener('change', e => { det.perOrang = e.target.checked; scheduleSave(); refreshTotals(); });
           qtyI.addEventListener('input', e => { det.qty = e.target.value; scheduleSave(); refreshTotals(); });
-          dueI.addEventListener('input', e => { det.dueDate = e.target.value; scheduleSave(); });
+          dueI.addEventListener('input', e => { det.dueDate = e.target.value; scheduleSave(); refreshSum(); });
           const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
           dRow.querySelectorAll('.dpdate').forEach(inp => inp.addEventListener('input', e => { det.dps[Number(inp.dataset.i)].date = e.target.value; scheduleSave(); }));
           dRow.querySelector('.lunasdate').addEventListener('input', e => { det.lunasDate = e.target.value; scheduleSave(); });
@@ -1507,10 +1578,12 @@ function renderBudgetDetailModal(sheet, row){
           refreshDp();
           paintSeg();
           updateDpVis();
+          refreshSum();
+          setOpen(rcOpen.has(det.id));
           dRow.querySelector('.detail-del').addEventListener('click', () => {
             sub.details.splice(detIdx,1); scheduleSave(); renderDetails(); refreshTotals();
           });
-          detailsWrap.appendChild(dRow);
+          detailsWrap.appendChild(item);
         });
       }
       renderDetails();
@@ -1520,7 +1593,8 @@ function renderBudgetDetailModal(sheet, row){
       addDetailBtn.textContent = '+ Tambah rincian';
       addDetailBtn.addEventListener('click', () => {
         if(!Array.isArray(sub.details)) sub.details = [];
-        sub.details.push({id: detailUid(), name:'', link:'', phone:'', price:0, dps:[{amt:0,src:''},{amt:0,src:''},{amt:0,src:''}], lunasSrc:'', dueDate:'', status:'Belum', perOrang:false, qty:''});
+        const newId = detailUid(); rcOpen.add(newId);
+        sub.details.push({id: newId, name:'', link:'', phone:'', price:0, dps:[{amt:0,src:''},{amt:0,src:''},{amt:0,src:''}], lunasSrc:'', dueDate:'', status:'Belum', perOrang:false, qty:''});
         scheduleSave(); renderDetails();
       });
       subBody.appendChild(addDetailBtn);
