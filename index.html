@@ -548,9 +548,10 @@ body.nd-hide-blobs .nd-blob{display:none;}
 
 
 /* ===== Nama item budget: tap nama / pensil = ubah ===== */
-.bn-name{font:700 13.5px 'Sora',sans-serif;color:#181B17;border-bottom:1.5px dashed #D8D2C4;padding-bottom:1px;cursor:text;}
+.bn-name{font:700 13.5px 'Sora',sans-serif;color:#181B17;}
 .bn-edit{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#F1EEE7;color:var(--nd-accent);cursor:pointer;flex:none;}
-.bn-edit:hover,.bn-name:hover + .bn-edit{background:var(--nd-soft);}
+.bn-edit:hover{background:var(--nd-soft);}
+[data-rid]{scroll-margin-top:12px;}
 
 
 /* ===== Detail Rincian: versi ringkas (hemat tempat) ===== */
@@ -573,7 +574,6 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #modalOverlay .rc-sum-name{font-size:13.5px;}
 #modalOverlay .rc-sum-sub{margin-top:2px;gap:2px 6px;font-size:11.5px;}
 #modalOverlay .rc-chip{font-size:10px;padding:2px 7px;}
-#modalOverlay a.rc-open{text-decoration:none;display:inline-block;}
 #modalOverlay .rc-copy{margin:0;padding:2px 8px;font-size:10.5px;border-color:#E4DFD5;}
 #modalOverlay .rc-detail{padding:6px 11px;font-size:11.5px;}
 #modalOverlay .add-detail-btn{margin-top:6px;padding:8px;font-size:12px;border-radius:12px;}
@@ -589,6 +589,13 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #confirmOverlay .cf-btns button{flex:1;min-height:46px;border-radius:100px;font:800 13px 'Sora',sans-serif;cursor:pointer;border:none;}
 #confirmOverlay .cf-no{background:#F1EEE7;color:#4B4C46;}
 #confirmOverlay .cf-yes{background:#C4574A;color:#fff;}
+
+
+/* tombol aksi rincian: Buka + Detail, ukuran sama dan rata kanan */
+#modalOverlay .rc-acts{display:flex;align-items:center;gap:6px;flex:none;}
+#modalOverlay .rc-acts .rc-detail,#modalOverlay .rc-acts .rc-open{box-sizing:border-box;min-width:68px;height:34px;padding:0 10px;border-radius:100px;font:800 11.5px 'Plus Jakarta Sans',sans-serif;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;text-decoration:none;cursor:pointer;}
+#modalOverlay .rc-acts .rc-open{background:#fff;border:1.5px solid var(--nd-accent);color:var(--nd-accent);}
+#modalOverlay .rc-acts .rc-open:active{background:var(--nd-soft);}
 
 /* ===== Cetak ringkasan ===== */
 #printArea{display:none;}
@@ -866,11 +873,11 @@ Warna: **hijau** = aman/cukup, **kuning** = perlu perhatian atau belum lengkap, 
 
 ## Budget
 
-Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi langsung di item** — lewat **Detail Rincian**. Untuk **mengubah nama item**, tap namanya (atau ikon pensil di sebelahnya), nanti muncul popup kecil. Semua item dianggap penting, jadi tidak ada kategori atau catatan lagi. Untuk menghapus, buka item lalu tap **"Hapus item ini"** di bagian bawah (muncul popup konfirmasi "Ya, hapus / Batal" dulu). Perubahan tersimpan otomatis, jadi tidak perlu tombol Simpan.
+Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi langsung di item** — lewat **Detail Rincian**. Tap nama item untuk membuka/menutup kartunya (hanya satu kartu yang terbuka sekaligus, yang lain otomatis terlipat). Untuk **mengubah nama item**, tap **ikon pensil** di sebelah namanya, nanti muncul popup kecil. Semua item dianggap penting, jadi tidak ada kategori atau catatan lagi. Untuk menghapus, buka item lalu tap **"Hapus item ini"** di bagian bawah (muncul popup konfirmasi "Ya, hapus / Batal" dulu). Perubahan tersimpan otomatis, jadi tidak perlu tombol Simpan.
 
 1. Tap satu item Budget sampai terbuka, lalu tap **"Kelola Detail Rincian"**. Popup muncul dari bawah.
 2. Tambah **sub-item** (misal "Alat sholat"), lalu di dalamnya tambah **rincian** (misal "Sajadah").
-3. Di daftar rincian, kalau link toko sudah diisi muncul tombol **Salin** (copy link) dan **Buka ↗** (langsung buka di tab baru). Tiap rincian punya: **Nama, Link Toko/Vendor, No HP, Nominal, status bayar, DP, dan Jatuh tempo pelunasan**.
+3. Di daftar rincian, kalau link toko sudah diisi muncul tombol **Buka ↗** yang langsung membuka link itu di tab baru. Tiap rincian punya: **Nama, Link Toko/Vendor, No HP, Nominal, status bayar, DP, dan Jatuh tempo pelunasan**.
 4. Tekan **"Simpan"** di bawah popup kalau sudah selesai.
 
 Cara pakai bagian pembayaran:
@@ -1507,10 +1514,10 @@ function renderBudgetDetailModal(sheet, row){
               <div class="rc-sum-name"></div>
               <div class="rc-sum-sub"></div>
             </div>
-            <button type="button" class="rc-detail" aria-expanded="false">Detail ▾</button>`;
+            <div class="rc-acts"><button type="button" class="rc-detail" aria-expanded="false">Detail ▾</button></div>`;
           const sName = sum.querySelector('.rc-sum-name'), sSub = sum.querySelector('.rc-sum-sub'), detailBtn = sum.querySelector('.rc-detail');
-          const copyBtn = document.createElement('button'); copyBtn.type = 'button'; copyBtn.className = 'rc-copy'; copyBtn.textContent = 'Salin'; copyBtn.style.display = 'none';
-          const openBtn = document.createElement('a'); openBtn.className = 'rc-copy rc-open'; openBtn.textContent = 'Buka ↗'; openBtn.target = '_blank'; openBtn.rel = 'noopener noreferrer'; openBtn.style.display = 'none';
+          const openBtn = document.createElement('a'); openBtn.className = 'rc-open'; openBtn.textContent = 'Buka ↗'; openBtn.target = '_blank'; openBtn.rel = 'noopener noreferrer'; openBtn.style.display = 'none';
+          sum.querySelector('.rc-acts').insertBefore(openBtn, detailBtn);
           function refreshSum(){
             sName.textContent = det.name || '(belum diberi nama)';
             sName.classList.toggle('empty', !det.name);
@@ -1518,9 +1525,7 @@ function renderBudgetDetailModal(sheet, row){
             const lbl = {lunas:'Lunas', dp:'Sudah DP', belum:'Belum'}[st];
             sSub.innerHTML = `<span class="rc-sum-price">${esc(rupiah(detailTotal(det)))}</span><span class="rc-chip rc-chip-${st}">${lbl}</span>` +
               (det.dueDate && st !== 'lunas' ? `<span class="rc-sum-due">Tempo ${esc(formatTanggalPendekND(det.dueDate))}</span>` : '');
-            sSub.appendChild(copyBtn); sSub.appendChild(openBtn);
             const lk = (det.link || '').trim();
-            copyBtn.style.display = lk ? '' : 'none';
             // hanya http(s); kalau diketik tanpa awalan (mis. shopee.co.id/x) otomatis diberi https://
             const href = !lk ? '' : (/^https?:\/\//i.test(lk) ? lk : (/^[\w.-]+\.[a-z]{2,}/i.test(lk) && !/^[a-z][a-z0-9+.-]*:/i.test(lk) ? 'https://' + lk : ''));
             if(href){ openBtn.href = href; openBtn.style.display = ''; } else { openBtn.removeAttribute('href'); openBtn.style.display = 'none'; }
@@ -1533,14 +1538,8 @@ function renderBudgetDetailModal(sheet, row){
             detailBtn.setAttribute('aria-expanded', String(o));
           }
           detailBtn.addEventListener('click', () => setOpen(!rcOpen.has(det.id)));
-          sum.querySelector('.rc-sum-main').addEventListener('click', (ev) => { if(ev.target.closest('.rc-copy')) return; setOpen(!rcOpen.has(det.id)); });
+          sum.querySelector('.rc-sum-main').addEventListener('click', (ev) => { if(ev.target.closest('.rc-open')) return; setOpen(!rcOpen.has(det.id)); });
           sum.querySelector('.rc-sum-main').addEventListener('keydown', (ev) => { if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); setOpen(!rcOpen.has(det.id)); } });
-          copyBtn.addEventListener('click', async (ev) => {
-            ev.stopPropagation();
-            const ok = await copyText((det.link || '').trim());
-            copyBtn.textContent = ok ? 'Tersalin ✓' : 'Gagal';
-            setTimeout(() => { copyBtn.textContent = 'Salin'; }, 1600);
-          });
           item.appendChild(sum);
           item.appendChild(dRow);
           const nameI = dRow.querySelector('.name');
@@ -3986,7 +3985,7 @@ function renderBudgetSectionND(container){
     const isOpen = !!row.open;
     const miniPct = t.total > 0 ? Math.min(100, Math.round((t.paid/t.total)*100)) : 0;
 
-    const card = document.createElement('div');
+    const card = document.createElement('div'); card.dataset.rid = row.id;
     card.className = 'nd-card';
     card.style.padding = '0';
     card.style.overflow = 'hidden';
@@ -3996,7 +3995,7 @@ function renderBudgetSectionND(container){
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
         <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
-          <span class="bn-name" role="button" tabindex="0" title="Ubah nama item">${esc(row.item || '(belum diberi nama)')}</span>
+          <span class="bn-name">${esc(row.item || '(belum diberi nama)')}</span>
           <span class="bn-edit" role="button" tabindex="0" aria-label="Ubah nama item" title="Ubah nama item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
         </div>
         <div style="font-size:11.5px;color:#6F7068;margin-top:4px;">${rupiah(t.total)} · <span style="color:${badge.cls==='s-done'?'#3E7A4E':badge.cls==='s-mid'?'#9C7A1E':'#6F7068'};font-weight:600;">${badge.text}</span></div>
@@ -4005,10 +4004,17 @@ function renderBudgetSectionND(container){
       <div style="font-size:18px;color:var(--nd-accent);flex:none;transform:rotate(${isOpen?'45deg':'0deg'});transition:transform .15s;">+</div>
     `;
     head.addEventListener('click', (ev) => {
-      if(ev.target.closest('.bn-name, .bn-edit')){ ev.stopPropagation(); openRenameItemModal(row); return; } // tap nama / pensil = ubah nama (popup)
-      row.open = !row.open; renderTabContent();
+      if(ev.target.closest('.bn-edit')){ ev.stopPropagation(); openRenameItemModal(row); return; } // hanya ikon pensil yang membuka popup nama
+      const willOpen = !row.open;
+      if(willOpen) data.budget.forEach(r => { if(r !== row) r.open = false; }); // akordeon: item lain otomatis terlipat
+      row.open = willOpen;
+      renderTabContent();
+      if(willOpen){
+        const el = document.querySelector(`[data-rid="${row.id}"]`);
+        if(el && el.getBoundingClientRect().top < 70) el.scrollIntoView({block:'start', behavior:'smooth'}); // supaya kartu yang baru dibuka tidak hilang ke atas layar
+      }
     });
-    head.addEventListener('keydown', (ev) => { if((ev.key === 'Enter' || ev.key === ' ') && ev.target.closest && ev.target.closest('.bn-name, .bn-edit')){ ev.preventDefault(); ev.stopPropagation(); openRenameItemModal(row); } });
+    head.addEventListener('keydown', (ev) => { if((ev.key === 'Enter' || ev.key === ' ') && ev.target.closest && ev.target.closest('.bn-edit')){ ev.preventDefault(); ev.stopPropagation(); openRenameItemModal(row); } });
     card.appendChild(head);
 
     if(isOpen){
