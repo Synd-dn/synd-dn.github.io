@@ -474,6 +474,59 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #modalOverlay .modal-summary .n{color:var(--nd-deep-ink);font-weight:800;}
 #modalOverlay .modal-summary div[style*="border"],#modalOverlay .modal-summary > div > div{border-radius:16px;}
 
+
+/* ===== Form Detail Rincian: label jelas, kelompok rapi ===== */
+#modalOverlay .rc-field{margin-top:12px;min-width:0;}
+#modalOverlay .rc-field > label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:11.5px;font-weight:700;color:#6F7068;margin-bottom:5px;letter-spacing:.01em;}
+#modalOverlay .rc-field input,#modalOverlay .rc-field select{width:100%;min-height:44px;font-size:14px;}
+#modalOverlay .rc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+#modalOverlay .rc-hint{font-size:11.5px;color:#6F7068;margin-top:5px;line-height:1.4;}
+#modalOverlay .price-fmt{font-weight:700;color:var(--nd-accent);font-size:12.5px;}
+#modalOverlay .rc-check{display:flex;gap:11px;align-items:flex-start;margin-top:14px;padding:12px 14px;border:1px solid #ECE7DF;border-radius:16px;background:#fff;cursor:pointer;}
+#modalOverlay .rc-check input{width:20px;height:20px;min-height:0;margin-top:1px;flex:none;}
+#modalOverlay .rc-check span{display:flex;flex-direction:column;gap:2px;font-size:13px;}
+#modalOverlay .rc-check small{font-size:11.5px;color:#6F7068;}
+#modalOverlay .rc-pp-wrap{margin-top:4px;padding:2px 0 4px;}
+#modalOverlay .rc-panel{margin-top:18px;padding:14px;border-radius:22px;background:#fff;border:1px solid #ECE7DF;}
+#modalOverlay .rc-panel-title{font:800 10.5px 'Sora',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#6F7068;margin-bottom:10px;}
+#modalOverlay .rc-seg{display:flex;gap:4px;padding:4px;border-radius:100px;background:#F1EEE7;}
+#modalOverlay .rc-seg .seg-st{flex:1;border:none;background:none;border-radius:100px;padding:10px 4px;font:700 12px 'Plus Jakarta Sans',sans-serif;color:#6F7068;cursor:pointer;}
+#modalOverlay .rc-seg .seg-st.on{background:var(--nd-grad);color:#fff;box-shadow:0 6px 14px -6px var(--nd-shadow);}
+#modalOverlay .rc-progress{margin:14px 0 2px;}
+#modalOverlay .rc-bar{height:8px;border-radius:100px;background:#F1EEE7;overflow:hidden;}
+#modalOverlay .rc-bar-fill{height:100%;border-radius:100px;background:var(--nd-grad);transition:width .25s ease;}
+#modalOverlay .rc-prog-txt{font-size:12px;color:#4B4C46;margin-top:7px;line-height:1.45;font-weight:600;}
+#modalOverlay .rc-prog-txt.warn{color:var(--danger);}
+#modalOverlay .rc-prog-txt.ok{color:#3E7A4E;}
+#modalOverlay .rc-pay{margin-top:12px;padding:12px;border-radius:18px;background:#FAF9F6;border:1px solid #F0ECE4;}
+#modalOverlay .rc-pay .rc-field:first-of-type{margin-top:0;}
+#modalOverlay .rc-pay .rc-grid2 + .rc-field{margin-top:10px;}
+#modalOverlay .rc-pay-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;font-size:13px;}
+#modalOverlay .rc-pay-head .lunas-amt{font:800 14px 'Sora',sans-serif;color:var(--nd-accent);}
+#modalOverlay .rc-pay-lunas{background:var(--nd-soft);border-color:transparent;}
+#modalOverlay .rc-pay-lunas select,#modalOverlay .rc-pay-lunas input{background:#fff;}
+#modalOverlay .rc-today{border:none;background:none;color:var(--nd-accent);font:700 11.5px 'Plus Jakarta Sans',sans-serif;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+#modalOverlay .rc-datewrap{position:relative;}
+#modalOverlay .rc-datewrap .rc-ph{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:14px;color:#A3A49B;pointer-events:none;}
+#modalOverlay .rc-datewrap.has .rc-ph{display:none;}
+#modalOverlay .rc-datewrap:not(.has) input{color:transparent;}
+#modalOverlay .rc-datewrap:not(.has) input:focus{color:#181B17;}
+#modalOverlay .rc-datewrap:not(.has) input:focus + .rc-ph{display:none;}
+#modalOverlay .detail-row{padding:14px 0 6px;margin-top:6px;}
+#modalOverlay .detail-del{color:#6F7068;font-size:12px;padding:8px 6px;}
+
+
+#modalOverlay .modal-sheet{padding:20px 12px 22px;}
+#modalOverlay .subitem-card{padding:12px 10px;}
+#modalOverlay .rc-panel{padding:14px 10px;}
+#modalOverlay .rc-pay{padding:12px 10px;}
+#modalOverlay .rc-pay .rc-grid2{grid-template-columns:.9fr 1.1fr;gap:8px;}
+#modalOverlay .rc-pay-lunas .rc-grid2{grid-template-columns:1fr;gap:0;}
+#modalOverlay .rc-pay-lunas .rc-grid2 .rc-field + .rc-field{margin-top:12px;}
+#modalOverlay .rc-today{white-space:nowrap;}
+#modalOverlay .rc-field > label span{white-space:nowrap;}
+#modalOverlay .rc-seg .seg-st{padding:10px 2px;font-size:11.5px;white-space:nowrap;}
+
 /* ===== Cetak ringkasan ===== */
 #printArea{display:none;}
 @media print{
@@ -759,9 +812,9 @@ Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi lang
 
 Cara pakai bagian pembayaran:
 
-- **DP bertahap**: ada **DP 1, DP 2, DP 3**. Isi nominal tiap DP dan pilih **sumber dananya** (Tabungan pengantin 1 atau Tabungan pengantin 2). Status otomatis jadi **DP** begitu ada nominal DP, dan yang dihitung "sudah dibayar" sebesar total DP.
-- **Lunas**: ubah status ke **Sudah dibayar**. Sisa setelah DP otomatis jadi nominal pelunasan; pilih juga sumber dananya di baris **Lunas**.
-- **Tanggal bayar**: tiap DP dan pelunasan punya kolom **Tgl bayar / Tgl lunas** (terisi otomatis hari ini, bisa diubah), plus kolom **Catatan pembayaran** untuk no. bukti transfer atau nama penerima. Berguna kalau vendor bilang "belum masuk".
+- **Bagian Pembayaran** (di tiap rincian): pilih status **Belum dibayar / Sudah DP / Lunas** di bagian atas, lalu lihat bar kemajuannya. **DP 1, DP 2, DP 3** muncul bertahap: isi DP 1, kolom DP 2 ikut muncul. Tiap DP punya **Nominal**, **Dibayar dari** (Tabungan pengantin 1 atau 2), dan tanggal. Status otomatis jadi **Sudah DP** begitu ada nominal DP, dan yang dihitung "sudah dibayar" sebesar total DP.
+- **Lunas**: tekan tombol **Lunas**. Sisa setelah DP otomatis jadi nominal di kotak **Pelunasan**; pilih juga sumber dananya di situ.
+- **Tanggal bayar**: tiap DP dan pelunasan punya kolom **Tanggal bayar / Tanggal lunas** (terisi otomatis hari ini saat nominal pertama diisi, atau tekan **Hari ini**), plus kolom **Catatan pembayaran** untuk no. bukti transfer atau nama penerima. Berguna kalau vendor bilang "belum masuk".
 - **Jatuh tempo**: isi tanggalnya, nanti muncul di Agenda Terdekat di Beranda dan di bagian atas halaman Budget.
 - **Catering / souvenir**: centang **"Hitung per orang"**, lalu isi harga per porsi. Total otomatis dikali jumlah tamu. Kalau kolom jumlah tamu dikosongkan, ikut Pengaturan → Target → **"Hitung per orang pakai"**: *Target tamu* (default) atau *Tamu konfirmasi hadir* (otomatis memakai jumlah yang sudah konfirmasi, makin akurat mendekati hari H). Atau ketik jumlah sendiri (misal souvenir 250).
 - Total, sudah dibayar, dan sisa di tiap item **terhitung otomatis** dari semua rinciannya.
@@ -1308,51 +1361,53 @@ function renderBudgetDetailModal(sheet, row){
           ensureDps(det);
           dRow.className = 'detail-row';
           dRow.innerHTML = `
-            <div class="detail-row-fields">
-              <input type="text" class="name" placeholder="Nama (misal: Sajadah)" value="${esc(det.name||'')}">
-              <input type="text" class="link" placeholder="Link Toko/Vendor" value="${esc(det.link||'')}">
+            <div class="rc-field"><label>Nama rincian</label><input type="text" class="name" placeholder="Misal: Sajadah, Paket Prasmanan" value="${esc(det.name||'')}"></div>
+            <div class="rc-grid2">
+              <div class="rc-field"><label>Link toko / vendor</label><input type="text" class="link" inputmode="url" placeholder="https://…" value="${esc(det.link||'')}"></div>
+              <div class="rc-field"><label>No. HP / kontak</label><input type="tel" class="phone" placeholder="08…" value="${esc(det.phone||'')}"></div>
             </div>
-            <div class="detail-row-fields" style="margin-top:6px;">
-              <input type="text" class="phone" placeholder="No HP" value="${esc(det.phone||'')}">
-              <input type="number" class="price" placeholder="Nominal" value="${esc(det.price||0)}">
-              <select class="status">
+            <div class="rc-field"><label class="price-lbl">Harga (Rp)</label><input type="number" inputmode="numeric" class="price" min="0" placeholder="0" value="${esc(det.price||'')}"><div class="rc-hint price-fmt"></div></div>
+            <label class="rc-check"><input type="checkbox" class="pp" ${det.perOrang?'checked':''}><span><b>Hitung per orang</b><small>Untuk catering/souvenir: harga × jumlah orang</small></span></label>
+            <div class="rc-pp-wrap" style="${det.perOrang?'':'display:none;'}">
+              <div class="rc-field"><label>Jumlah orang</label><input type="number" inputmode="numeric" class="qty" min="0" placeholder="Kosong = ikut pengaturan (${guestBasisCount()} orang)" value="${esc(det.qty||'')}"></div>
+              <div class="pp-total rc-hint"></div>
+            </div>
+
+            <div class="rc-panel">
+              <div class="rc-panel-title">Pembayaran</div>
+              <div class="rc-seg" role="group" aria-label="Status pembayaran">
+                <button type="button" class="seg-st" data-v="Belum">Belum dibayar</button>
+                <button type="button" class="seg-st" data-v="DP">Sudah DP</button>
+                <button type="button" class="seg-st" data-v="Sudah">Lunas</button>
+              </div>
+              <select class="status" style="display:none;" aria-hidden="true" tabindex="-1">
                 <option value="Belum" ${(det.status!=='Sudah' && det.status!=='DP')?'selected':''}>Belum dibayar</option>
                 <option value="DP" ${det.status==='DP'?'selected':''}>DP</option>
                 <option value="Sudah" ${det.status==='Sudah'?'selected':''}>Sudah dibayar</option>
               </select>
-            </div>
-            <div class="detail-row-fields detail-pp-row" style="margin-top:6px;align-items:center;">
-              <label style="font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;"><input type="checkbox" class="pp" style="width:auto;padding:0;" ${det.perOrang?'checked':''}> Hitung per orang</label>
-              <input type="number" class="qty" min="0" placeholder="Jml tamu (${guestBasisCount()})" value="${esc(det.qty||'')}" style="width:120px;${det.perOrang?'':'display:none;'}">
-              <div class="pp-total" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
-            </div>
-            <div class="detail-dp-block" style="margin-top:10px;">
-              <div style="font-size:11px;opacity:.7;">Pembayaran bertahap</div>
+              <div class="rc-progress"><div class="rc-bar"><div class="rc-bar-fill"></div></div><div class="rc-prog-txt dp-sisa"></div></div>
+
               ${[0,1,2].map(i => `
-              <div class="detail-row-fields" style="margin-top:6px;align-items:center;">
-                <span style="width:40px;font-size:12px;">DP ${i+1}</span>
-                <input type="number" class="dpamt" data-i="${i}" placeholder="Nominal" min="0" value="${det.dps[i].amt||''}" style="width:105px;">
-                <select class="dpsrc" data-i="${i}" style="flex:1;min-width:120px;">${danaOptionsHtml(det.dps[i].src)}</select>
-              </div>
-              <div class="detail-row-fields" style="margin-top:4px;align-items:center;padding-left:46px;">
-                <span style="font-size:11px;opacity:.65;width:62px;">Tgl bayar</span>
-                <input type="date" class="dpdate" data-i="${i}" aria-label="Tanggal bayar DP ${i+1}" value="${det.dps[i].date||''}" style="flex:1;min-width:130px;padding:7px 10px;">
+              <div class="rc-pay" data-i="${i}">
+                <div class="rc-pay-head"><b>DP ${i+1}</b></div>
+                <div class="rc-grid2">
+                  <div class="rc-field"><label>Nominal (Rp)</label><input type="number" inputmode="numeric" class="dpamt" data-i="${i}" min="0" placeholder="0" value="${esc(det.dps[i].amt||'')}"></div>
+                  <div class="rc-field"><label>Dibayar dari</label><select class="dpsrc" data-i="${i}">${danaOptionsHtml(det.dps[i].src)}</select></div>
+                </div>
+                <div class="rc-field"><label><span>Tanggal bayar</span><button type="button" class="rc-today" data-k="dp" data-i="${i}">Hari ini</button></label><div class="rc-datewrap"><input type="date" class="dpdate" data-i="${i}" value="${esc(det.dps[i].date||'')}"><span class="rc-ph">Pilih tanggal</span></div></div>
               </div>`).join('')}
-              <div class="detail-row-fields" style="margin-top:6px;align-items:center;">
-                <span style="width:40px;font-size:12px;">Lunas</span>
-                <div class="lunas-amt" style="width:105px;font-size:12px;"></div>
-                <select class="lunassrc" style="flex:1;min-width:120px;">${danaOptionsHtml(det.lunasSrc)}</select>
+
+              <div class="rc-pay rc-pay-lunas">
+                <div class="rc-pay-head"><b>Pelunasan</b><span class="lunas-amt"></span></div>
+                <div class="rc-hint" style="margin:-2px 0 8px;">Nominal pelunasan otomatis = harga dikurangi DP.</div>
+                <div class="rc-grid2">
+                  <div class="rc-field"><label>Dibayar dari</label><select class="lunassrc">${danaOptionsHtml(det.lunasSrc)}</select></div>
+                  <div class="rc-field"><label><span>Tanggal lunas</span><button type="button" class="rc-today" data-k="lunas">Hari ini</button></label><div class="rc-datewrap"><input type="date" class="lunasdate" value="${esc(det.lunasDate||'')}"><span class="rc-ph">Pilih tanggal</span></div></div>
+                </div>
               </div>
-              <div class="detail-row-fields" style="margin-top:4px;align-items:center;padding-left:46px;">
-                <span style="font-size:11px;opacity:.65;width:62px;">Tgl lunas</span>
-                <input type="date" class="lunasdate" aria-label="Tanggal pelunasan" value="${esc(det.lunasDate||'')}" style="flex:1;min-width:130px;padding:7px 10px;">
-              </div>
-              <input type="text" class="paynote" maxlength="160" placeholder="Catatan pembayaran (no. bukti transfer, nama penerima…)" value="${(det.payNote||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}" style="width:100%;margin-top:8px;">
-              <div class="dp-sisa" style="font-size:12px;opacity:.75;text-align:right;margin-top:5px;"></div>
-            </div>
-            <div class="detail-due" style="margin-top:6px;">
-              <label style="font-size:11px;opacity:.7;display:block;margin-bottom:3px;">Jatuh tempo pelunasan</label>
-              <input type="date" class="due" value="${esc(det.dueDate||'')}">
+
+              <div class="rc-field"><label>Catatan pembayaran</label><input type="text" class="paynote" maxlength="160" placeholder="No. bukti transfer, nama penerima…" value="${esc(det.payNote||'')}"></div>
+              <div class="rc-field"><label>Jatuh tempo pelunasan</label><div class="rc-datewrap"><input type="date" class="due" value="${esc(det.dueDate||'')}"><span class="rc-ph">Pilih tanggal</span></div></div>
             </div>
             <div style="display:flex;justify-content:flex-end;">
               <button class="detail-del">Hapus rincian</button>
@@ -1369,26 +1424,47 @@ function renderBudgetDetailModal(sheet, row){
           const ppI = dRow.querySelector('.pp');
           const qtyI = dRow.querySelector('.qty');
           const ppTotal = dRow.querySelector('.pp-total');
+          const priceLbl = dRow.querySelector('.price-lbl'), priceFmt = dRow.querySelector('.price-fmt'), ppWrap = dRow.querySelector('.rc-pp-wrap');
           function refreshPp(){
-            priceI.placeholder = det.perOrang ? 'Harga per orang' : 'Nominal';
-            qtyI.style.display = det.perOrang ? '' : 'none';
+            priceLbl.textContent = det.perOrang ? 'Harga per orang (Rp)' : 'Harga (Rp)';
+            ppWrap.style.display = det.perOrang ? '' : 'none';
+            const pr = Number(det.price) || 0;
             if(det.perOrang){
               const q = Number(det.qty) > 0 ? Number(det.qty) : guestBasisCount();
-              ppTotal.textContent = `${rupiah(Number(det.price)||0)} × ${q} = ${rupiah(detailTotal(det))}`;
-            } else ppTotal.textContent = '';
+              ppTotal.textContent = `${rupiah(pr)} × ${q} orang = ${rupiah(detailTotal(det))}`;
+              priceFmt.textContent = pr > 0 ? rupiah(pr) + ' per orang' : '';
+            } else { ppTotal.textContent = ''; priceFmt.textContent = pr > 0 ? rupiah(pr) : ''; }
           }
           const dpSisa = dRow.querySelector('.dp-sisa');
+          const barFill = dRow.querySelector('.rc-bar-fill');
           function refreshDp(){
             const price = detailTotal(det), dpSum = detailDpSum(det);
             const sisa = Math.max(price - dpSum, 0);
             lunasAmt.textContent = rupiah(sisa);
-            if(det.status === 'Sudah') dpSisa.textContent = 'Lunas';
-            else if(dpSum > price && price > 0) dpSisa.textContent = 'DP melebihi harga!';
-            else dpSisa.textContent = dpSum > 0 ? `Sudah DP ${rupiah(dpSum)} · sisa ${rupiah(sisa)}` : '';
+            const paid = detailPaid(det);
+            barFill.style.width = (price > 0 ? Math.min(100, Math.round(paid / price * 100)) : 0) + '%';
+            dpSisa.classList.remove('warn', 'ok');
+            if(det.status === 'Sudah'){ dpSisa.textContent = `Lunas · ${rupiah(price)}`; dpSisa.classList.add('ok'); }
+            else if(dpSum > price && price > 0){ dpSisa.textContent = 'DP melebihi harga, cek nominalnya.'; dpSisa.classList.add('warn'); }
+            else if(dpSum > 0) dpSisa.textContent = `Sudah dibayar ${rupiah(dpSum)} dari ${rupiah(price)} · sisa ${rupiah(sisa)}`;
+            else dpSisa.textContent = price > 0 ? `Belum ada pembayaran · total ${rupiah(price)}` : 'Isi harga dulu, lalu catat pembayarannya.';
           }
+          function paintSeg(){
+            const stt = detailState(det); // dihitung dari kondisi sebenarnya: lunas / ada DP / belum
+            const cur = stt === 'lunas' ? 'Sudah' : (stt === 'dp' ? 'DP' : 'Belum');
+            dRow.querySelectorAll('.seg-st').forEach(b => { const on = b.dataset.v === cur; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); });
+          }
+          function updateDpVis(){
+            let last = -1; det.dps.forEach((x, i) => { if(Number(x.amt) > 0) last = i; });
+            const visible = Math.min(3, Math.max(1, last + 2));
+            dRow.querySelectorAll('.rc-pay[data-i]').forEach(c => { c.style.display = Number(c.dataset.i) < visible ? '' : 'none'; });
+          }
+          function dateWrapSync(inp){ const w = inp.closest('.rc-datewrap'); if(w) w.classList.toggle('has', !!inp.value); }
+          dRow.querySelectorAll('.rc-datewrap input').forEach(inp => { dateWrapSync(inp); inp.addEventListener('input', () => dateWrapSync(inp)); inp.addEventListener('change', () => dateWrapSync(inp)); });
           function refreshTotals(){
             refreshPp();
             refreshDp();
+            paintSeg();
             subCard.querySelector('.subitem-total').textContent = `${sub.details.length} rincian · ${rupiah(sub.details.reduce((s,d)=>s+(detailTotal(d)),0))}`;
             updateModalSummary();
           }
@@ -1408,8 +1484,9 @@ function renderBudgetDetailModal(sheet, row){
             // isi tanggal hari ini otomatis saat nominal DP pertama kali diisi (bisa diubah)
             if(Number(e.target.value) > 0 && !det.dps[Number(inp.dataset.i)].date){
               det.dps[Number(inp.dataset.i)].date = todayISO();
-              dRow.querySelector('.dpdate[data-i="' + inp.dataset.i + '"]').value = det.dps[Number(inp.dataset.i)].date;
+              const di = dRow.querySelector('.dpdate[data-i="' + inp.dataset.i + '"]'); di.value = det.dps[Number(inp.dataset.i)].date; dateWrapSync(di);
             }
+            updateDpVis();
             if(det.status !== 'Sudah'){ det.status = detailDpSum(det) > 0 ? 'DP' : 'Belum'; statusI.value = det.status; }
             scheduleSave(); refreshTotals();
           }));
@@ -1417,11 +1494,19 @@ function renderBudgetDetailModal(sheet, row){
           lunasSrcI.addEventListener('change', e => { det.lunasSrc = e.target.value; scheduleSave(); });
           statusI.addEventListener('change', e => {
             det.status = e.target.value;
-            if(det.status === 'Sudah' && !det.lunasDate){ det.lunasDate = todayISO(); dRow.querySelector('.lunasdate').value = det.lunasDate; }
+            if(det.status === 'Sudah' && !det.lunasDate){ det.lunasDate = todayISO(); const li = dRow.querySelector('.lunasdate'); li.value = det.lunasDate; dateWrapSync(li); }
             scheduleSave(); refreshTotals();
           });
+          dRow.querySelectorAll('.seg-st').forEach(b => b.addEventListener('click', () => { statusI.value = b.dataset.v; statusI.dispatchEvent(new Event('change')); }));
+          dRow.querySelectorAll('.rc-today').forEach(b => b.addEventListener('click', () => {
+            if(b.dataset.k === 'dp'){ const i = Number(b.dataset.i); det.dps[i].date = todayISO(); const di = dRow.querySelector('.dpdate[data-i="' + i + '"]'); di.value = det.dps[i].date; dateWrapSync(di); }
+            else { det.lunasDate = todayISO(); const li = dRow.querySelector('.lunasdate'); li.value = det.lunasDate; dateWrapSync(li); }
+            scheduleSave();
+          }));
           refreshPp();
           refreshDp();
+          paintSeg();
+          updateDpVis();
           dRow.querySelector('.detail-del').addEventListener('click', () => {
             sub.details.splice(detIdx,1); scheduleSave(); renderDetails(); refreshTotals();
           });
