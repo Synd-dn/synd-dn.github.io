@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rencana Anggaran Pernikahan</title>
+<meta name="theme-color" content="#8A9A78">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Rencana Nikah">
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
@@ -59,7 +64,7 @@ h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;}
 .card-gold{border-left-color:var(--gold);}
 .card-sage{border-left-color:var(--sage);}
 .card-lux{border-left-color:var(--lux);}
-.section-eyebrow{font-size:10.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:2px;}
+.section-eyebrow{font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:2px;}
 .hero-row{display:flex;gap:10px;margin-top:10px;}
 .hero-box{flex:1;background:var(--panel-2);border-radius:6px;padding:12px;min-width:0;}
 .hero-box .lbl{font-size:11px;color:var(--ink-dim);margin-bottom:4px;}
@@ -81,7 +86,7 @@ h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;}
 .mini-stat-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;}
 .mini-stat{background:var(--panel-2);border-radius:6px;padding:8px;text-align:center;}
 .mini-stat .n{font-family:'Fraunces',serif;font-size:17px;color:var(--ink);}
-.mini-stat .l{font-size:10px;color:var(--ink-dim);margin-top:2px;line-height:1.3;}
+.mini-stat .l{font-size:11px;color:var(--ink-dim);margin-top:2px;line-height:1.3;}
 
 .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
 .tab-btn{background:var(--panel-2);border:1px solid var(--border);color:var(--ink-dim);font-family:'Work Sans',sans-serif;font-size:12.5px;padding:7px 10px;border-radius:5px;cursor:pointer;}
@@ -99,7 +104,7 @@ h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;margin:0;}
 .rec-head-sub{font-size:12px;color:var(--ink-dim);margin-top:2px;font-variant-numeric:tabular-nums;}
 .mini-pay-bar-track{height:5px;border-radius:3px;background:var(--panel-2);margin-top:6px;overflow:hidden;max-width:220px;}
 .mini-pay-bar-fill{height:100%;background:var(--sage);border-radius:3px;transition:width .2s ease;}
-.mini-pay-pct{font-size:10.5px;color:var(--ink-dim);margin-top:3px;}
+.mini-pay-pct{font-size:11.5px;color:var(--ink-dim);margin-top:3px;}
 .insight-card{display:flex;flex-direction:column;gap:10px;}
 .insight-line{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink);line-height:1.4;}
 .insight-icon{font-size:16px;flex-shrink:0;}
@@ -147,7 +152,7 @@ body.decor-round .card{border-radius:16px;}
 .add-row-btn:hover{border-color:var(--gold);color:var(--gold);}
 select option{background:var(--panel);}
 
-.pill{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:3px;background:var(--panel-2);white-space:nowrap;}
+.pill{display:inline-block;font-size:11.5px;padding:2px 7px;border-radius:3px;background:var(--panel-2);white-space:nowrap;}
 .pill.p-wajib{color:var(--rose);} .pill.p-penting{color:var(--gold);} .pill.p-tambahan{color:var(--sage);} .pill.p-luxury{color:var(--lux);}
 .pill.s-done{color:var(--sage);} .pill.s-mid{color:var(--gold);} .pill.s-todo{color:var(--ink-dim);}
 .rec-field select.p-wajib{color:var(--rose);} .rec-field select.p-penting{color:var(--gold);} .rec-field select.p-tambahan{color:var(--sage);} .rec-field select.p-luxury{color:var(--lux);}
@@ -168,10 +173,10 @@ select option{background:var(--panel);}
 .nd-auth-card{position:relative;z-index:1;max-width:380px;width:100%;text-align:center;}
 .nd-auth-title{font-family:'Sora';font-weight:800;font-size:26px;line-height:1.2;letter-spacing:-.02em;color:#181B17;margin:14px 0 0;}
 .nd-auth-subtitle{font-size:14px;line-height:1.6;color:#6E6F68;margin:12px auto 0;max-width:30ch;}
-.nd-auth-preview{display:block;margin:22px auto 0;background:none;border:none;color:#9A9B93;font-size:12px;text-decoration:underline;cursor:pointer;font-family:inherit;}
+.nd-auth-preview{display:block;margin:22px auto 0;background:none;border:none;color:#6F7068;font-size:12px;text-decoration:underline;cursor:pointer;font-family:inherit;}
 .google-btn:hover{background:#f1f1f1;}
 .auth-error{color:#C4574A;font-size:13px;margin-top:16px;display:none;}
-.auth-status{font-size:13px;color:#9A9B93;margin-top:16px;}
+.auth-status{font-size:13px;color:#6F7068;margin-top:16px;}
 .user-chip{font-size:12px;color:var(--ink-dim);}
 .account-icon-btn{background:var(--panel-2);border:1px solid var(--border);color:var(--ink-dim);width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .account-icon-btn:hover{border-color:var(--gold);color:var(--gold);}
@@ -262,7 +267,7 @@ body.nd-hide-blobs .nd-blob{display:none;}
 /* Splash */
 .nd-splash{min-height:100vh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;padding:28px 22px 22px;}
 .nd-eyebrow-row{display:flex;align-items:center;justify-content:space-between;}
-.nd-eyebrow{font:700 10px 'Sora';letter-spacing:.2em;color:var(--nd-accent);}
+.nd-eyebrow{font:700 11px 'Sora';letter-spacing:.2em;color:var(--nd-accent);}
 .nd-swatch-btn{width:34px;height:34px;border-radius:50%;background:var(--nd-grad);cursor:pointer;border:none;box-shadow:0 6px 16px var(--nd-shadow);flex:none;}
 .nd-greeting{font-family:'Sora';font-weight:800;font-size:40px;line-height:1.04;margin-top:26px;letter-spacing:-.02em;}
 .nd-greeting em{font-family:'Instrument Serif';font-style:italic;font-weight:400;color:var(--nd-accent);}
@@ -271,28 +276,28 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-photo-label{font:600 11px 'Sora';color:rgba(255,255,255,.75);letter-spacing:.05em;}
 .nd-stat-row{display:flex;gap:10px;margin-bottom:16px;}
 .nd-stat-card{flex:1;background:#fff;border-radius:20px;padding:14px 16px;box-shadow:0 10px 24px -10px rgba(23,27,24,.12);}
-.nd-stat-lbl{font:700 9.5px 'Sora';letter-spacing:.1em;color:#9A9B93;}
+.nd-stat-lbl{font:700 10.5px 'Sora';letter-spacing:.1em;color:#6F7068;}
 .nd-stat-val{font:800 21px 'Sora';margin-top:5px;font-variant-numeric:tabular-nums;letter-spacing:-.02em;}
-.nd-stat-sub{font-size:11.5px;color:#9A9B93;margin-top:2px;}
+.nd-stat-sub{font-size:11.5px;color:#6F7068;margin-top:2px;}
 .nd-cta{background:var(--nd-grad);color:#fff;border:none;border-radius:100px;padding:18px;text-align:center;font:700 15px 'Sora';cursor:pointer;box-shadow:0 14px 30px -8px var(--nd-shadow);width:100%;}
-.nd-footer-cap{text-align:center;font-size:11.5px;color:#A6A79E;margin-top:12px;}
+.nd-footer-cap{text-align:center;font-size:11.5px;color:#74756D;margin-top:12px;}
 
 /* Top bar */
 .nd-topbar{padding:16px 18px 0;display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .nd-topbar-name{font-family:'Sora';font-weight:800;font-size:21px;line-height:1.1;letter-spacing:-.02em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.nd-topbar-sub{font-size:11.5px;color:#9A9B93;margin-top:2px;font-variant-numeric:tabular-nums;}
+.nd-topbar-sub{font-size:11.5px;color:#6F7068;margin-top:2px;font-variant-numeric:tabular-nums;}
 .nd-topbar-btns{display:flex;gap:8px;flex:none;}
 .nd-avatar-btn{width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid #ECE7DF;display:flex;align-items:center;justify-content:center;font:700 11px 'Sora';color:#6E6F68;cursor:pointer;}
 .nd-section-row{padding:0 18px;margin-top:14px;display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
-.nd-section-title{font:800 10px 'Sora';letter-spacing:.14em;color:#B3B4AB;}
-.nd-section-sub{font-size:10.5px;color:#C4C5BB;}
+.nd-section-title{font:800 11px 'Sora';letter-spacing:.14em;color:#74756D;}
+.nd-section-sub{font-size:11.5px;color:#8A8B83;}
 
 
 /* Moodboard */
 .mb-grid{column-count:2;column-gap:10px;padding:0 14px;margin-top:4px;}
 .mb-tile{break-inside:avoid;margin-bottom:10px;border-radius:18px;overflow:hidden;position:relative;background:var(--nd-soft);cursor:pointer;box-shadow:0 6px 16px -10px var(--nd-shadow);}
 .mb-tile img{width:100%;display:block;}
-.mb-badge{position:absolute;left:8px;top:8px;font:700 9px 'Sora';letter-spacing:.04em;padding:3px 9px;border-radius:100px;background:rgba(255,255,255,.88);color:#3b3b36;}
+.mb-badge{position:absolute;left:8px;top:8px;font:700 10.5px 'Sora';letter-spacing:.04em;padding:3px 9px;border-radius:100px;background:rgba(255,255,255,.88);color:#3b3b36;}
 .mb-cap{padding:7px 10px 9px;font-size:11px;color:#6E6F68;line-height:1.35;background:#fff;}
 .mb-chip{flex:none;border:1px solid #E4E1D8;background:#fff;color:#6E6F68;font:700 11px 'Sora';padding:7px 13px;border-radius:100px;cursor:pointer;}
 .mb-chip.on{background:var(--nd-accent);border-color:var(--nd-accent);color:#fff;}
@@ -301,7 +306,7 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-hero{margin:12px 14px 0;border-radius:30px;padding:22px;color:#fff;background:var(--nd-grad);box-shadow:0 20px 40px -14px var(--nd-shadow);position:relative;overflow:hidden;}
 .nd-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.14);}
 .nd-hero-top{display:flex;align-items:center;justify-content:space-between;gap:14px;position:relative;}
-.nd-hero-lbl{font:700 10px 'Sora';letter-spacing:.14em;opacity:.75;}
+.nd-hero-lbl{font:700 11px 'Sora';letter-spacing:.14em;opacity:.75;}
 .nd-hero-num{font:800 58px 'Sora';line-height:.9;letter-spacing:-.045em;}
 .nd-hero-days{display:flex;align-items:baseline;gap:8px;margin-top:4px;}
 .nd-hero-unit{font-size:14px;opacity:.82;font-weight:600;}
@@ -309,30 +314,30 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-ring{width:86px;height:86px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;}
 .nd-ring-inner{width:66px;height:66px;border-radius:50%;background:var(--nd-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;}
 .nd-ring-pct{font:800 18px 'Sora';font-variant-numeric:tabular-nums;line-height:1;color:#fff;}
-.nd-ring-lbl{font-size:8px;opacity:.8;letter-spacing:.06em;margin-top:2px;color:#fff;}
+.nd-ring-lbl{font-size:9.5px;opacity:.8;letter-spacing:.06em;margin-top:2px;color:#fff;}
 .nd-hero-chips{display:flex;gap:9px;margin-top:20px;position:relative;}
 .nd-hero-chip{flex:1;background:rgba(255,255,255,.18);border-radius:18px;padding:12px 13px;}
-.nd-hero-chip-lbl{font-size:10.5px;opacity:.82;}
+.nd-hero-chip-lbl{font-size:11.5px;opacity:.82;}
 .nd-hero-chip-val{font:800 15px 'Sora';margin-top:3px;font-variant-numeric:tabular-nums;}
 
 .nd-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 14px 0;}
 .nd-tile{border-radius:24px;padding:16px;cursor:pointer;border:none;text-align:left;font-family:inherit;}
 .nd-tile-soft{background:var(--nd-soft);}
 .nd-tile-white{background:#fff;box-shadow:0 8px 20px -10px rgba(23,27,24,.1);}
-.nd-tile-lbl{font:800 9.5px 'Sora';letter-spacing:.1em;}
+.nd-tile-lbl{font:800 10.5px 'Sora';letter-spacing:.1em;}
 .nd-tile-val{font:800 21px 'Sora';margin-top:7px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
-.nd-tile-sub{font-size:10.5px;margin-top:5px;line-height:1.4;}
+.nd-tile-sub{font-size:11.5px;margin-top:5px;line-height:1.4;}
 
 .nd-card{margin:11px 14px 0;background:#fff;border-radius:26px;padding:18px;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);}
 .nd-card-soft{margin:11px 14px 0;background:var(--nd-soft);border-radius:26px;padding:18px;}
-.nd-card-hdr{font:800 9.5px 'Sora';letter-spacing:.1em;color:#9A9B93;}
+.nd-card-hdr{font:800 10.5px 'Sora';letter-spacing:.1em;color:#6F7068;}
 .nd-chiprow{display:flex;gap:8px;margin-top:12px;}
 .nd-chip{flex:1;background:#FAF9F6;border-radius:16px;padding:11px 12px;}
-.nd-chip-lbl{font-size:10px;color:#9A9B93;}
+.nd-chip-lbl{font-size:11px;color:#6F7068;}
 .nd-chip-val{font:800 13.5px 'Sora';margin-top:3px;font-variant-numeric:tabular-nums;}
 .nd-bar-track{height:8px;border-radius:100px;background:#F1EEE7;margin-top:14px;overflow:hidden;}
 .nd-bar-fill{height:100%;border-radius:100px;background:var(--nd-grad);}
-.nd-bar-caption{display:flex;justify-content:space-between;font-size:11px;color:#9A9B93;margin-top:7px;}
+.nd-bar-caption{display:flex;justify-content:space-between;font-size:11px;color:#6F7068;margin-top:7px;}
 
 .nd-alloc-row{margin-top:13px;}
 .nd-alloc-top{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:6px;}
@@ -340,36 +345,38 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-alloc-fill{height:100%;border-radius:100px;}
 
 .nd-insight{margin:11px 14px 0;background:var(--nd-soft);border-radius:26px;padding:18px;}
-.nd-insight-lbl{font:800 9.5px 'Sora';letter-spacing:.1em;color:var(--nd-deep-ink);opacity:.8;}
+.nd-insight-lbl{font:800 10.5px 'Sora';letter-spacing:.1em;color:var(--nd-deep-ink);opacity:.8;}
 .nd-insight-text{font-size:13.5px;line-height:1.55;margin-top:8px;color:var(--nd-deep-ink);font-weight:600;}
 
 .nd-tamu-card{margin:11px 14px 0;border-radius:26px;padding:18px;background:var(--nd-deep);color:#fff;cursor:pointer;border:none;text-align:left;width:calc(100% - 28px);font-family:inherit;}
 .nd-tamu-top{display:flex;justify-content:space-between;align-items:flex-end;}
-.nd-tamu-lbl{font:800 9.5px 'Sora';letter-spacing:.1em;opacity:.72;}
+.nd-tamu-lbl{font:800 10.5px 'Sora';letter-spacing:.1em;opacity:.72;}
 .nd-tamu-num{font:800 30px 'Sora';margin-top:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
 .nd-tamu-num small{font-size:15px;opacity:.6;font-weight:500;}
 .nd-tamu-meta{text-align:right;font-size:11.5px;opacity:.82;line-height:1.5;}
 .nd-tamu-groups{display:flex;gap:8px;margin-top:15px;}
 .nd-tamu-grp{flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;}
 .nd-tamu-grp-n{font:800 16px 'Sora';font-variant-numeric:tabular-nums;}
-.nd-tamu-grp-l{font-size:9px;opacity:.72;margin-top:2px;letter-spacing:.03em;}
+.nd-tamu-grp-l{font-size:10.5px;opacity:.72;margin-top:2px;letter-spacing:.03em;}
 
 .nd-prog-tile{background:#fff;border-radius:20px;padding:14px;cursor:pointer;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);display:flex;align-items:center;justify-content:space-between;border:none;font-family:inherit;text-align:left;}
-.nd-prog-lbl{font-size:10px;color:#9A9B93;font-weight:700;letter-spacing:.03em;}
+.nd-prog-lbl{font-size:11px;color:#6F7068;font-weight:700;letter-spacing:.03em;}
 .nd-prog-val{font:800 16px 'Sora';font-variant-numeric:tabular-nums;color:var(--nd-accent);}
 
-.nd-checklist{margin:11px 14px 26px;background:#fff;border-radius:26px;padding:18px;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);}
+.nd-checklist{margin:11px 14px 0;background:#fff;border-radius:26px;padding:18px;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);}
 .nd-check-row{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-top:1px solid #F3F1EB;cursor:pointer;background:none;border-left:none;border-right:none;border-bottom:none;width:100%;text-align:left;font-family:inherit;}
 .nd-check-row:first-of-type{border-top:none;}
-.nd-check-box{width:18px;height:18px;border-radius:6px;flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;border:1.5px solid #E4DFD5;}
+.nd-check-box{width:18px;height:18px;border-radius:6px;flex:none;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;border:1.5px solid #E4DFD5;}
 .nd-check-label{font-size:12.5px;line-height:1.45;color:#3C3E39;flex:1;font-weight:500;}
-.nd-check-arrow{color:#C4C5BB;font-size:14px;}
+.nd-check-arrow{color:#8A8B83;font-size:14px;}
 
+.nd-more-btn{display:block;width:calc(100% - 28px);margin:12px 14px 0;padding:14px;border:1.5px dashed #D8D3C9;border-radius:100px;background:none;color:#6E6F68;font:700 12px 'Sora',sans-serif;cursor:pointer;}
+.nd-more-btn:hover{border-color:var(--nd-accent);color:var(--nd-accent);}
 /* Bottom tab bar */
 .nd-tabbar-wrap{flex:none;padding:10px 14px 16px;position:sticky;bottom:0;z-index:5;}
 .nd-tabbar{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-radius:100px;display:flex;padding:6px;gap:3px;box-shadow:0 14px 32px -10px rgba(23,27,24,.22),0 1px 2px rgba(23,27,24,.06);}
 .nd-tabbar-item{flex:1;text-align:center;cursor:pointer;padding:10px 0;border-radius:100px;transition:background .15s;border:none;background:none;font-family:inherit;}
-.nd-tabbar-item span{font:700 11px 'Sora';color:#9A9B93;}
+.nd-tabbar-item span{font:700 11px 'Sora';color:#6F7068;}
 .nd-tabbar-item.active{background:var(--nd-grad);}
 .nd-tabbar-item.active span{color:#fff;}
 
@@ -379,26 +386,108 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-sheet-fill{position:absolute;inset:0;z-index:-1;}
 .nd-sheet{background:#fff;border-radius:26px;padding:20px 0 20px;box-shadow:0 20px 50px rgba(23,27,24,.28);max-width:460px;margin:0 auto;width:100%;max-height:85vh;overflow-y:auto;box-sizing:border-box;}
 .nd-sheet-handle{display:none;}
-.nd-sheet-title{padding:0 22px 6px;font:800 9.5px 'Sora';letter-spacing:.1em;color:#B3B4AB;}
+.nd-sheet-title{padding:0 22px 6px;font:800 10.5px 'Sora';letter-spacing:.1em;color:#74756D;}
 .nd-sheet-row{display:flex;align-items:center;gap:12px;padding:16px 22px;border:none;border-top:1px solid #EFEBE2;cursor:pointer;background:none;width:100%;box-sizing:border-box;font-family:inherit;text-align:left;outline:none;}
 .nd-sheet-row:first-child{border-top:none;}
 .nd-sheet-row:hover{background:#FAF8F3;}
 .nd-sheet-row:active{background:#F5F1E8;}
 .nd-sheet-row-lbl{font:700 13.5px 'Sora';color:#181B17;}
-.nd-sheet-row-sub{font-size:11px;color:#9A9B93;margin-top:2px;}
+.nd-sheet-row-sub{font-size:11px;color:#6F7068;margin-top:2px;}
 .nd-sheet-close{margin:14px 22px 0;text-align:center;padding:14px;border:1px solid #ECE7DE;border-radius:100px;font:700 13px 'Sora';color:#6E6F68;cursor:pointer;background:none;width:calc(100% - 44px);font-family:inherit;}
 
-.nd-palette-title-eyebrow{font:800 9.5px 'Sora';letter-spacing:.1em;color:#B3B4AB;padding:0 22px;}
+.nd-palette-title-eyebrow{font:800 10.5px 'Sora';letter-spacing:.1em;color:#74756D;padding:0 22px;}
 .nd-palette-title{font-family:'Sora';font-weight:800;font-size:23px;margin-top:6px;letter-spacing:-.01em;padding:0 22px;}
 .nd-palette-row{display:flex;gap:10px;margin-top:18px;padding:0 22px;}
 .nd-palette-item{flex:1;text-align:center;cursor:pointer;background:none;border:none;font-family:inherit;padding:0;}
 .nd-palette-swatch{height:64px;border-radius:20px;box-sizing:border-box;border:2.5px solid transparent;}
 .nd-palette-item.active .nd-palette-swatch{border-color:#181B17;}
-.nd-palette-lbl{font-size:10.5px;color:#6E6F68;margin-top:7px;font-weight:700;}
+.nd-palette-lbl{font-size:11.5px;color:#6E6F68;margin-top:7px;font-weight:700;}
 .nd-palette-apply{margin:20px 22px 0;text-align:center;padding:16px;border-radius:100px;background:var(--nd-grad);color:#fff;font:700 13.5px 'Sora';cursor:pointer;box-shadow:0 12px 26px -8px var(--nd-shadow);border:none;width:calc(100% - 44px);font-family:inherit;}
 
 .nd-toast{position:fixed;left:16px;right:16px;bottom:88px;max-width:428px;margin:0 auto;background:#181B17;color:#fff;border-radius:16px;padding:14px 17px;font:700 12.5px 'Sora';box-shadow:0 12px 30px rgba(0,0,0,.28);z-index:60;display:none;}
 .nd-toast.show{display:block;}
+
+/* ===== Keselarasan tampilan: Pengaturan, popup & komponen lama ikut gaya Beranda ===== */
+#ndRoot, #modalOverlay{
+  --bg:#fff; --panel:#fff; --panel-2:#F5F3EE; --ink:#181B17; --ink-dim:#6F7068;
+  --border:#ECE7DF; --on-accent:#fff; --sage:#3F8F5B; --gold:#B7791F; --rose:#C2485B; --rose-dim:var(--nd-deep);
+  --warn:#B7791F; --danger:#C0392B; --lux:#6B5BA8;
+}
+#ndRoot button,#ndRoot input,#ndRoot select,#ndRoot textarea,
+#modalOverlay button,#modalOverlay input,#modalOverlay select,#modalOverlay textarea{font-family:'Plus Jakarta Sans',system-ui,sans-serif;}
+#ndRoot h1,#ndRoot h2,#ndRoot h3,#modalOverlay h1,#modalOverlay h2,#modalOverlay h3,
+#modalOverlay .modal-title,#modalOverlay .subitem-name-input,#modalOverlay .modal-summary .n,
+#ndRoot .stat-box .val,#ndRoot .hero-box .num,#ndRoot .mini-stat .n,#ndRoot .checklist-pct{font-family:'Sora',sans-serif;}
+#ndRoot h3{font-weight:800;font-size:15px;letter-spacing:-.01em;}
+/* kartu */
+#ndRoot .card{background:#fff;border:none;border-radius:26px;padding:18px;margin:11px 14px 0;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);}
+#ndRoot .card .card{margin:12px 0 0;box-shadow:none;background:var(--panel-2);border-radius:18px;}
+#ndRoot .stat-box,#ndRoot .hero-box,#ndRoot .mini-stat{background:#FAF9F6;border:none;border-radius:16px;}
+#ndRoot .eyebrow,#ndRoot .section-eyebrow{font-family:'Sora',sans-serif;font-weight:800;font-size:10.5px;letter-spacing:.1em;color:#6F7068;text-transform:uppercase;}
+#ndRoot .subtitle,#ndRoot .empty-note{color:#7C7D75;}
+/* input & select */
+#ndRoot .mini-input,#ndRoot .rec-field input,#ndRoot .rec-field select,#ndRoot .settings-field input,#ndRoot .settings-field textarea,
+#modalOverlay .detail-row-fields input,#modalOverlay .detail-row-fields select,#modalOverlay .detail-due input,#modalOverlay input,#modalOverlay select,#modalOverlay textarea{
+  background:#FAF9F6;border:1px solid #ECE7DF;border-radius:14px;color:#181B17;padding:10px 12px;font-size:13px;
+}
+#ndRoot .mini-input{font-family:'Sora',sans-serif;font-weight:700;color:var(--nd-accent);text-align:right;}
+#ndRoot .mini-input.txt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;color:#181B17;text-align:left;}
+#ndRoot .mini-input:focus,#ndRoot .rec-field input:focus,#ndRoot .rec-field select:focus,#ndRoot .settings-field input:focus,#ndRoot .settings-field textarea:focus,
+#modalOverlay input:focus,#modalOverlay select:focus,#modalOverlay textarea:focus{outline:none;border-color:var(--nd-accent);background:#fff;box-shadow:0 0 0 3px rgba(23,27,24,.04);}
+#modalOverlay input::placeholder,#ndRoot input::placeholder,#ndRoot textarea::placeholder{color:#74756D;}
+#modalOverlay input[type=checkbox]{padding:0;accent-color:var(--nd-accent);width:16px;height:16px;vertical-align:middle;}
+/* tombol utama = gaya CTA Beranda */
+#ndRoot .inline-save-btn,#ndRoot .item-save-btn,#ndRoot .use-estimate-btn,#modalOverlay .inline-save-btn,#modalOverlay .item-save-btn,#modalOverlay .use-estimate-btn{
+  background:var(--nd-grad);color:#fff;border:none;border-radius:100px;font:700 13.5px 'Sora',sans-serif;padding:14px 20px;box-shadow:0 12px 26px -10px var(--nd-shadow);
+}
+#ndRoot .inline-save-btn:hover,#ndRoot .item-save-btn:hover,#modalOverlay .inline-save-btn:hover,#modalOverlay .item-save-btn:hover{background:var(--nd-grad);filter:brightness(1.05);}
+#ndRoot .inline-save-btn.ok,#ndRoot .item-save-btn.ok,#modalOverlay .inline-save-btn.ok,#modalOverlay .item-save-btn.ok{background:var(--sage);color:#fff;}
+#ndRoot .inline-save-btn.fail,#ndRoot .item-save-btn.fail,#modalOverlay .inline-save-btn.fail,#modalOverlay .item-save-btn.fail{background:var(--danger);}
+/* tombol sekunder */
+#ndRoot .add-row-btn,#ndRoot .add-detail-btn,#modalOverlay .add-detail-btn{background:none;border:1.5px dashed #DDD8CE;color:#7C7D75;border-radius:16px;}
+#ndRoot .add-row-btn:hover,#modalOverlay .add-detail-btn:hover{border-color:var(--nd-accent);color:var(--nd-accent);}
+#modalOverlay .add-subitem-btn,#ndRoot .page-btn,#ndRoot .menu-toggle-btn{background:#fff;border:1px solid #ECE7DF;color:#6E6F68;border-radius:100px;font-weight:700;}
+#ndRoot .tab-btn{background:#FAF9F6;border:1px solid #ECE7DF;border-radius:100px;color:#6E6F68;}
+#ndRoot .tab-btn.active{background:var(--nd-accent);border-color:var(--nd-accent);color:#fff;}
+#ndRoot .rec-toggle,#ndRoot .group-toggle,#modalOverlay .subitem-toggle{color:var(--nd-accent);}
+#ndRoot .del-btn:hover,#modalOverlay .detail-del:hover{color:var(--danger);}
+/* bar */
+#ndRoot .bar-track,#ndRoot .mini-pay-bar-track{background:#F1EEE7;border-radius:100px;}
+#ndRoot .bar-fill,#ndRoot .mini-pay-bar-fill{background:var(--nd-grad);border-radius:100px;}
+#ndRoot .bar-fill.over{background:var(--danger);}
+#ndRoot .pill{border-radius:100px;padding:3px 9px;font-weight:700;background:#F5F3EE;}
+/* pilihan tema lama */
+#ndRoot .theme-swatch{border-radius:18px;border:1px solid #ECE7DF;}
+#ndRoot .theme-swatch.active{border-color:var(--nd-accent);}
+#ndRoot input[type=checkbox],#ndRoot input[type=radio],#ndRoot input[type=range]{accent-color:var(--nd-accent);}
+/* popup */
+#modalOverlay{background:rgba(23,27,24,.44);}
+#modalOverlay .modal-sheet{background:#fff;border-radius:26px;box-shadow:0 20px 50px rgba(23,27,24,.28);padding:22px 18px 22px;max-width:460px;color:#181B17;font-family:'Plus Jakarta Sans',sans-serif;}
+#modalOverlay .modal-title{font-weight:800;font-size:20px;letter-spacing:-.01em;}
+#modalOverlay .modal-close{background:#F5F3EE;color:#6E6F68;width:32px;height:32px;}
+#modalOverlay .subitem-card{background:#FAF9F6;border:1px solid #F0ECE4;border-radius:20px;padding:14px;}
+#modalOverlay .subitem-name-input{background:transparent;border:none;border-bottom:1.5px solid #E4DFD5;border-radius:0;padding:4px 0;font-weight:700;font-size:14.5px;}
+#modalOverlay .subitem-name-input:focus{border-bottom-color:var(--nd-accent);box-shadow:none;background:transparent;}
+#modalOverlay .detail-row{border-top:1px solid #ECE7DF;}
+#modalOverlay .detail-row-fields input,#modalOverlay .detail-row-fields select{background:#fff;}
+#modalOverlay .modal-summary{background:var(--nd-soft);border-radius:22px;padding:16px;}
+#modalOverlay .modal-summary .n{color:var(--nd-deep-ink);font-weight:800;}
+#modalOverlay .modal-summary div[style*="border"],#modalOverlay .modal-summary > div > div{border-radius:16px;}
+
+/* ===== Cetak ringkasan ===== */
+#printArea{display:none;}
+@media print{
+  body.printing > *:not(#printArea){display:none !important;}
+  body.printing #printArea{display:block !important;position:static;background:#fff;color:#111;font-family:'Plus Jakarta Sans',Arial,sans-serif;padding:0;}
+  body.printing{background:#fff !important;}
+  #printArea h1{font-size:20px;margin:0 0 2px;} #printArea h2{font-size:14px;margin:18px 0 6px;}
+  #printArea .pp-meta{font-size:11px;color:#555;margin-bottom:12px;}
+  #printArea .pp-sum{display:flex;gap:8px;margin-bottom:14px;} #printArea .pp-sum div{flex:1;border:1px solid #ccc;border-radius:6px;padding:7px 9px;} #printArea .pp-sum span{display:block;font-size:11px;color:#666;} #printArea .pp-sum b{font-size:13px;}
+  #printArea .pp-table{width:100%;border-collapse:collapse;font-size:11px;} #printArea th{text-align:left;border-bottom:1.5px solid #333;padding:5px 4px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;}
+  #printArea td{border-bottom:1px solid #ddd;padding:5px 4px;vertical-align:top;} #printArea .r{text-align:right;white-space:nowrap;}
+  #printArea .pp-item td{background:#f3f3f3;font-weight:700;} #printArea .pp-ind{padding-left:12px;} #printArea .pp-sub{font-size:11px;color:#666;margin-top:1px;}
+  #printArea tr{page-break-inside:avoid;} #printArea .pp-foot{margin-top:16px;font-size:11px;color:#777;}
+}
 </style>
 </head>
 <body>
@@ -428,7 +517,7 @@ body.nd-hide-blobs .nd-blob{display:none;}
     <div>
       <div class="nd-eyebrow-row">
         <div class="nd-eyebrow">RENCANA NIKAH</div>
-        <button class="nd-swatch-btn" id="splashPaletteBtn" title="Ganti warna"></button>
+        <button class="nd-swatch-btn" id="splashPaletteBtn" title="Ganti warna" aria-label="Ganti warna"></button>
       </div>
       <div class="nd-greeting" id="splashName"></div>
       <div class="nd-subtext" id="splashMsg"></div>
@@ -463,9 +552,9 @@ body.nd-hide-blobs .nd-blob{display:none;}
           <div class="nd-topbar-sub" id="ndTopSub"></div>
         </div>
         <div class="nd-topbar-btns">
-          <button class="nd-avatar-btn" id="nominalToggleBtn" title="Sembunyikan/tampilkan nominal">&#128065;</button>
-          <button class="nd-swatch-btn" id="ndPaletteBtn" title="Ganti warna"></button>
-          <button class="nd-avatar-btn" id="accountIconBtn" title="Akun">&#128100;</button>
+          <button class="nd-avatar-btn" id="nominalToggleBtn" title="Sembunyikan/tampilkan nominal" aria-label="Sembunyikan atau tampilkan nominal">&#128065;</button>
+          <button class="nd-swatch-btn" id="ndPaletteBtn" title="Ganti warna" aria-label="Ganti warna"></button>
+          <button class="nd-avatar-btn" id="accountIconBtn" title="Akun" aria-label="Akun">&#128100;</button>
         </div>
       </div>
 
@@ -562,6 +651,8 @@ try{
   console.warn('Gagal mengaktifkan offline persistence, dilanjutkan tanpa fitur ini:', persistErr);
 }
 
+// Escape teks buatan pengguna sebelum disisipkan ke innerHTML (cegah tag/script nyasar dari isian, import Excel/JSON)
+function esc(v){ return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 let uidCounter = 0;
 function uid(){ return 'i' + (uidCounter++) + '-' + Date.now(); }
 
@@ -571,9 +662,11 @@ function openModal(renderFn){
   const sheet = document.getElementById('modalSheet');
   sheet.innerHTML = '';
   renderFn(sheet);
+  sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('tabindex', '-1');
   overlay.classList.add('open');
   isModalOpen = true;
 }
+document.addEventListener('keydown', (ev) => { if(ev.key === 'Escape' && isModalOpen) closeModal(); });
 function closeModal(){
   document.getElementById('modalOverlay').classList.remove('open');
   isModalOpen = false;
@@ -597,6 +690,8 @@ Panduan singkat untuk kalian berdua, atau siapa pun yang dibolehkan ikut isi dat
 3. Muncul layar sambutan ("Halo, ...") — tekan **"Buka rencana kami"**.
 
 Data tersimpan otomatis di Firebase dan langsung sinkron di HP kalian berdua. Tidak perlu tombol simpan untuk mengisi data biasa. Kalau satu orang sedang mengetik, perubahan dari yang lain baru muncul setelah selesai.
+
+**Kalau berdua mengedit bersamaan:** perubahan kalian **digabung otomatis** saat disimpan, jadi isian di bagian berbeda tidak saling menimpa (misal kamu isi DP, pasangan mengubah status rincian lain). Satu-satunya yang bentrok: **isian yang sama** diubah berdua di waktu berdekatan, maka yang menyimpan belakangan yang dipakai. Tetap sebaiknya jangan edit rincian yang sama bersamaan.
 
 ## Tombol di Bagian Atas
 
@@ -627,8 +722,9 @@ Ringkasan semua yang kalian isi, dihitung otomatis. Dibaca dari atas ke bawah:
 - **Ringkasan pembayaran** — sudah dibayar, sisa dibayar, dan budget maksimal.
 - **Target nabung** — tabungan per bulan yang dibutuhkan sampai hari H, dibanding rata-rata nabung kalian sekarang.
 - **Sumber dana** — per orang: terkumpul, rencana (DP dan pelunasan yang dialokasikan ke dia), terpakai (yang sudah benar-benar dibayar), dan sisa.
-- **Alokasi bertingkat** — tabungan dipakai berurutan: budget acara, dana risiko, dana setelah nikah.
-- **Saran**, **Tamu**, enam kotak progres, dan **Perlu dilengkapi** (termasuk peringatan: sumber dana belum dipilih, tabungan kurang, DP melebihi harga).
+- **Perlu dilengkapi** — daftar hal yang belum beres (termasuk peringatan: sumber dana belum dipilih, tabungan kurang, DP melebihi harga).
+
+Kartu pendukung dilipat supaya Beranda tidak terlalu panjang. Tekan **"Lihat detail lainnya"** di bawah untuk membuka: ringkasan pembayaran, sumber dana, alokasi bertingkat (tabungan dipakai berurutan: budget acara, dana risiko, dana setelah nikah), saran, tamu, dan enam kotak progres. Pilihan buka/tutup diingat di HP kamu.
 
 Hampir semua kartu bisa di-tap untuk lompat ke tab yang bersangkutan.
 
@@ -665,8 +761,9 @@ Cara pakai bagian pembayaran:
 
 - **DP bertahap**: ada **DP 1, DP 2, DP 3**. Isi nominal tiap DP dan pilih **sumber dananya** (Tabungan pengantin 1 atau Tabungan pengantin 2). Status otomatis jadi **DP** begitu ada nominal DP, dan yang dihitung "sudah dibayar" sebesar total DP.
 - **Lunas**: ubah status ke **Sudah dibayar**. Sisa setelah DP otomatis jadi nominal pelunasan; pilih juga sumber dananya di baris **Lunas**.
+- **Tanggal bayar**: tiap DP dan pelunasan punya kolom **Tgl bayar / Tgl lunas** (terisi otomatis hari ini, bisa diubah), plus kolom **Catatan pembayaran** untuk no. bukti transfer atau nama penerima. Berguna kalau vendor bilang "belum masuk".
 - **Jatuh tempo**: isi tanggalnya, nanti muncul di Agenda Terdekat di Beranda dan di bagian atas halaman Budget.
-- **Catering / souvenir**: centang **"Hitung per orang"**, lalu isi harga per porsi. Total otomatis dikali jumlah tamu. Kalau kolom jumlah tamu dikosongkan, ikut target tamu di Pengaturan; atau ketik jumlah sendiri (misal souvenir 250).
+- **Catering / souvenir**: centang **"Hitung per orang"**, lalu isi harga per porsi. Total otomatis dikali jumlah tamu. Kalau kolom jumlah tamu dikosongkan, ikut Pengaturan → Target → **"Hitung per orang pakai"**: *Target tamu* (default) atau *Tamu konfirmasi hadir* (otomatis memakai jumlah yang sudah konfirmasi, makin akurat mendekati hari H). Atau ketik jumlah sendiri (misal souvenir 250).
 - Total, sudah dibayar, dan sisa di tiap item **terhitung otomatis** dari semua rinciannya.
 
 Untuk membandingkan beberapa vendor sebelum memilih, cukup catat semuanya sebagai rincian dengan nominal masing-masing, lalu hapus yang tidak jadi dipilih.
@@ -702,6 +799,9 @@ Urutan kartu di tab Pengaturan:
 - **Warna Tema** — Sage Green, Mocha Mousse, Butter Yellow, Dusty Rose, atau Emerald Green.
 - **Foto Pre-wedding** — pilih foto dari galeri, otomatis dikompres jadi kecil. Tampil di layar sambutan.
 - **Latar Belakang** — nyalakan/matikan hiasan latar dan gradasi lembut.
+- **Cetak / Simpan PDF Ringkasan** — ringkasan Budget (harga, DP beserta tanggalnya, status, jatuh tempo) siap cetak atau jadi PDF, cocok dibagikan ke keluarga. Ada pilihan menyertakan sumber dana atau tidak.
+- **Riwayat & Urungkan** — salah hapus atau salah edit? Pulihkan kondisi sebelumnya (lihat bagian Riwayat di bawah).
+- **Backup Foto Moodboard** — unduh dan pulihkan foto moodboard.
 - **Export & Import Data** — untuk backup (lihat di bawah).
 - **Zona Bahaya** — tombol reset.
 
@@ -716,6 +816,20 @@ Data sudah tersimpan di Firebase, tapi tetap **biasakan backup manual** sebagai 
 Beranda akan mengingatkan lewat "Perlu dilengkapi" kalau sudah lebih dari **seminggu** sejak backup terakhir.
 
 **Restore:** Pengaturan → Import → pilih file backup \`.json\` → tekan **"Import Data"** → konfirmasi. Ingat, import **menimpa** semua data yang ada sekarang.
+
+## Riwayat & Urungkan
+
+Setiap kali data disimpan, aplikasi menyimpan kondisi **sebelum** perubahan (maks. 15 versi terakhir, otomatis dan langsung saat ada yang terhapus). Buka **Pengaturan → Riwayat & Urungkan**, pilih waktunya, tekan **Pulihkan**. Kondisi sekarang ikut tersimpan di riwayat, jadi pemulihan bisa dibatalkan lagi.
+
+Catatan: riwayat hanya ada di HP/browser yang dipakai (bukan di server) dan hilang kalau kamu **Keluar**. Jadi tetap lakukan backup rutin.
+
+## Backup Foto Moodboard
+
+Foto moodboard disimpan terpisah, jadi **tidak ikut** file backup data. Di **Pengaturan → Backup Foto Moodboard**, tekan **"Unduh foto moodboard (.json)"** sesekali. Untuk mengembalikan, pilih file itu di kolom pulihkan; foto yang sudah ada dilewati.
+
+## Pasang di Layar Utama HP
+
+Biar terbuka seperti aplikasi: di Chrome (Android) buka menu ⋮ → **Tambahkan ke layar utama**; di Safari (iPhone) tekan tombol Bagikan → **Tambah ke Layar Utama**. Ikonnya otomatis berwarna sesuai tema. Perlu internet saat dibuka; data tetap sama seperti di browser.
 
 ## Reset Data
 
@@ -907,12 +1021,12 @@ function openMoodViewer(item){
   openModal(sheet => {
     const head = document.createElement('div');
     head.className = 'modal-head';
-    head.innerHTML = `<div class="modal-title">Foto Moodboard</div><button class="modal-close" id="modalCloseBtn">&times;</button>`;
+    head.innerHTML = `<div class="modal-title">Foto Moodboard</div><button class="modal-close" id="modalCloseBtn" aria-label="Tutup">&times;</button>`;
     sheet.appendChild(head);
     head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
     const body = document.createElement('div');
     body.innerHTML = `
-      <img src="${item.img}" style="width:100%;border-radius:14px;display:block;margin-top:10px;">
+      <img src="${esc(item.img)}" style="width:100%;border-radius:14px;display:block;margin-top:10px;">
       <div style="margin-top:12px;font-size:11px;color:var(--ink-dim);">Kategori</div>
       <select id="mbCat" style="width:100%;margin-top:4px;padding:10px;border-radius:12px;border:1px solid var(--border);background:var(--panel-2);color:var(--ink);font-size:13px;">
         ${MOOD_CATS.map(c => `<option value="${c}" ${c===item.cat?'selected':''}>${c}</option>`).join('')}
@@ -965,7 +1079,7 @@ function renderMoodboardSectionND(container){
       <button id="mbAddBtn" style="flex:1;padding:13px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px 'Sora';cursor:pointer;">+ Tambah foto</button>
     </div>
     <input type="file" id="mbFile" accept="image/*" multiple style="display:none;">
-    <div id="moodMsg" style="font-size:11.5px;color:#9A9B93;margin-top:8px;min-height:14px;">${moodMsg}</div>
+    <div id="moodMsg" style="font-size:11.5px;color:#6F7068;margin-top:8px;min-height:14px;">${moodMsg}</div>
   `;
   container.appendChild(add);
   const sel = add.querySelector('#mbAddCat');
@@ -983,16 +1097,16 @@ function renderMoodboardSectionND(container){
     ex.className = 'nd-card';
     ex.innerHTML = `
       <div class="nd-card-hdr">BAGIKAN KE VENDOR</div>
-      <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;line-height:1.5;">Unduh moodboard sebagai file PowerPoint (.pptx): sampul, lalu satu bagian per kategori. Bisa dibuka di PowerPoint atau Google Slides, dan dikirim lewat WhatsApp atau email.</div>
-      <div style="font-size:11px;color:#9A9B93;margin-top:12px;">Judul</div>
-      <input type="text" id="mbxTitle" maxlength="80" placeholder="Moodboard Pernikahan ${(data.greetingName||'').replace(/"/g,'')}" style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px 12px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;">
-      <div style="font-size:11px;color:#9A9B93;margin-top:10px;">Pesan untuk vendor (opsional, tampil di sampul)</div>
+      <div style="font-size:11.5px;color:#6F7068;margin-top:4px;line-height:1.5;">Unduh moodboard sebagai file PowerPoint (.pptx): sampul, lalu satu bagian per kategori. Bisa dibuka di PowerPoint atau Google Slides, dan dikirim lewat WhatsApp atau email.</div>
+      <div style="font-size:11px;color:#6F7068;margin-top:12px;">Judul</div>
+      <input type="text" id="mbxTitle" maxlength="80" placeholder="Moodboard Pernikahan ${esc(data.greetingName||'')}" style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px 12px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;">
+      <div style="font-size:11px;color:#6F7068;margin-top:10px;">Pesan untuk vendor (opsional, tampil di sampul)</div>
       <textarea id="mbxMsg" rows="2" maxlength="200" placeholder="Misal: Kami suka suasana hangat dengan bunga putih, tolong beri penawaran paket." style="width:100%;box-sizing:border-box;margin-top:4px;padding:10px 12px;border-radius:14px;border:1px solid #ECE7DE;background:#FAF9F6;font-size:13px;font-family:inherit;resize:vertical;"></textarea>
-      <div style="font-size:11px;color:#9A9B93;margin-top:10px;">Kategori yang disertakan</div>
+      <div style="font-size:11px;color:#6F7068;margin-top:10px;">Kategori yang disertakan</div>
       <div id="mbxCats" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:6px;"></div>
       <label style="display:flex;gap:8px;align-items:center;font-size:12.5px;margin-top:12px;cursor:pointer;"><input type="checkbox" id="mbxNotes" ${moodExp.notes?'checked':''}> Sertakan catatan di bawah tiap foto</label>
       <button id="mbxBtn" style="width:100%;margin-top:14px;padding:14px;border-radius:100px;border:none;background:var(--nd-accent);color:#fff;font:700 13px 'Sora';cursor:pointer;">Unduh PowerPoint</button>
-      <div id="mbxStatus" style="font-size:11.5px;color:#9A9B93;margin-top:8px;min-height:14px;">${moodExp.status||''}</div>
+      <div id="mbxStatus" style="font-size:11.5px;color:#6F7068;margin-top:8px;min-height:14px;">${moodExp.status||''}</div>
     `;
     container.appendChild(ex);
     const ti = ex.querySelector('#mbxTitle'), ms = ex.querySelector('#mbxMsg');
@@ -1012,7 +1126,7 @@ function renderMoodboardSectionND(container){
     btn.addEventListener('click', async () => {
       if(moodExp.busy) return;
       moodExp.busy = true; btn.disabled = true; btn.style.opacity = '.6';
-      st.style.color = '#9A9B93'; st.textContent = 'Menyiapkan file PowerPoint...';
+      st.style.color = '#6F7068'; st.textContent = 'Menyiapkan file PowerPoint...';
       try{
         await exportMoodboardPptx();
         moodExp.status = 'File berhasil diunduh. Cek folder Unduhan di HP atau laptop.';
@@ -1044,7 +1158,7 @@ function renderMoodboardSectionND(container){
   const shown = moodboard.filter(m => moodFilter === 'Semua' || m.cat === moodFilter);
   if(shown.length === 0){
     const empty = document.createElement('div');
-    empty.style.cssText = 'text-align:center;padding:30px 24px;font-size:13px;color:#9A9B93;line-height:1.6;';
+    empty.style.cssText = 'text-align:center;padding:30px 24px;font-size:13px;color:#6F7068;line-height:1.6;';
     empty.textContent = 'Belum ada foto. Tekan "+ Tambah foto" untuk mulai mengumpulkan inspirasi.';
     container.appendChild(empty);
     return;
@@ -1054,7 +1168,7 @@ function renderMoodboardSectionND(container){
   shown.forEach(m => {
     const tile = document.createElement('div');
     tile.className = 'mb-tile';
-    tile.innerHTML = `<img loading="lazy" alt="${(m.cat||'').replace(/"/g,'')}" src="${m.img}"><div class="mb-badge">${(m.cat||'Lainnya').toUpperCase()}</div>${m.note ? `<div class="mb-cap"></div>` : ''}`;
+    tile.innerHTML = `<img loading="lazy" alt="${esc(m.cat||'')}" src="${esc(m.img)}"><div class="mb-badge">${esc((m.cat||'Lainnya').toUpperCase())}</div>${m.note ? `<div class="mb-cap"></div>` : ''}`;
     if(m.note) tile.querySelector('.mb-cap').textContent = m.note;
     tile.addEventListener('click', () => openMoodViewer(m));
     grid.appendChild(tile);
@@ -1070,7 +1184,7 @@ function renderAccountModal(sheet){
   head.className = 'modal-head';
   head.innerHTML = `
     <div class="modal-title">Akun</div>
-    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <button class="modal-close" id="modalCloseBtn" aria-label="Tutup">&times;</button>
   `;
   sheet.appendChild(head);
   head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
@@ -1088,6 +1202,7 @@ function renderAccountModal(sheet){
     clearMyPresence();
     if(unsubscribeSnapshot){ unsubscribeSnapshot(); unsubscribeSnapshot = null; }
     stopMoodboardSync();
+    histClear();
     setTimeout(() => { auth.signOut(); }, 150);
   });
 }
@@ -1097,7 +1212,7 @@ function renderPanduanModal(sheet){
   head.className = 'modal-head';
   head.innerHTML = `
     <div class="modal-title">Panduan Penggunaan</div>
-    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <button class="modal-close" id="modalCloseBtn" aria-label="Tutup">&times;</button>
   `;
   sheet.appendChild(head);
   head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
@@ -1131,9 +1246,9 @@ function renderBudgetDetailModal(sheet, row){
   head.innerHTML = `
     <div>
       <div class="modal-title">Detail Rincian</div>
-      <div style="font-size:12.5px;color:var(--ink-dim);">${row.item || '(item belum diberi nama)'}</div>
+      <div style="font-size:12.5px;color:var(--ink-dim);">${esc(row.item || '(item belum diberi nama)')}</div>
     </div>
-    <button class="modal-close" id="modalCloseBtn">&times;</button>
+    <button class="modal-close" id="modalCloseBtn" aria-label="Tutup">&times;</button>
   `;
   sheet.appendChild(head);
   head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
@@ -1161,7 +1276,7 @@ function renderBudgetDetailModal(sheet, row){
       head.style.cursor = 'pointer';
       head.innerHTML = `
         <div style="flex:1;min-width:0;">
-          <input type="text" class="subitem-name-input" value="${(sub.name||'').replace(/"/g,'&quot;')}" placeholder="Nama sub-item (misal: Alat sholat)">
+          <input type="text" class="subitem-name-input" value="${esc(sub.name||'')}" placeholder="Nama sub-item (misal: Alat sholat)">
           <div class="subitem-total">${(sub.details||[]).length} rincian · ${rupiah(subTotal)}</div>
         </div>
         <button class="detail-del" title="Hapus sub-item">Hapus</button>
@@ -1194,12 +1309,12 @@ function renderBudgetDetailModal(sheet, row){
           dRow.className = 'detail-row';
           dRow.innerHTML = `
             <div class="detail-row-fields">
-              <input type="text" class="name" placeholder="Nama (misal: Sajadah)" value="${(det.name||'').replace(/"/g,'&quot;')}">
-              <input type="text" class="link" placeholder="Link Toko/Vendor" value="${(det.link||'').replace(/"/g,'&quot;')}">
+              <input type="text" class="name" placeholder="Nama (misal: Sajadah)" value="${esc(det.name||'')}">
+              <input type="text" class="link" placeholder="Link Toko/Vendor" value="${esc(det.link||'')}">
             </div>
             <div class="detail-row-fields" style="margin-top:6px;">
-              <input type="text" class="phone" placeholder="No HP" value="${(det.phone||'').replace(/"/g,'&quot;')}">
-              <input type="number" class="price" placeholder="Nominal" value="${det.price||0}">
+              <input type="text" class="phone" placeholder="No HP" value="${esc(det.phone||'')}">
+              <input type="number" class="price" placeholder="Nominal" value="${esc(det.price||0)}">
               <select class="status">
                 <option value="Belum" ${(det.status!=='Sudah' && det.status!=='DP')?'selected':''}>Belum dibayar</option>
                 <option value="DP" ${det.status==='DP'?'selected':''}>DP</option>
@@ -1208,7 +1323,7 @@ function renderBudgetDetailModal(sheet, row){
             </div>
             <div class="detail-row-fields detail-pp-row" style="margin-top:6px;align-items:center;">
               <label style="font-size:12px;display:flex;gap:6px;align-items:center;cursor:pointer;"><input type="checkbox" class="pp" style="width:auto;padding:0;" ${det.perOrang?'checked':''}> Hitung per orang</label>
-              <input type="number" class="qty" min="0" placeholder="Jml tamu (${Number(data.guestTarget)||0})" value="${det.qty||''}" style="width:120px;${det.perOrang?'':'display:none;'}">
+              <input type="number" class="qty" min="0" placeholder="Jml tamu (${guestBasisCount()})" value="${esc(det.qty||'')}" style="width:120px;${det.perOrang?'':'display:none;'}">
               <div class="pp-total" style="flex:1;font-size:12px;opacity:.75;text-align:right;"></div>
             </div>
             <div class="detail-dp-block" style="margin-top:10px;">
@@ -1218,17 +1333,26 @@ function renderBudgetDetailModal(sheet, row){
                 <span style="width:40px;font-size:12px;">DP ${i+1}</span>
                 <input type="number" class="dpamt" data-i="${i}" placeholder="Nominal" min="0" value="${det.dps[i].amt||''}" style="width:105px;">
                 <select class="dpsrc" data-i="${i}" style="flex:1;min-width:120px;">${danaOptionsHtml(det.dps[i].src)}</select>
+              </div>
+              <div class="detail-row-fields" style="margin-top:4px;align-items:center;padding-left:46px;">
+                <span style="font-size:11px;opacity:.65;width:62px;">Tgl bayar</span>
+                <input type="date" class="dpdate" data-i="${i}" aria-label="Tanggal bayar DP ${i+1}" value="${det.dps[i].date||''}" style="flex:1;min-width:130px;padding:7px 10px;">
               </div>`).join('')}
               <div class="detail-row-fields" style="margin-top:6px;align-items:center;">
                 <span style="width:40px;font-size:12px;">Lunas</span>
                 <div class="lunas-amt" style="width:105px;font-size:12px;"></div>
                 <select class="lunassrc" style="flex:1;min-width:120px;">${danaOptionsHtml(det.lunasSrc)}</select>
               </div>
+              <div class="detail-row-fields" style="margin-top:4px;align-items:center;padding-left:46px;">
+                <span style="font-size:11px;opacity:.65;width:62px;">Tgl lunas</span>
+                <input type="date" class="lunasdate" aria-label="Tanggal pelunasan" value="${esc(det.lunasDate||'')}" style="flex:1;min-width:130px;padding:7px 10px;">
+              </div>
+              <input type="text" class="paynote" maxlength="160" placeholder="Catatan pembayaran (no. bukti transfer, nama penerima…)" value="${(det.payNote||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}" style="width:100%;margin-top:8px;">
               <div class="dp-sisa" style="font-size:12px;opacity:.75;text-align:right;margin-top:5px;"></div>
             </div>
             <div class="detail-due" style="margin-top:6px;">
               <label style="font-size:11px;opacity:.7;display:block;margin-bottom:3px;">Jatuh tempo pelunasan</label>
-              <input type="date" class="due" value="${det.dueDate||''}">
+              <input type="date" class="due" value="${esc(det.dueDate||'')}">
             </div>
             <div style="display:flex;justify-content:flex-end;">
               <button class="detail-del">Hapus rincian</button>
@@ -1249,7 +1373,7 @@ function renderBudgetDetailModal(sheet, row){
             priceI.placeholder = det.perOrang ? 'Harga per orang' : 'Nominal';
             qtyI.style.display = det.perOrang ? '' : 'none';
             if(det.perOrang){
-              const q = Number(det.qty) > 0 ? Number(det.qty) : (Number(data.guestTarget)||0);
+              const q = Number(det.qty) > 0 ? Number(det.qty) : guestBasisCount();
               ppTotal.textContent = `${rupiah(Number(det.price)||0)} × ${q} = ${rupiah(detailTotal(det))}`;
             } else ppTotal.textContent = '';
           }
@@ -1275,14 +1399,27 @@ function renderBudgetDetailModal(sheet, row){
           ppI.addEventListener('change', e => { det.perOrang = e.target.checked; scheduleSave(); refreshTotals(); });
           qtyI.addEventListener('input', e => { det.qty = e.target.value; scheduleSave(); refreshTotals(); });
           dueI.addEventListener('input', e => { det.dueDate = e.target.value; scheduleSave(); });
+          const todayISO = () => { const d = new Date(); return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); };
+          dRow.querySelectorAll('.dpdate').forEach(inp => inp.addEventListener('input', e => { det.dps[Number(inp.dataset.i)].date = e.target.value; scheduleSave(); }));
+          dRow.querySelector('.lunasdate').addEventListener('input', e => { det.lunasDate = e.target.value; scheduleSave(); });
+          dRow.querySelector('.paynote').addEventListener('input', e => { det.payNote = e.target.value; scheduleSave(); });
           dRow.querySelectorAll('.dpamt').forEach(inp => inp.addEventListener('input', e => {
             det.dps[Number(inp.dataset.i)].amt = e.target.value;
+            // isi tanggal hari ini otomatis saat nominal DP pertama kali diisi (bisa diubah)
+            if(Number(e.target.value) > 0 && !det.dps[Number(inp.dataset.i)].date){
+              det.dps[Number(inp.dataset.i)].date = todayISO();
+              dRow.querySelector('.dpdate[data-i="' + inp.dataset.i + '"]').value = det.dps[Number(inp.dataset.i)].date;
+            }
             if(det.status !== 'Sudah'){ det.status = detailDpSum(det) > 0 ? 'DP' : 'Belum'; statusI.value = det.status; }
             scheduleSave(); refreshTotals();
           }));
           dRow.querySelectorAll('.dpsrc').forEach(sl => sl.addEventListener('change', e => { det.dps[Number(sl.dataset.i)].src = e.target.value; scheduleSave(); }));
           lunasSrcI.addEventListener('change', e => { det.lunasSrc = e.target.value; scheduleSave(); });
-          statusI.addEventListener('change', e => { det.status = e.target.value; scheduleSave(); refreshTotals(); });
+          statusI.addEventListener('change', e => {
+            det.status = e.target.value;
+            if(det.status === 'Sudah' && !det.lunasDate){ det.lunasDate = todayISO(); dRow.querySelector('.lunasdate').value = det.lunasDate; }
+            scheduleSave(); refreshTotals();
+          });
           refreshPp();
           refreshDp();
           dRow.querySelector('.detail-del').addEventListener('click', () => {
@@ -1565,6 +1702,51 @@ function applyThemeND(themeKey){
   root.setProperty('--nd-blob2', t.blob2);
   root.setProperty('--nd-page-bg', t.pageBg);
   root.setProperty('--nd-shadow', t.shadow);
+  if(typeof setupPwa === 'function') setTimeout(setupPwa, 0);
+}
+
+/* ===== Ikon & manifest (supaya bisa "Tambah ke Layar Utama" dan tampil seperti aplikasi) =====
+   Ikon digambar otomatis pakai warna tema + inisial nama, jadi tidak perlu file gambar terpisah. */
+let pwaManifestUrl = null;
+function pwaInitials(){
+  const words = String((typeof data !== 'undefined' && data.greetingName) || '').split(/[^A-Za-zÀ-ÿ]+/).filter(Boolean);
+  if(words.length >= 2) return (words[0][0] + '&' + words[1][0]).toUpperCase();
+  if(words.length === 1) return words[0].slice(0,2).toUpperCase();
+  return 'RN';
+}
+function pwaDrawIcon(size, accent, deep){
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  const x = c.getContext('2d');
+  const g = x.createLinearGradient(0, 0, size, size); g.addColorStop(0, accent); g.addColorStop(1, deep);
+  x.fillStyle = g; x.fillRect(0, 0, size, size);                      // penuh (maskable): sudut dibulatkan oleh sistem
+  x.fillStyle = 'rgba(255,255,255,.16)'; x.beginPath(); x.arc(size*0.82, size*0.18, size*0.32, 0, Math.PI*2); x.fill();
+  x.fillStyle = '#fff'; x.textAlign = 'center'; x.textBaseline = 'middle';
+  x.font = '800 ' + Math.round(size*0.34) + 'px Sora, "Plus Jakarta Sans", Arial, sans-serif';
+  x.fillText(pwaInitials(), size/2, size/2 + size*0.02);
+  return c.toDataURL('image/png');
+}
+function setupPwa(){
+  try{
+    const cs = getComputedStyle(document.documentElement);
+    const accent = (cs.getPropertyValue('--nd-accent') || '#8A9A78').trim() || '#8A9A78';
+    const deep = (cs.getPropertyValue('--nd-deep') || '#5C6B4C').trim() || '#5C6B4C';
+    const i192 = pwaDrawIcon(192, accent, deep), i512 = pwaDrawIcon(512, accent, deep), i180 = pwaDrawIcon(180, accent, deep);
+    const setLink = (rel, href, sizes) => {
+      let l = document.querySelector('link[rel="' + rel + '"]');
+      if(!l){ l = document.createElement('link'); l.rel = rel; document.head.appendChild(l); }
+      l.href = href; if(sizes) l.setAttribute('sizes', sizes);
+    };
+    setLink('icon', i192, '192x192');
+    setLink('apple-touch-icon', i180, '180x180');
+    const tc = document.querySelector('meta[name="theme-color"]'); if(tc) tc.setAttribute('content', accent);
+    const base = location.origin + location.pathname;
+    const manifest = {name: 'Rencana Nikah', short_name: 'Rencana', description: 'Anggaran dan persiapan pernikahan', start_url: base, scope: base.replace(/[^\/]*$/, ''), display: 'standalone', orientation: 'portrait', background_color: '#F6F3EC', theme_color: accent,
+      icons: [{src: i192, sizes: '192x192', type: 'image/png', purpose: 'any maskable'}, {src: i512, sizes: '512x512', type: 'image/png', purpose: 'any maskable'}]};
+    const url = URL.createObjectURL(new Blob([JSON.stringify(manifest)], {type: 'application/manifest+json'}));
+    setLink('manifest', url);
+    if(pwaManifestUrl) URL.revokeObjectURL(pwaManifestUrl);
+    pwaManifestUrl = url;
+  }catch(e){ console.warn('Ikon aplikasi dilewati', e); }
 }
 // Terapkan tema default (Peach) sejak awal — sebelum login, kita belum tahu tema
 // pilihan pasangan (baru kebaca setelah data Firestore dimuat), jadi layar login
@@ -1729,7 +1911,7 @@ function showPresenceBar(){
   const bar = document.getElementById('presenceBar');
   const text = document.getElementById('presenceText');
   if(!bar || !text) return;
-  const msg = `⚠️  ${otherPresenceLabel} sedang menggunakan aplikasi ini sekarang — sebaiknya tunggu dulu supaya data tidak tabrakan saat disimpan.`;
+  const msg = `⚠️  ${otherPresenceLabel} sedang menggunakan aplikasi ini sekarang — perubahan kalian digabung otomatis, tapi hindari mengedit isian yang sama bersamaan.`;
   text.textContent = msg + '     ' + msg;
   bar.style.display = 'block';
 }
@@ -1753,8 +1935,10 @@ function startSync(onFirstLoad){
       normalizeData(snap.data());
     } else {
       data = defaultData();
+      baseRaw = jclone(data);
       docRef.set(data).catch(e => console.error('Gagal buat data awal', e));
     }
+    if(snap.exists) baseRaw = jclone(data); // kondisi terakhir yang kita lihat = dasar untuk gabung berikutnya
     applyTheme(data.theme);
     applyThemeND(data.themeND);
     applyBgDecor();
@@ -1775,7 +1959,7 @@ function markSplashSeen(){
 
 function showSplash(){
   document.getElementById('ndRoot').style.display = 'block';
-  document.getElementById('splashName').innerHTML = 'Halo,<br>' + (data.greetingName || 'calon pengantin') + ' <span style="font-family:\'Instrument Serif\';font-style:italic;color:var(--nd-accent);">✦</span>';
+  document.getElementById('splashName').innerHTML = 'Halo,<br>' + esc(data.greetingName || 'calon pengantin') + ' <span style="font-family:\'Instrument Serif\';font-style:italic;color:var(--nd-accent);">✦</span>';
   document.getElementById('splashMsg').textContent = data.greetingMessage || '';
 
   const days = daysUntilWedding();
@@ -1820,6 +2004,157 @@ function formatTanggalPanjangND(dateStr){
   return d.toLocaleDateString('id-ID', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
 }
 
+/* =========================================================================
+   PENYIMPANAN ANTI-TIMPA
+   Dulu: setiap simpan = menimpa SELURUH dokumen (docRef.set(data)), jadi kalau dua orang
+   edit berdekatan, yang menyimpan belakangan menghapus perubahan yang lain.
+   Sekarang: simpan lewat transaksi + gabung 3 arah (base = kondisi terakhir yang kita
+   lihat, local = kondisi di HP ini, remote = kondisi terbaru di server).
+   - Bagian yang hanya diubah salah satu pihak -> ikut yang mengubah.
+   - Daftar yang punya id (budget, sub-item, rincian, tamu, dst) digabung per id.
+   - Kalau dua-duanya mengubah isian yang SAMA, yang menyimpan belakangan menang.
+   ========================================================================= */
+let baseRaw = null;
+function jclone(x){ return x === undefined ? undefined : JSON.parse(JSON.stringify(x)); }
+function stable(x){
+  if(Array.isArray(x)) return '[' + x.map(stable).join(',') + ']';
+  if(x && typeof x === 'object') return '{' + Object.keys(x).filter(k => x[k] !== undefined).sort().map(k => JSON.stringify(k) + ':' + stable(x[k])).join(',') + '}';
+  return JSON.stringify(x === undefined ? null : x);
+}
+function isPlainObj(x){ return x !== null && typeof x === 'object' && !Array.isArray(x); }
+const MERGE_LOCAL_WINS = new Set(['open']); // status buka/tutup kartu = urusan tampilan per HP
+function mergeById(b, l, r){
+  const bm = new Map(b.map(x => [x.id, x])), lm = new Map(l.map(x => [x.id, x]));
+  const out = [], used = new Set();
+  r.forEach(rx => {
+    const bx = bm.get(rx.id), lx = lm.get(rx.id);
+    if(lx) out.push(mergeVal(bx, lx, rx));
+    else if(bx){ if(stable(rx) !== stable(bx)) out.push(rx); }   // dihapus di sini: hapus, kecuali pihak lain sempat mengubahnya
+    else out.push(rx);                                           // item baru dari pihak lain
+    used.add(rx.id);
+  });
+  l.forEach(lx => {
+    if(used.has(lx.id)) return;
+    const bx = bm.get(lx.id);
+    if(!bx || stable(lx) !== stable(bx)) out.push(lx);           // item baru di sini, atau dihapus pihak lain tapi kita ubah
+  });
+  return out;
+}
+function mergeVal(base, local, remote){
+  if(stable(local) === stable(base)) return remote;
+  if(stable(remote) === stable(base)) return local;
+  if(stable(local) === stable(remote)) return local;
+  if(isPlainObj(local) && isPlainObj(remote)){
+    const b = isPlainObj(base) ? base : {};
+    const out = {};
+    new Set([...Object.keys(local), ...Object.keys(remote)]).forEach(k => {
+      const v = MERGE_LOCAL_WINS.has(k) ? (k in local ? local[k] : remote[k]) : mergeVal(b[k], local[k], remote[k]);
+      if(v !== undefined) out[k] = v;
+    });
+    return out;
+  }
+  if(Array.isArray(local) && Array.isArray(remote)){
+    const b = Array.isArray(base) ? base : [];
+    const withId = a => a.every(x => isPlainObj(x) && x.id !== undefined && x.id !== null);
+    if(withId(local) && withId(remote) && withId(b)) return mergeById(b, local, remote);
+    if(local.length === remote.length && local.every(isPlainObj) && remote.every(isPlainObj) && (b.length === local.length || b.length === 0)){
+      return local.map((x, i) => mergeVal(b[i], x, remote[i]));
+    }
+  }
+  return local; // bentrok di isian yang sama: yang menyimpan belakangan menang
+}
+function persistOfflineFallback(local, base, err){
+  const code = err && err.code;
+  if(code && !['unavailable','deadline-exceeded','failed-precondition','aborted','cancelled','internal'].includes(code)) throw err;
+  // Offline: transaksi tidak bisa jalan. Tulis hanya bagian yang berubah (antre otomatis sampai online).
+  const b = base || {}, changed = {};
+  new Set([...Object.keys(local), ...Object.keys(b)]).forEach(k => {
+    if(stable(local[k]) !== stable(b[k])) changed[k] = local[k] === undefined ? firebase.firestore.FieldValue.delete() : local[k];
+  });
+  if(!Object.keys(changed).length) return Promise.resolve();
+  return docRef.update(changed).then(() => { baseRaw = local; }).catch(e => {
+    if(e && e.code === 'not-found') return docRef.set(local).then(() => { baseRaw = local; });
+    throw e;
+  });
+}
+let forceNextSave = false; // true = timpa penuh (dipakai Import, Reset, Pulihkan riwayat)
+function persistData(){
+  const local = jclone(data);
+  const force = forceNextSave; forceNextSave = false;
+  histMaybePush(baseRaw, local);
+  if(force || !(db && typeof db.runTransaction === 'function') || baseRaw === null){
+    return docRef.set(data).then(() => { baseRaw = local; });
+  }
+  const baseAtStart = baseRaw;
+  return db.runTransaction(async tx => {
+    const snap = await tx.get(docRef);
+    if(!snap.exists){ tx.set(docRef, local); return local; }
+    const merged = mergeVal(baseAtStart, local, jclone(snap.data()));
+    tx.set(docRef, merged);
+    return merged;
+  }).then(merged => {
+    if(stable(merged) === stable(local)){ baseRaw = local; return; }
+    // ada perubahan dari pasangan yang ikut tergabung -> tampilkan di layar ini juga
+    if(isTypingActive || isModalOpen || stable(jclone(data)) !== stable(local)){ baseRaw = local; return; }
+    baseRaw = jclone(merged);
+    normalizeData(jclone(merged));
+    baseRaw = jclone(data);
+    render();
+  }).catch(err => persistOfflineFallback(local, baseAtStart, err));
+}
+
+
+/* =========================================================================
+   RIWAYAT VERSI (di perangkat ini) — jaring pengaman kalau salah hapus/salah edit.
+   Setiap kali menyimpan, kondisi SEBELUM perubahan disimpan (maks. 1x per menit, atau
+   langsung kalau ada yang berkurang/terhapus). Disimpan di browser HP ini, maks. 15 versi,
+   dan dihapus saat Keluar. Foto pre-wedding tidak ikut disimpan (terlalu besar).
+   ========================================================================= */
+const HIST_KEY = 'wedding_history_v1', HIST_MAX = 15, HIST_GAP_MS = 60000, HIST_MAX_CHARS = 2200000;
+function histLoad(){ try{ const a = JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); return Array.isArray(a) ? a : []; }catch(e){ return []; } }
+function histStore(arr){
+  try{
+    while(arr.length > HIST_MAX) arr.pop();
+    let txt = JSON.stringify(arr);
+    while(txt.length > HIST_MAX_CHARS && arr.length > 1){ arr.pop(); txt = JSON.stringify(arr); }
+    localStorage.setItem(HIST_KEY, txt);
+  }catch(e){ /* penyimpanan browser penuh/diblokir: riwayat dilewati, aplikasi tetap jalan */ }
+}
+function histClear(){ try{ localStorage.removeItem(HIST_KEY); }catch(e){} }
+function histCounts(d){
+  const c = {item:0, rincian:0, tamu:0, tabungan:0};
+  if(!d) return c;
+  (d.budget||[]).forEach(b => { c.item++; (b.subItems||[]).forEach(si => { c.rincian += (si.details||[]).length; }); });
+  c.tamu = (d.tamu||[]).length; c.tabungan = (d.tabungan||[]).length;
+  return c;
+}
+function histMaybePush(prev, next, forceReason){
+  try{
+    if(!prev || (!forceReason && stable(prev) === stable(next))) return;
+    const a = histCounts(prev), b = histCounts(next);
+    const shrank = b.item < a.item || b.rincian < a.rincian || b.tamu < a.tamu || b.tabungan < a.tabungan;
+    const arr = histLoad();
+    const last = arr[0] ? arr[0].t : 0;
+    if(!forceReason && !shrank && Date.now() - last < HIST_GAP_MS) return;
+    const snap = jclone(prev); delete snap.photoUrl;
+    if(arr[0] && stable(arr[0].d) === stable(snap)) return;
+    arr.unshift({t: Date.now(), note: forceReason || (shrank ? 'Sebelum ada yang dihapus' : 'Otomatis'), c: a, d: snap});
+    histStore(arr);
+  }catch(e){ console.warn('Riwayat dilewati', e); }
+}
+function histRestore(idx){
+  const arr = histLoad(); const e = arr[idx]; if(!e) return false;
+  histMaybePush(jclone(data), jclone(e.d), 'Sebelum dipulihkan'); // supaya pemulihan ini sendiri bisa dibatalkan
+  const keepPhoto = data.photoUrl || '';
+  normalizeData(Object.assign(jclone(e.d), {photoUrl: keepPhoto}));
+  forceNextSave = true;
+  return saveNow().then(() => { render(); return true; });
+}
+function fmtHistTime(t){
+  const d = new Date(t);
+  return d.toLocaleDateString('id-ID', {day:'numeric', month:'short'}) + ' · ' + d.toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'}).replace('.', ':');
+}
+
 let saveTimeout = null;
 let saveRetryCount = 0;
 function setSaveStatus(state, msg){
@@ -1837,7 +2172,7 @@ function scheduleSave(){
   clearTimeout(saveTimeout);
   setSaveStatus('saving', 'Menyimpan...');
   saveTimeout = setTimeout(() => {
-    docRef.set(data).then(() => {
+    persistData().then(() => {
       saveRetryCount = 0;
       setSaveStatus('saved', 'Tersimpan.');
     }).catch(e => {
@@ -1854,7 +2189,7 @@ function scheduleSave(){
 function saveNow(){
   clearTimeout(saveTimeout);
   setSaveStatus('saving', 'Menyimpan...');
-  return docRef.set(data).then(() => {
+  return persistData().then(() => {
     saveRetryCount = 0;
     setSaveStatus('saved', 'Tersimpan.');
   }).catch(e => {
@@ -1900,10 +2235,18 @@ function statusClass(val){
 function tabunganActual(row){ return (Number(row.actualMe)||0) + (Number(row.actualPartner)||0); }
 
 // Total harga 1 rincian. Kalau "per orang": harga satuan × jumlah tamu (kosong = ikut target tamu di Beranda)
+// Jumlah orang untuk hitungan "per orang": target tamu, atau (kalau dipilih di Pengaturan & sudah ada) tamu yang konfirmasi hadir
+function guestBasisCount(){
+  if(data.guestBasis === 'hadir'){
+    const c = tamuStats().confirmed;
+    if(c > 0) return c;
+  }
+  return Number(data.guestTarget) || 0;
+}
 function detailTotal(d){
   const p = Number(d.price)||0;
   if(!d.perOrang) return p;
-  const q = Number(d.qty) > 0 ? Number(d.qty) : (Number(data.guestTarget)||0);
+  const q = Number(d.qty) > 0 ? Number(d.qty) : guestBasisCount();
   return p * q;
 }
 // Nominal yang sudah dibayar untuk 1 rincian: lunas = seluruh harga, kalau belum lunas = DP (maks. sebesar harga)
@@ -1914,14 +2257,17 @@ function danaLabel(k){
   return '';
 }
 function danaOptionsHtml(sel){
-  return '<option value="">Sumber dana…</option>' + ['s1','s2'].map(k => `<option value="${k}" ${sel===k?'selected':''}>${danaLabel(k)}</option>`).join('');
+  return '<option value="">Sumber dana…</option>' + ['s1','s2'].map(k => `<option value="${k}" ${sel===k?'selected':''}>${esc(danaLabel(k))}</option>`).join('');
 }
 // Pastikan 1 rincian punya 3 slot DP (nominal + sumber dana). Data lama (satu kolom 'dp') dipindah ke DP 1.
 function ensureDps(d){
   if(!Array.isArray(d.dps)) d.dps = [{amt:Number(d.dp)||0, src:''}];
   delete d.dp;
   while(d.dps.length < 3) d.dps.push({amt:0, src:''});
+  d.dps.forEach(x => { if(typeof x.date !== 'string') x.date = ''; });
   if(d.lunasSrc === undefined) d.lunasSrc = '';
+  if(typeof d.lunasDate !== 'string') d.lunasDate = '';
+  if(typeof d.payNote !== 'string') d.payNote = '';
   // sumber ke-3 sudah dihapus: pilihan lama dikosongkan
   d.dps.forEach(x => { if(x.src === 's3') x.src = ''; });
   if(d.lunasSrc === 's3') d.lunasSrc = '';
@@ -2251,7 +2597,7 @@ function renderDashboard(container){
   const budgetPct = data.targetBudget > 0 ? Math.round((d.totalEstimasi/data.targetBudget)*100) : 0;
   const tileBudget = document.createElement('button');
   tileBudget.className = 'nd-tile nd-tile-white';
-  tileBudget.innerHTML = `<div class="nd-tile-lbl" style="color:#9A9B93;">BUDGET TERPAKAI</div><div class="nd-tile-val">${budgetPct}%</div><div class="nd-tile-sub" style="color:#9A9B93;">${d.statusBudget}</div>`;
+  tileBudget.innerHTML = `<div class="nd-tile-lbl" style="color:#6F7068;">BUDGET TERPAKAI</div><div class="nd-tile-val">${budgetPct}%</div><div class="nd-tile-sub" style="color:#6F7068;">${d.statusBudget}</div>`;
   tileBudget.addEventListener('click', () => goToTab('budget'));
   grid1.appendChild(tileBudget);
   container.appendChild(grid1);
@@ -2261,21 +2607,21 @@ function renderDashboard(container){
     const agenda = computeAgenda();
     const cardAgenda = document.createElement('div');
     cardAgenda.className = 'nd-card';
-    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">AGENDA TERDEKAT</div><div style="font-size:10px;color:#9A9B93;">jatuh tempo · deadline</div></div>`;
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">AGENDA TERDEKAT</div><div style="font-size:11px;color:#6F7068;">jatuh tempo · deadline</div></div>`;
     if(agenda.length === 0){
-      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#9A9B93;line-height:1.5;">Belum ada tanggal. Isi <strong>jatuh tempo</strong> di rincian Budget atau <strong>deadline</strong> di Roadmap/Timeline, nanti muncul di sini otomatis.</div>`;
+      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#6F7068;line-height:1.5;">Belum ada tanggal. Isi <strong>jatuh tempo</strong> di rincian Budget atau <strong>deadline</strong> di Roadmap/Timeline, nanti muncul di sini otomatis.</div>`;
     } else {
       agenda.slice(0,5).forEach((a,i) => {
         const late = a.diff < 0;
         const when = late ? `Terlambat ${-a.diff} hari` : a.diff === 0 ? 'Hari ini' : a.diff === 1 ? 'Besok' : `${a.diff} hari lagi`;
-        const col = late ? '#C4574A' : a.diff <= 7 ? '#9C7A1E' : '#9A9B93';
+        const col = late ? '#C4574A' : a.diff <= 7 ? '#9C7A1E' : '#6F7068';
         h += `<div class="nd-agenda-row" data-i="${i}" style="display:flex;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #EFEBE2;cursor:pointer;">
-          <div style="flex:none;font:700 9px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${a.kind.toUpperCase()}</div>
-          <div style="flex:1;min-width:0;"><div style="font:600 12.5px 'Sora';color:#181B17;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${a.label}</div>
-          <div style="font-size:11px;color:#9A9B93;margin-top:2px;">${formatTanggalPendekND(a.date)}${a.extra ? ' · '+a.extra : ''}</div></div>
+          <div style="flex:none;font:700 10.5px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${a.kind.toUpperCase()}</div>
+          <div style="flex:1;min-width:0;"><div style="font:600 12.5px 'Sora';color:#181B17;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(a.label)}</div>
+          <div style="font-size:11px;color:#6F7068;margin-top:2px;">${formatTanggalPendekND(a.date)}${a.extra ? ' · '+a.extra : ''}</div></div>
           <div style="flex:none;font:700 11px 'Sora';color:${col};text-align:right;">${when}</div></div>`;
       });
-      if(agenda.length > 5) h += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${agenda.length-5} agenda lagi</div>`;
+      if(agenda.length > 5) h += `<div style="font-size:11px;color:#6F7068;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${agenda.length-5} agenda lagi</div>`;
     }
     cardAgenda.innerHTML = h;
     container.appendChild(cardAgenda);
@@ -2294,30 +2640,36 @@ function renderDashboard(container){
     const card = document.createElement('div');
     card.className = 'nd-card';
     card.style.cursor = 'pointer';
-    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">RINCIAN BUDGET</div><div style="font-size:10px;color:#9A9B93;">urut sisa terbesar</div></div>
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">RINCIAN BUDGET</div><div style="font-size:11px;color:#6F7068;">urut sisa terbesar</div></div>
       <div class="nd-chiprow">
         <div class="nd-chip"><div class="nd-chip-lbl">Lunas</div><div class="nd-chip-val">${st.lunas}</div></div>
         <div class="nd-chip"><div class="nd-chip-lbl">Sudah DP</div><div class="nd-chip-val">${st.dp}</div></div>
         <div class="nd-chip"><div class="nd-chip-lbl">Belum bayar</div><div class="nd-chip-val">${st.belum}</div></div>
       </div>`;
     if(rows.length === 0){
-      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#9A9B93;line-height:1.5;">Belum ada rincian berisi nominal. Isi lewat tab Budget → Kelola Detail Rincian.</div>`;
+      h += `<div style="padding:12px 0 2px;font-size:12.5px;color:#6F7068;line-height:1.5;">Belum ada rincian berisi nominal. Isi lewat tab Budget → Kelola Detail Rincian.</div>`;
     } else {
       rows.slice(0,6).forEach(x => {
         const pct = x.t.total > 0 ? Math.min(100, Math.round((x.t.paid/x.t.total)*100)) : 0;
-        const col = x.badge.cls==='s-done' ? '#3E7A4E' : x.badge.cls==='s-mid' ? '#9C7A1E' : '#9A9B93';
+        const col = x.badge.cls==='s-done' ? '#3E7A4E' : x.badge.cls==='s-mid' ? '#9C7A1E' : '#6F7068';
         h += `<div style="padding:10px 0;border-top:1px solid #EFEBE2;margin-top:8px;">
-          <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline;"><span style="font:700 12.5px 'Sora';color:#181B17;">${x.b.item||'(tanpa nama)'}</span><span style="font:700 10.5px 'Sora';color:${col};">${x.badge.text}</span></div>
+          <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline;"><span style="font:700 12.5px 'Sora';color:#181B17;">${esc(x.b.item||'(tanpa nama)')}</span><span style="font:700 11.5px 'Sora';color:${col};">${x.badge.text}</span></div>
           <div class="nd-bar-track" style="height:5px;margin-top:7px;"><div class="nd-bar-fill" style="width:${pct}%"></div></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;color:#9A9B93;margin-top:5px;"><span>Dibayar ${rupiah(x.t.paid)} dari ${rupiah(x.t.total)}</span><span>Sisa ${rupiah(x.t.belum)}</span></div></div>`;
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#6F7068;margin-top:5px;"><span>Dibayar ${rupiah(x.t.paid)} dari ${rupiah(x.t.total)}</span><span>Sisa ${rupiah(x.t.belum)}</span></div></div>`;
       });
-      if(rows.length > 6) h += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${rows.length-6} item lagi di tab Budget</div>`;
+      if(rows.length > 6) h += `<div style="font-size:11px;color:#6F7068;padding-top:8px;border-top:1px solid #EFEBE2;">+ ${rows.length-6} item lagi di tab Budget</div>`;
     }
     if(tanpaRincian > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${tanpaRincian} item Budget belum punya rincian.</div>`;
     card.innerHTML = h;
     card.addEventListener('click', () => goToTab('budget'));
     container.appendChild(card);
   }
+
+  // Kartu inti (hero, agenda, rincian, target nabung, perlu dilengkapi) tampil langsung;
+  // kartu pendukung dikumpulkan di 'moreC' dan dilipat di bawah tombol "Lihat detail lainnya".
+  const mainC = container;
+  const moreC = document.createElement('div');
+  container = moreC;
 
   // ==== Kartu ringkasan pembayaran ====
   const cardBayar = document.createElement('div');
@@ -2337,6 +2689,7 @@ function renderDashboard(container){
   container.appendChild(cardBayar);
 
   // ==== Kartu target nabung ====
+  container = mainC;
   {
     const tn = computeTargetNabung(d, days);
     const cardNab = document.createElement('div');
@@ -2344,19 +2697,20 @@ function renderDashboard(container){
     cardNab.style.cursor = 'pointer';
     let body;
     if(tn.status === 'tercapai'){
-      body = `<div style="font:700 14px 'Sora';color:#3E7A4E;margin-top:8px;">Target dana sudah tercapai ✓</div><div style="font-size:12px;color:#9A9B93;margin-top:4px;">Tabungan sudah cukup untuk budget, dana risiko, dan dana setelah nikah.</div>`;
+      body = `<div style="font:700 14px 'Sora';color:#3E7A4E;margin-top:8px;">Target dana sudah tercapai ✓</div><div style="font-size:12px;color:#6F7068;margin-top:4px;">Tabungan sudah cukup untuk budget, dana risiko, dan dana setelah nikah.</div>`;
     } else if(tn.status === 'tanpa-tanggal'){
-      body = `<div style="font-size:12.5px;color:#9A9B93;margin-top:8px;line-height:1.5;">Masih kurang ${rupiah(tn.kebutuhan)}. Atur tanggal nikah di Pengaturan supaya target per bulan bisa dihitung.</div>`;
+      body = `<div style="font-size:12.5px;color:#6F7068;margin-top:8px;line-height:1.5;">Masih kurang ${rupiah(tn.kebutuhan)}. Atur tanggal nikah di Pengaturan supaya target per bulan bisa dihitung.</div>`;
     } else {
       const cukup = tn.rataSekarang >= tn.perBulan;
-      body = `<div style="font:800 22px 'Sora';margin-top:6px;">${rupiah(tn.perBulan)} <span style="font-size:12px;font-weight:600;color:#9A9B93;">/ bulan</span></div>
-        <div style="font-size:11.5px;color:#9A9B93;margin-top:3px;">kurang ${rupiah(tn.kebutuhan)} untuk ${tn.bulan} bulan ke depan (budget + risiko + setelah nikah)</div>
-        <div style="font-size:12px;margin-top:10px;font-weight:600;color:${tn.rataSekarang===0?'#9A9B93':cukup?'#3E7A4E':'#C4574A'};">${tn.rataSekarang===0 ? 'Belum ada catatan nabung bulanan' : `Rata-rata nabung kalian ${rupiah(tn.rataSekarang)} / bulan — ${cukup ? 'sudah di jalur' : 'masih kurang '+rupiah(tn.perBulan-tn.rataSekarang)+' / bulan'}`}</div>`;
+      body = `<div style="font:800 22px 'Sora';margin-top:6px;">${rupiah(tn.perBulan)} <span style="font-size:12px;font-weight:600;color:#6F7068;">/ bulan</span></div>
+        <div style="font-size:11.5px;color:#6F7068;margin-top:3px;">kurang ${rupiah(tn.kebutuhan)} untuk ${esc(tn.bulan)} bulan ke depan (budget + risiko + setelah nikah)</div>
+        <div style="font-size:12px;margin-top:10px;font-weight:600;color:${tn.rataSekarang===0?'#6F7068':cukup?'#3E7A4E':'#C4574A'};">${tn.rataSekarang===0 ? 'Belum ada catatan nabung bulanan' : `Rata-rata nabung kalian ${rupiah(tn.rataSekarang)} / bulan — ${cukup ? 'sudah di jalur' : 'masih kurang '+rupiah(tn.perBulan-tn.rataSekarang)+' / bulan'}`}</div>`;
     }
     cardNab.innerHTML = `<div class="nd-card-hdr">TARGET NABUNG</div>` + body;
     cardNab.addEventListener('click', () => goToTab('tabungan'));
     container.appendChild(cardNab);
   }
+  container = moreC;
 
   // ==== Kartu sumber dana ====
   {
@@ -2364,13 +2718,13 @@ function renderDashboard(container){
     const card = document.createElement('div');
     card.className = 'nd-card';
     card.style.cursor = 'pointer';
-    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:10px;color:#9A9B93;">terkumpul · rencana · terpakai</div></div>`;
+    let h = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:11px;color:#6F7068;">terkumpul · rencana · terpakai</div></div>`;
     ['s1','s2'].forEach(k => {
       const sisa = fs.kumpul[k] - fs.plan[k];
       const neg = sisa < 0;
       h += `<div style="padding:10px 0;border-top:1px solid #EFEBE2;margin-top:8px;">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 12.5px 'Sora';">${danaLabel(k)}</span><span style="font:700 11.5px 'Sora';color:${neg?'#C4574A':'#3E7A4E'};">${neg ? 'Kurang ' + rupiah(-sisa) : 'Sisa ' + rupiah(sisa)}</span></div>
-        <div style="font-size:11px;color:#9A9B93;margin-top:4px;">Terkumpul ${rupiah(fs.kumpul[k])} · rencana ${rupiah(fs.plan[k])} · terpakai ${rupiah(fs.use[k])}</div></div>`;
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 12.5px 'Sora';">${esc(danaLabel(k))}</span><span style="font:700 11.5px 'Sora';color:${neg?'#C4574A':'#3E7A4E'};">${neg ? 'Kurang ' + rupiah(-sisa) : 'Sisa ' + rupiah(sisa)}</span></div>
+        <div style="font-size:11px;color:#6F7068;margin-top:4px;">Terkumpul ${rupiah(fs.kumpul[k])} · rencana ${rupiah(fs.plan[k])} · terpakai ${rupiah(fs.use[k])}</div></div>`;
     });
     if(fs.belumDialokasi > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${rupiah(fs.belumDialokasi)} dari total belum dipilih sumber dananya di rincian Budget.</div>`;
     card.innerHTML = h;
@@ -2381,7 +2735,7 @@ function renderDashboard(container){
   // ==== Kartu alokasi bertingkat ====
   const cardAlloc = document.createElement('div');
   cardAlloc.className = 'nd-card';
-  let allocHtml = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">ALOKASI BERTINGKAT</div><div style="font-size:10px;color:#C4C5BB;">budget → risiko → nikah</div></div>`;
+  let allocHtml = `<div style="display:flex;justify-content:space-between;align-items:baseline;"><div class="nd-card-hdr">ALOKASI BERTINGKAT</div><div style="font-size:11px;color:#8A8B83;">budget → risiko → nikah</div></div>`;
   const allocRows = [
     {label:'Budget acara', info:d.alokasi.budget},
     {label:'Dana risiko', info:d.alokasi.risiko},
@@ -2389,10 +2743,10 @@ function renderDashboard(container){
   ];
   allocRows.forEach(r => {
     let statusText, statusColor, barColor, pct;
-    if(r.info.belumMulai){ statusText='Belum mulai'; statusColor='#B3B4AB'; barColor='#E4E1D8'; pct=0; }
+    if(r.info.belumMulai){ statusText='Belum mulai'; statusColor='#74756D'; barColor='#E4E1D8'; pct=0; }
     else if(r.info.tercukupi){ statusText='Tercukupi'; statusColor='#3E7A4E'; barColor='#5CA05C'; pct=100; }
     else { statusText='Kurang '+rupiah(r.info.kurang); statusColor='#C4574A'; barColor='#E0A090'; pct = r.info.target>0 ? Math.max(4,Math.round(((r.info.target-r.info.kurang)/r.info.target)*100)) : 0; }
-    allocHtml += `<div class="nd-alloc-row"><div class="nd-alloc-top"><span style="font-weight:700;">${r.label}</span><span style="color:${statusColor};font-weight:600;">${statusText}</span></div><div class="nd-alloc-track"><div class="nd-alloc-fill" style="width:${pct}%;background:${barColor}"></div></div></div>`;
+    allocHtml += `<div class="nd-alloc-row"><div class="nd-alloc-top"><span style="font-weight:700;">${esc(r.label)}</span><span style="color:${statusColor};font-weight:600;">${statusText}</span></div><div class="nd-alloc-track"><div class="nd-alloc-fill" style="width:${pct}%;background:${barColor}"></div></div></div>`;
   });
   allocHtml += `<div class="nd-chiprow" style="margin-top:15px;">
     <div class="nd-chip"><div class="nd-chip-lbl">Dana risiko</div><div class="nd-chip-val">${rupiah(d.danaRisiko)}</div></div>
@@ -2446,6 +2800,7 @@ function renderDashboard(container){
     grid2.appendChild(tile);
   });
   container.appendChild(grid2);
+  container = mainC;
 
   // ==== Kartu checklist ====
   const checklistData = computeChecklist();
@@ -2457,9 +2812,9 @@ function renderDashboard(container){
     checkHtml += `<div style="padding:14px 0;color:#3E7A4E;font-weight:600;font-size:13px;">Semua bagian sudah diisi. Mantap!</div>`;
   } else {
     belumItems.slice(0,6).forEach((it,i) => {
-      checkHtml += `<div class="nd-check-row" data-idx="${i}"><div class="nd-check-box"></div><div class="nd-check-label">${it.label}</div><div class="nd-check-arrow">→</div></div>`;
+      checkHtml += `<div class="nd-check-row" data-idx="${i}"><div class="nd-check-box"></div><div class="nd-check-label">${esc(it.label)}</div><div class="nd-check-arrow">→</div></div>`;
     });
-    if(belumItems.length > 6) checkHtml += `<div style="font-size:11px;color:#9A9B93;padding-top:8px;">+ ${belumItems.length-6} hal lagi yang belum lengkap</div>`;
+    if(belumItems.length > 6) checkHtml += `<div style="font-size:11px;color:#6F7068;padding-top:8px;">+ ${belumItems.length-6} hal lagi yang belum lengkap</div>`;
   }
   cardCheck.innerHTML = checkHtml;
   container.appendChild(cardCheck);
@@ -2467,6 +2822,27 @@ function renderDashboard(container){
     const item = belumItems[i];
     if(item && item.tab){ row.addEventListener('click', () => goToTab(item.tab)); }
   });
+
+  // ==== Lipatan: detail lainnya ====
+  let moreOpen = false;
+  try{ moreOpen = localStorage.getItem('wedding_dash_more') === '1'; }catch(e){}
+  const moreBtn = document.createElement('button');
+  moreBtn.className = 'nd-more-btn';
+  moreBtn.setAttribute('aria-expanded', String(moreOpen));
+  const paintMore = () => {
+    moreC.style.display = moreOpen ? 'block' : 'none';
+    moreBtn.setAttribute('aria-expanded', String(moreOpen));
+    moreBtn.textContent = moreOpen ? 'Sembunyikan detail ▴' : 'Lihat detail lainnya ▾  (pembayaran, sumber dana, alokasi, tamu)';
+  };
+  moreBtn.addEventListener('click', () => {
+    moreOpen = !moreOpen;
+    try{ localStorage.setItem('wedding_dash_more', moreOpen ? '1' : '0'); }catch(e){}
+    paintMore();
+  });
+  paintMore();
+  mainC.appendChild(moreBtn);
+  mainC.appendChild(moreC);
+  mainC.appendChild(Object.assign(document.createElement('div'), {style:'height:18px'}));
 }
 
 
@@ -2579,8 +2955,8 @@ function renderTabunganSectionND(container){
     <div class="nd-bar-track" style="background:rgba(0,0,0,.08);margin-top:12px;"><div class="nd-bar-fill" style="width:${pctDana}%"></div></div>
     <div class="nd-bar-caption" style="color:var(--nd-deep-ink);opacity:.75;"><span>${pctDana}% dari total estimasi budget</span></div>
     <div class="nd-chiprow">
-      <div class="nd-chip"><div class="nd-chip-lbl">Nabung ${data.name1||'Kamu'}</div><div class="nd-chip-val">${rupiah(data.tabungan.reduce((s,r)=>s+(Number(r.actualMe)||0),0))}</div></div>
-      <div class="nd-chip"><div class="nd-chip-lbl">Nabung ${data.name2||'Pasangan'}</div><div class="nd-chip-val">${rupiah(data.tabungan.reduce((s,r)=>s+(Number(r.actualPartner)||0),0))}</div></div>
+      <div class="nd-chip"><div class="nd-chip-lbl">Nabung ${esc(data.name1||'Kamu')}</div><div class="nd-chip-val">${rupiah(data.tabungan.reduce((s,r)=>s+(Number(r.actualMe)||0),0))}</div></div>
+      <div class="nd-chip"><div class="nd-chip-lbl">Nabung ${esc(data.name2||'Pasangan')}</div><div class="nd-chip-val">${rupiah(data.tabungan.reduce((s,r)=>s+(Number(r.actualPartner)||0),0))}</div></div>
       <div class="nd-chip"><div class="nd-chip-lbl">Target total</div><div class="nd-chip-val">${rupiah(data.tabungan.reduce((s,r)=>s+(Number(r.targetSave)||0),0))}</div></div>
     </div>
     ${saranTabungan ? `<div style="font-size:12px;line-height:1.5;margin-top:12px;color:var(--nd-deep-ink);font-weight:600;">✦ ${saranTabungan.text}</div>` : ''}
@@ -2597,14 +2973,14 @@ function renderTabunganSectionND(container){
     };
     const card = document.createElement('div');
     card.className = 'nd-card';
-    let h = `<div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:11px;color:#9A9B93;margin-top:4px;">Terpakai = DP dan pelunasan yang sudah dibayar dari tabungan masing-masing.</div>`;
+    let h = `<div class="nd-card-hdr">SUMBER DANA</div><div style="font-size:11px;color:#6F7068;margin-top:4px;">Terpakai = DP dan pelunasan yang sudah dibayar dari tabungan masing-masing.</div>`;
     ['s1','s2'].forEach(k => {
       const sisa = kumpul[k] - use[k];
       const neg = sisa < 0;
       h += `<div style="padding:11px 0;border-top:1px solid #EFEBE2;margin-top:10px;">
-        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 13px 'Sora';">${danaLabel(k)}</span>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font:700 13px 'Sora';">${esc(danaLabel(k))}</span>
         <span style="font:700 12px 'Sora';color:${neg?'#C4574A':'#3E7A4E'};">${neg ? 'Kurang ' + rupiah(-sisa) : 'Sisa ' + rupiah(sisa)}</span></div>
-        <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;">Terkumpul ${rupiah(kumpul[k])} · terpakai ${rupiah(use[k])}</div></div>`;
+        <div style="font-size:11.5px;color:#6F7068;margin-top:4px;">Terkumpul ${rupiah(kumpul[k])} · terpakai ${rupiah(use[k])}</div></div>`;
     });
     if(use.none > 0) h += `<div style="font-size:11.5px;color:#9C7A1E;margin-top:10px;font-weight:600;">${rupiah(use.none)} sudah dibayar tapi sumber dananya belum dipilih.</div>`;
     card.innerHTML = h;
@@ -2618,7 +2994,7 @@ function renderTabunganSectionND(container){
   if(data.tabungan.length === 0){
     const empty = document.createElement('div');
     empty.className = 'nd-card';
-    empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
+    empty.style.cssText = 'text-align:center;color:#6F7068;font-size:13px;';
     empty.textContent = 'Belum ada catatan tabungan bulanan.';
     listWrap.appendChild(empty);
   }
@@ -2645,8 +3021,8 @@ function renderTabunganSectionND(container){
     head.style.cssText = 'width:100%;text-align:left;background:none;border:none;padding:16px 18px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:10px;';
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
-        <div style="font:700 13.5px 'Sora';color:#181B17;">${row.month || '(bulan belum diisi)'}</div>
-        <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;">${rupiah(actual)}${row.location ? ' · '+row.location : ''} · <span style="color:${selisih>=0?'#3E7A4E':'#C4574A'};font-weight:600;">${selisih>=0?'+':''}${rupiah(selisih)}</span></div>
+        <div style="font:700 13.5px 'Sora';color:#181B17;">${esc(row.month || '(bulan belum diisi)')}</div>
+        <div style="font-size:11.5px;color:#6F7068;margin-top:4px;">${rupiah(actual)}${esc(row.location ? ' · '+row.location : '')} · <span style="color:${selisih>=0?'#3E7A4E':'#C4574A'};font-weight:600;">${selisih>=0?'+':''}${rupiah(selisih)}</span></div>
         <div class="nd-bar-track" style="height:5px;margin-top:8px;"><div class="nd-bar-fill" style="width:${miniPct}%"></div></div>
       </div>
       <div style="font-size:18px;color:var(--nd-accent);flex:none;transform:rotate(${isOpen?'45deg':'0deg'});transition:transform .15s;">+</div>
@@ -2658,18 +3034,18 @@ function renderTabunganSectionND(container){
       const body = document.createElement('div');
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
-        <div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nama bulan</div>
-        <input type="text" id="tMonth" value="${(row.month||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nama bulan</div>
+        <input type="text" id="tMonth" value="${esc(row.month||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Target nabung (Rp)</div><input type="number" id="tTarget" value="${Number(row.targetSave)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Disimpan di</div><input type="text" id="tLoc" value="${(row.location||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Target nabung (Rp)</div><input type="number" id="tTarget" value="${Number(row.targetSave)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Disimpan di</div><input type="text" id="tLoc" value="${esc(row.location||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nabung ${data.name1||'Kamu'} (Rp)</div><input type="number" id="tMe" value="${Number(row.actualMe)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nabung ${data.name2||'Pasangan'} (Rp)</div><input type="number" id="tPartner" value="${Number(row.actualPartner)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nabung ${esc(data.name1||'Kamu')} (Rp)</div><input type="number" id="tMe" value="${Number(row.actualMe)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nabung ${esc(data.name2||'Pasangan')} (Rp)</div><input type="number" id="tPartner" value="${Number(row.actualPartner)||0}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="tNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="tNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div class="nd-chiprow" style="margin-top:14px;">
           <div class="nd-chip"><div class="nd-chip-lbl">Total bulan ini</div><div class="nd-chip-val">${rupiah(actual)}</div></div>
           <div class="nd-chip"><div class="nd-chip-lbl">Selisih</div><div class="nd-chip-val">${rupiah(selisih)}</div></div>
@@ -2732,9 +3108,9 @@ function renderRoadmapSectionND(container){
   header.className = 'nd-card';
   header.innerHTML = `
     <div class="nd-card-hdr">ROADMAP PERSIAPAN</div>
-    <div style="font:800 22px 'Sora';margin-top:6px;">${pctDone}% <span style="font-size:12px;font-weight:600;color:#9A9B93;">selesai (${done}/${data.roadmap.length})</span></div>
+    <div style="font:800 22px 'Sora';margin-top:6px;">${pctDone}% <span style="font-size:12px;font-weight:600;color:#6F7068;">selesai (${done}/${data.roadmap.length})</span></div>
     <div class="nd-bar-track"><div class="nd-bar-fill" style="width:${pctDone}%"></div></div>
-    <div style="font-size:11px;color:#9A9B93;margin-top:8px;">Tap titik di kiri tiap baris buat ganti status langsung.</div>
+    <div style="font-size:11px;color:#6F7068;margin-top:8px;">Tap titik di kiri tiap baris buat ganti status langsung.</div>
   `;
   container.appendChild(header);
 
@@ -2758,7 +3134,7 @@ function renderRoadmapSectionND(container){
   const filtered = roadmapPriorityFilter === 'Semua' ? data.roadmap : data.roadmap.filter(r => r.priority === roadmapPriorityFilter);
   if(filtered.length === 0){
     const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
+    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#6F7068;font-size:13px;';
     empty.textContent = 'Belum ada roadmap di kategori ini.';
     listWrap.appendChild(empty);
   }
@@ -2781,12 +3157,12 @@ function renderRoadmapSectionND(container){
     head.innerHTML = `
       <button id="dot" style="width:16px;height:16px;border-radius:50%;background:${dotColor};border:none;flex:none;cursor:pointer;"></button>
       <div style="flex:1;min-width:0;">
-        <div style="font:700 13.5px 'Sora';color:#181B17;${isDone?'text-decoration:line-through;opacity:.55;':''}">${row.name || '(belum diberi nama)'}</div>
-        <div style="font-size:11px;color:#9A9B93;margin-top:3px;">${row.deadline || 'tanpa deadline'}</div>
+        <div style="font:700 13.5px 'Sora';color:#181B17;${isDone?'text-decoration:line-through;opacity:.55;':''}">${esc(row.name || '(belum diberi nama)')}</div>
+        <div style="font-size:11px;color:#6F7068;margin-top:3px;">${esc(row.deadline || 'tanpa deadline')}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;">
-        <span style="font:700 9px 'Sora';padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${row.priority}</span>
-        <span style="font:700 9px 'Sora';padding:3px 8px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};">${row.status}</span>
+        <span style="font:700 10.5px 'Sora';padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${esc(row.priority)}</span>
+        <span style="font:700 10.5px 'Sora';padding:3px 8px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};">${esc(row.status)}</span>
       </div>
     `;
     head.querySelector('#dot').addEventListener('click', (ev) => {
@@ -2802,22 +3178,22 @@ function renderRoadmapSectionND(container){
       const body = document.createElement('div');
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
-        <div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nama persiapan</div>
-        <input type="text" id="rName" value="${(row.name||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nama persiapan</div>
+        <input type="text" id="rName" value="${esc(row.name||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Prioritas</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Prioritas</div>
             <select id="rPrio" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               ${['Wajib','Penting','Tambahan','Luxury'].map(o=>`<option value="${o}" ${row.priority===o?'selected':''}>${o}</option>`).join('')}
             </select></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Status</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Status</div>
             <select id="rStatus" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               ${ROADMAP_STATUS_CYCLE.map(o=>`<option value="${o}" ${row.status===o?'selected':''}>${o}</option>`).join('')}
             </select></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Deadline</div>
-        <input type="date" id="rDeadline" value="${row.deadline||''}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="rNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Deadline</div>
+        <input type="date" id="rDeadline" value="${esc(row.deadline||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="rNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div id="rSaveSlot" style="margin-top:14px;"></div>
         <button id="rDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus roadmap</button>
       `;
@@ -2869,7 +3245,7 @@ function renderTimelineSectionND(container){
   header.className = 'nd-card';
   header.innerHTML = `
     <div class="nd-card-hdr">TIMELINE MENUJU HARI H</div>
-    <div style="font:800 22px 'Sora';margin-top:6px;">${pctDone}% <span style="font-size:12px;font-weight:600;color:#9A9B93;">selesai</span></div>
+    <div style="font:800 22px 'Sora';margin-top:6px;">${pctDone}% <span style="font-size:12px;font-weight:600;color:#6F7068;">selesai</span></div>
     <div class="nd-bar-track"><div class="nd-bar-fill" style="width:${pctDone}%"></div></div>
     ${data.weddingDate ? `<div style="font-family:'Instrument Serif';font-style:italic;font-size:15px;margin-top:10px;color:var(--nd-accent);">${formatTanggalPanjangND(data.weddingDate)}</div>` : ''}
   `;
@@ -2881,7 +3257,7 @@ function renderTimelineSectionND(container){
 
   if(data.timeline.length === 0){
     const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
+    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#6F7068;font-size:13px;';
     empty.textContent = 'Belum ada periode timeline.';
     listWrap.appendChild(empty);
   }
@@ -2904,12 +3280,12 @@ function renderTimelineSectionND(container){
     head.innerHTML = `
       <button id="tdot" style="width:16px;height:16px;border-radius:50%;background:${dotColor};border:none;flex:none;cursor:pointer;margin-top:3px;"></button>
       <div style="flex:1;min-width:0;">
-        <div style="font:700 10px 'Sora';letter-spacing:.05em;color:var(--nd-accent);">${row.periode || '(periode)'}</div>
-        <div style="font:700 13.5px 'Sora';color:#181B17;margin-top:3px;${isDone?'text-decoration:line-through;opacity:.55;':''}">${row.fokus || '(belum ada fokus)'}</div>
-        ${row.checklist ? `<div style="font-size:11.5px;color:#9A9B93;margin-top:4px;">${row.checklist}</div>` : ''}
-        <div style="font-size:10.5px;color:#B3B4AB;margin-top:5px;">${[row.pic, row.deadline].filter(Boolean).join(' · ')}</div>
+        <div style="font:700 11px 'Sora';letter-spacing:.05em;color:var(--nd-accent);">${esc(row.periode || '(periode)')}</div>
+        <div style="font:700 13.5px 'Sora';color:#181B17;margin-top:3px;${isDone?'text-decoration:line-through;opacity:.55;':''}">${esc(row.fokus || '(belum ada fokus)')}</div>
+        ${row.checklist ? `<div style="font-size:11.5px;color:#6F7068;margin-top:4px;">${esc(row.checklist)}</div>` : ''}
+        <div style="font-size:11.5px;color:#74756D;margin-top:5px;">${esc([row.pic, row.deadline].filter(Boolean).join(' · '))}</div>
       </div>
-      <span style="font:700 9px 'Sora';padding:3px 8px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};flex:none;">${row.status}</span>
+      <span style="font:700 10.5px 'Sora';padding:3px 8px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};flex:none;">${esc(row.status)}</span>
     `;
     head.querySelector('#tdot').addEventListener('click', (ev) => {
       ev.stopPropagation();
@@ -2925,22 +3301,22 @@ function renderTimelineSectionND(container){
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Periode</div><input type="text" id="tlPeriode" value="${(row.periode||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Fokus</div><input type="text" id="tlFokus" value="${(row.fokus||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Periode</div><input type="text" id="tlPeriode" value="${esc(row.periode||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Fokus</div><input type="text" id="tlFokus" value="${esc(row.fokus||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Checklist</div>
-        <input type="text" id="tlChecklist" value="${(row.checklist||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Checklist</div>
+        <input type="text" id="tlChecklist" value="${esc(row.checklist||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Deadline</div><input type="date" id="tlDeadline" value="${row.deadline||''}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Status</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Deadline</div><input type="date" id="tlDeadline" value="${esc(row.deadline||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Status</div>
             <select id="tlStatus" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               ${TIMELINE_STATUS_CYCLE.map(o=>`<option value="${o}" ${row.status===o?'selected':''}>${o}</option>`).join('')}
             </select></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">PIC</div>
-        <input type="text" id="tlPic" value="${(row.pic||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="tlNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">PIC</div>
+        <input type="text" id="tlPic" value="${esc(row.pic||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="tlNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div id="tlSaveSlot" style="margin-top:14px;"></div>
         <button id="tlDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus periode</button>
       `;
@@ -3020,7 +3396,7 @@ function renderDokumenSectionND(container){
 
   if(sideRows.length === 0){
     const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
+    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#6F7068;font-size:13px;';
     empty.textContent = 'Belum ada dokumen di bagian ini.';
     listWrap.appendChild(empty);
   }
@@ -3042,10 +3418,10 @@ function renderDokumenSectionND(container){
     head.innerHTML = `
       <button id="dCheck" style="width:26px;height:26px;border-radius:9px;background:${isDone?'#5CA05C':'#fff'};border:1.5px solid ${isDone?'#5CA05C':'#E4DFD5'};display:flex;align-items:center;justify-content:center;font-size:12px;color:#fff;font-weight:700;flex:none;cursor:pointer;">${isDone?'✓':''}</button>
       <div style="flex:1;min-width:0;">
-        <div style="font:700 12.5px 'Sora';color:#181B17;line-height:1.35;">${row.name || '(belum diberi nama)'}</div>
-        <div style="font-size:10.5px;color:#ADAEA5;margin-top:2px;">${row.category||''}</div>
+        <div style="font:700 12.5px 'Sora';color:#181B17;line-height:1.35;">${esc(row.name || '(belum diberi nama)')}</div>
+        <div style="font-size:11.5px;color:#ADAEA5;margin-top:2px;">${esc(row.category||'')}</div>
       </div>
-      <span style="font:700 9px 'Sora';letter-spacing:.05em;padding:4px 9px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};flex:none;">${row.status}</span>
+      <span style="font:700 10.5px 'Sora';letter-spacing:.05em;padding:4px 9px;border-radius:100px;background:${isDone?'#EAF4E8':'#F4F1EB'};color:${isDone?'#3E7A4E':'#8A8B85'};flex:none;">${esc(row.status)}</span>
     `;
     head.querySelector('#dCheck').addEventListener('click', (ev) => {
       ev.stopPropagation();
@@ -3060,25 +3436,25 @@ function renderDokumenSectionND(container){
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Kategori</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Kategori</div>
             <select id="dCat" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               <option value="Wajib" ${row.category==='Wajib'?'selected':''}>Wajib</option>
               <option value="Kondisional" ${row.category==='Kondisional'?'selected':''}>Kondisional</option>
             </select></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Pihak</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Pihak</div>
             <select id="dSide" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               <option value="Wanita" ${row.side==='Wanita'?'selected':''}>Wanita</option>
               <option value="Pria" ${row.side==='Pria'?'selected':''}>Pria</option>
             </select></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Nama dokumen</div>
-        <input type="text" id="dName" value="${(row.name||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Status</div>
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Nama dokumen</div>
+        <input type="text" id="dName" value="${esc(row.name||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Status</div>
         <select id="dStatus" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
           ${DOKUMEN_STATUS_CYCLE.map(o=>`<option value="${o}" ${row.status===o?'selected':''}>${o}</option>`).join('')}
         </select>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="dNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="dNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div id="dSaveSlot" style="margin-top:14px;"></div>
         <button id="dDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus dokumen</button>
       `;
@@ -3130,15 +3506,15 @@ function renderTamuSectionND(container){
   header.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:flex-end;">
       <div>
-        <div style="font:800 9.5px 'Sora';letter-spacing:.1em;opacity:.72;">TAMU TERDAFTAR</div>
+        <div style="font:800 10.5px 'Sora';letter-spacing:.1em;opacity:.72;">TAMU TERDAFTAR</div>
         <div style="font:800 30px 'Sora';margin-top:5px;letter-spacing:-.03em;">${stats.total} <span style="font-size:15px;opacity:.6;font-weight:500;">/ ${data.guestTarget||0}</span></div>
       </div>
       <div style="text-align:right;font-size:11.5px;opacity:.82;line-height:1.5;">${stats.confirmed} konfirmasi hadir</div>
     </div>
     <div style="display:flex;gap:8px;margin-top:15px;">
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Pria']}</div><div style="font-size:9px;opacity:.72;margin-top:2px;">PIHAK PRIA</div></div>
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Wanita']}</div><div style="font-size:9px;opacity:.72;margin-top:2px;">PIHAK WANITA</div></div>
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Bersama']}</div><div style="font-size:9px;opacity:.72;margin-top:2px;">BERSAMA</div></div>
+      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Pria']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">PIHAK PRIA</div></div>
+      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Wanita']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">PIHAK WANITA</div></div>
+      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Bersama']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">BERSAMA</div></div>
     </div>
   `;
   container.appendChild(header);
@@ -3154,16 +3530,16 @@ function renderTamuSectionND(container){
   cardExcel.className = 'nd-card';
   cardExcel.innerHTML = `
     <div class="nd-card-hdr">IMPORT DARI EXCEL</div>
-    <p style="font-size:12px;color:#9A9B93;margin-top:8px;">Download template, isi, lalu upload lagi di sini. Tamu dari file akan ditambahkan (tidak menimpa yang sudah ada).</p>
+    <p style="font-size:12px;color:#6F7068;margin-top:8px;">Download template, isi, lalu upload lagi di sini. Tamu dari file akan ditambahkan (tidak menimpa yang sudah ada).</p>
     <button id="tamuTemplateBtnND" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px 'Sora';cursor:pointer;font-family:inherit;">Download Template Excel</button>
-    <label style="display:block;font-size:12px;color:#9A9B93;margin-top:12px;margin-bottom:6px;">Upload file yang sudah diisi:</label>
+    <label style="display:block;font-size:12px;color:#6F7068;margin-top:12px;margin-bottom:6px;">Upload file yang sudah diisi:</label>
     <input type="file" id="tamuExcelFileND" accept=".xlsx,.xls,.csv" style="width:100%;font-size:12px;">
     <div id="tamuExcelMsgND" style="font-size:12px;margin-top:8px;"></div>
   `;
   container.appendChild(cardExcel);
   cardExcel.querySelector('#tamuTemplateBtnND').addEventListener('click', () => {
     const msg = cardExcel.querySelector('#tamuExcelMsgND');
-    msg.textContent = 'Memuat library Excel...'; msg.style.color = '#9A9B93';
+    msg.textContent = 'Memuat library Excel...'; msg.style.color = '#6F7068';
     loadXLSX().then(() => {
       msg.textContent = '';
       const wsData = [
@@ -3182,7 +3558,7 @@ function renderTamuSectionND(container){
     const file = e.target.files[0];
     if(!file) return;
     const msgEarly = document.getElementById('tamuExcelMsgND');
-    if(msgEarly){ msgEarly.textContent = 'Memproses file...'; msgEarly.style.color = '#9A9B93'; }
+    if(msgEarly){ msgEarly.textContent = 'Memproses file...'; msgEarly.style.color = '#6F7068'; }
     loadXLSX().then(() => {
       const reader = new FileReader();
       reader.onload = (ev) => {
@@ -3224,7 +3600,7 @@ function renderTamuSectionND(container){
 
   if(filtered.length === 0){
     const empty = document.createElement('div');
-    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#9A9B93;font-size:13px;';
+    empty.className = 'nd-card'; empty.style.cssText = 'text-align:center;color:#6F7068;font-size:13px;';
     empty.textContent = tamuSearch ? 'Tidak ada tamu yang cocok.' : 'Belum ada tamu terdaftar.';
     listWrap.appendChild(empty);
   }
@@ -3232,7 +3608,7 @@ function renderTamuSectionND(container){
   const page = sectionPage.tamu || 1;
   const end = page * PAGE_SIZE;
   const visible = filtered.slice(0, end);
-  const confirmColors = {'Belum':'#9A9B93','Hadir':'#3E7A4E','Tidak Hadir':'#C4574A'};
+  const confirmColors = {'Belum':'#6F7068','Hadir':'#3E7A4E','Tidak Hadir':'#C4574A'};
   const confirmBg = {'Belum':'#F4F1EB','Hadir':'#EAF4E8','Tidak Hadir':'#FBEAE7'};
 
   visible.forEach(row => {
@@ -3245,12 +3621,12 @@ function renderTamuSectionND(container){
     head.style.cssText = 'display:flex;align-items:center;gap:10px;padding:16px 18px;cursor:pointer;';
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
-        <div style="font:700 13.5px 'Sora';color:#181B17;">${row.name || '(nama belum diisi)'}</div>
-        <div style="font-size:11px;color:#9A9B93;margin-top:3px;">${[row.side, row.category, (row.count||1)+' orang'].filter(Boolean).join(' · ')}</div>
+        <div style="font:700 13.5px 'Sora';color:#181B17;">${esc(row.name || '(nama belum diisi)')}</div>
+        <div style="font-size:11px;color:#6F7068;margin-top:3px;">${esc([row.side, row.category, (row.count||1)+' orang'].filter(Boolean).join(' · '))}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex:none;">
-        <button id="tmConfirm" style="font:700 9px 'Sora';padding:4px 9px;border-radius:100px;background:${confirmBg[row.confirmed]||'#F4F1EB'};color:${confirmColors[row.confirmed]||'#8A8B85'};border:none;cursor:pointer;">${row.confirmed}</button>
-        <button id="tmInviteToggle" style="font-size:9px;color:${row.invited==='Sudah'?'#3E7A4E':'#B3B4AB'};background:none;border:none;cursor:pointer;padding:0;">${row.invited==='Sudah'?'✓ sudah diundang':'belum diundang'}</button>
+        <button id="tmConfirm" style="font:700 10.5px 'Sora';padding:4px 9px;border-radius:100px;background:${confirmBg[row.confirmed]||'#F4F1EB'};color:${confirmColors[row.confirmed]||'#8A8B85'};border:none;cursor:pointer;">${esc(row.confirmed)}</button>
+        <button id="tmInviteToggle" style="font-size:10.5px;color:${row.invited==='Sudah'?'#3E7A4E':'#74756D'};background:none;border:none;cursor:pointer;padding:0;">${row.invited==='Sudah'?'✓ sudah diundang':'belum diundang'}</button>
       </div>
     `;
     head.querySelector('#tmInviteToggle').addEventListener('click', (ev) => {
@@ -3271,32 +3647,32 @@ function renderTamuSectionND(container){
       const body = document.createElement('div');
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
-        <div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Nama</div>
-        <input type="text" id="tmName" value="${(row.name||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nama</div>
+        <input type="text" id="tmName" value="${esc(row.name||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Pihak</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Pihak</div>
             <select id="tmSide" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               ${['Pengantin Pria','Pengantin Wanita','Bersama'].map(o=>`<option value="${o}" ${row.side===o?'selected':''}>${o}</option>`).join('')}
             </select></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Kategori</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Kategori</div>
             <select id="tmCat" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               ${['Keluarga','Teman','Kerja','Lainnya'].map(o=>`<option value="${o}" ${row.category===o?'selected':''}>${o}</option>`).join('')}
             </select></div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Jumlah</div><input type="number" id="tmCount" value="${Number(row.count)||1}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Undangan</div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Jumlah</div><input type="number" id="tmCount" value="${Number(row.count)||1}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Undangan</div>
             <select id="tmInvited" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
               <option value="Belum" ${row.invited==='Belum'?'selected':''}>Belum</option>
               <option value="Sudah" ${row.invited==='Sudah'?'selected':''}>Sudah</option>
             </select></div>
         </div>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Konfirmasi</div>
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Konfirmasi</div>
         <select id="tmConfirmSel" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
           ${TAMU_CONFIRM_CYCLE.map(o=>`<option value="${o}" ${row.confirmed===o?'selected':''}>${o}</option>`).join('')}
         </select>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="tmNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="tmNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div id="tmSaveSlot" style="margin-top:14px;"></div>
         <button id="tmDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus tamu</button>
       `;
@@ -3358,8 +3734,8 @@ function renderBudgetSectionND(container){
     const due = nearestDueDetail(data.budget);
     if(due){
       const dd = document.createElement('div');
-      dd.style.cssText = 'font-size:12px;color:#9A9B93;margin:-4px 18px 10px;';
-      dd.innerHTML = `Jatuh tempo terdekat: <strong style="color:#181B17;">${due.name||'-'}</strong> (${due.item||'-'}), ${due.dueDate}`;
+      dd.style.cssText = 'font-size:12px;color:#6F7068;margin:-4px 18px 10px;';
+      dd.innerHTML = `Jatuh tempo terdekat: <strong style="color:#181B17;">${esc(due.name||'-')}</strong> (${esc(due.item||'-')}), ${esc(due.dueDate)}`;
       container.appendChild(dd);
     }
   }
@@ -3390,7 +3766,7 @@ function renderBudgetSectionND(container){
     const empty = document.createElement('div');
     empty.className = 'nd-card';
     empty.style.textAlign = 'center';
-    empty.style.color = '#9A9B93';
+    empty.style.color = '#6F7068';
     empty.style.fontSize = '13px';
     empty.textContent = 'Belum ada item budget di kategori ini.';
     listWrap.appendChild(empty);
@@ -3417,10 +3793,10 @@ function renderBudgetSectionND(container){
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
         <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
-          <span style="font:700 13.5px 'Sora';color:#181B17;">${row.item || '(belum diberi nama)'}</span>
-          <span style="font:700 9px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${row.category || '-'}</span>
+          <span style="font:700 13.5px 'Sora';color:#181B17;">${esc(row.item || '(belum diberi nama)')}</span>
+          <span style="font:700 10.5px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${esc(row.category || '-')}</span>
         </div>
-        <div style="font-size:11.5px;color:#9A9B93;margin-top:4px;">${rupiah(t.total)} · <span style="color:${badge.cls==='s-done'?'#3E7A4E':badge.cls==='s-mid'?'#9C7A1E':'#9A9B93'};font-weight:600;">${badge.text}</span></div>
+        <div style="font-size:11.5px;color:#6F7068;margin-top:4px;">${rupiah(t.total)} · <span style="color:${badge.cls==='s-done'?'#3E7A4E':badge.cls==='s-mid'?'#9C7A1E':'#6F7068'};font-weight:600;">${badge.text}</span></div>
         <div class="nd-bar-track" style="height:5px;margin-top:8px;"><div class="nd-bar-fill" style="width:${miniPct}%"></div></div>
       </div>
       <div style="font-size:18px;color:var(--nd-accent);flex:none;transform:rotate(${isOpen?'45deg':'0deg'});transition:transform .15s;">+</div>
@@ -3432,14 +3808,14 @@ function renderBudgetSectionND(container){
       const body = document.createElement('div');
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
-        <div style="font-size:10.5px;color:#9A9B93;margin-bottom:4px;">Kategori</div>
+        <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Kategori</div>
         <select style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;" id="bCat">
           ${['Wajib','Penting','Tambahan','Luxury'].map(c => `<option value="${c}" ${row.category===c?'selected':''}>${c}</option>`).join('')}
         </select>
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Nama item</div>
-        <input type="text" id="bItem" value="${(row.item||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:10.5px;color:#9A9B93;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="bNote" value="${(row.note||'').replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Nama item</div>
+        <input type="text" id="bItem" value="${esc(row.item||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
+        <input type="text" id="bNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
         <div class="nd-chiprow" style="margin-top:14px;">
           <div class="nd-chip"><div class="nd-chip-lbl">Total</div><div class="nd-chip-val">${rupiah(t.total)}</div></div>
           <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibayar</div><div class="nd-chip-val">${rupiah(t.paid)}</div></div>
@@ -3528,7 +3904,7 @@ function renderDokumenSection(container){
     head.className = 'group-head';
     head.innerHTML = `
       <div>
-        <h3 style="font-size:14px;">${g.label}</h3>
+        <h3 style="font-size:14px;">${esc(g.label)}</h3>
         <div class="group-count">${done}/${total} sudah lengkap</div>
       </div>
       <div class="group-toggle${isOpen ? ' open' : ''}">&#9662;</div>
@@ -3561,12 +3937,12 @@ function renderDokumenSection(container){
       head.innerHTML = `
         <input type="checkbox" class="rec-select" ${selSet.has(row.id) ? 'checked' : ''}>
         <div class="rec-head-main">
-          <div class="rec-head-title">${row.name || '(belum diberi nama)'}</div>
-          <div class="rec-head-sub">${row.category || ''}</div>
+          <div class="rec-head-title">${esc(row.name || '(belum diberi nama)')}</div>
+          <div class="rec-head-sub">${esc(row.category || '')}</div>
         </div>
         <div class="rec-badges">
-          <span class="pill ${priorityClass(row.category)}">${row.category||''}</span>
-          <span class="pill ${statusClass(row.status)}">${row.status||''}</span>
+          <span class="pill ${priorityClass(row.category)}">${esc(row.category||'')}</span>
+          <span class="pill ${statusClass(row.status)}">${esc(row.status||'')}</span>
         </div>
         <div class="rec-toggle">+</div>
       `;
@@ -3607,7 +3983,7 @@ function renderDokumenSection(container){
           if(key==='name' || key==='category' || key==='status'){
             head.querySelector('.rec-head-title').textContent = row.name || '(belum diberi nama)';
             head.querySelector('.rec-head-sub').textContent = row.category || '';
-            head.querySelector('.rec-badges').innerHTML = `<span class="pill ${priorityClass(row.category)}">${row.category||''}</span><span class="pill ${statusClass(row.status)}">${row.status||''}</span>`;
+            head.querySelector('.rec-badges').innerHTML = `<span class="pill ${priorityClass(row.category)}">${esc(row.category||'')}</span><span class="pill ${statusClass(row.status)}">${esc(row.status||'')}</span>`;
           }
         });
         if(type === 'select'){
@@ -3679,8 +4055,8 @@ function renderTamuSection(container){
     <div class="stat-grid" style="margin-top:10px;">
       <div class="stat-box"><div class="lbl">Total tamu</div><div class="val">${stats.total}</div></div>
       <div class="stat-box"><div class="lbl">Target tamu</div><div class="val small">${data.guestTarget||0}</div></div>
-      <div class="stat-box"><div class="lbl">Pihak ${data.name2||'Pengantin Pria'}</div><div class="val small">${stats.groups['Pengantin Pria']}</div></div>
-      <div class="stat-box"><div class="lbl">Pihak ${data.name1||'Pengantin Wanita'}</div><div class="val small">${stats.groups['Pengantin Wanita']}</div></div>
+      <div class="stat-box"><div class="lbl">Pihak ${esc(data.name2||'Pengantin Pria')}</div><div class="val small">${stats.groups['Pengantin Pria']}</div></div>
+      <div class="stat-box"><div class="lbl">Pihak ${esc(data.name1||'Pengantin Wanita')}</div><div class="val small">${stats.groups['Pengantin Wanita']}</div></div>
       <div class="stat-box"><div class="lbl">Tamu bersama</div><div class="val small">${stats.groups['Bersama']}</div></div>
       <div class="stat-box"><div class="lbl">Sudah konfirmasi hadir</div><div class="val small">${stats.confirmed}</div></div>
     </div>
@@ -3846,10 +4222,10 @@ function renderTamuGroups(groupsWrap){
       head.innerHTML = `
         <input type="checkbox" class="rec-select" ${selSet.has(row.id) ? 'checked' : ''}>
         <div class="rec-head-main">
-          <div class="rec-head-title">${row.name || '(belum diberi nama)'}</div>
-          <div class="rec-head-sub">${row.category||''} · ${row.count||0} orang</div>
+          <div class="rec-head-title">${esc(row.name || '(belum diberi nama)')}</div>
+          <div class="rec-head-sub">${esc(row.category||'')} · ${row.count||0} orang</div>
         </div>
-        <div class="rec-badges"><span class="pill ${statusClass(row.confirmed)}">${row.confirmed||''}</span></div>
+        <div class="rec-badges"><span class="pill ${statusClass(row.confirmed)}">${esc(row.confirmed||'')}</span></div>
         <div class="rec-toggle">+</div>
       `;
       head.addEventListener('click', () => { row.open = !row.open; scheduleSave(); renderTamuGroups(groupsWrap); });
@@ -3891,7 +4267,7 @@ function renderTamuGroups(groupsWrap){
         if(type === 'select'){
           input.addEventListener('change', e => {
             if(key === 'confirmed' || key==='invited') e.target.className = statusClass(e.target.value);
-            if(key === 'confirmed') head.querySelector('.rec-badges').innerHTML = `<span class="pill ${statusClass(row.confirmed)}">${row.confirmed||''}</span>`;
+            if(key === 'confirmed') head.querySelector('.rec-badges').innerHTML = `<span class="pill ${statusClass(row.confirmed)}">${esc(row.confirmed||'')}</span>`;
             if(key === 'side'){ scheduleSave(); renderTamuGroups(groupsWrap); return; }
             scheduleSave();
           });
@@ -3997,7 +4373,7 @@ function renderRecordSection(container, sectionKey){
     head.innerHTML = `
       <input type="checkbox" class="rec-select" ${selSet.has(row.id) ? 'checked' : ''}>
       <div class="rec-head-main">
-        <div class="rec-head-title">${s.title}</div>
+        <div class="rec-head-title">${esc(s.title)}</div>
         <div class="rec-head-sub">${s.sub}</div>
         ${payBarHtml}
       </div>
@@ -4128,7 +4504,7 @@ function refreshExtras(recEl, cfg, row, idx, rows, extraElArg){
   const extraEl = extraElArg || recEl.querySelector('.rec-extra');
   if(!extraEl) return;
   const items = cfg.extras(row, idx, rows);
-  extraEl.innerHTML = items.map(it => `<span>${it.label}: <strong>${it.value}</strong></span>`).join('');
+  extraEl.innerHTML = items.map(it => `<span>${esc(it.label)}: <strong>${it.value}</strong></span>`).join('');
 }
 function refreshHead(recEl, cfg, row){
   const s = cfg.summary(row);
@@ -4195,6 +4571,7 @@ function renderTabBar(){
     const btn = document.createElement('button');
     btn.className = 'nd-tabbar-item' + (localActiveTab === t.key ? ' active' : '');
     btn.innerHTML = `<span>${t.label}</span>`;
+    if(localActiveTab === t.key) btn.setAttribute('aria-current', 'page');
     btn.addEventListener('click', () => { localActiveTab = t.key; saveLocalActiveTab(t.key); render(); });
     bar.appendChild(btn);
   });
@@ -4212,7 +4589,7 @@ function openLainnyaSheet(){
   ND_LAINNYA_TABS.forEach(m => {
     const row = document.createElement('button');
     row.className = 'nd-sheet-row';
-    row.innerHTML = `<div style="flex:1;min-width:0;"><div class="nd-sheet-row-lbl">${m.label}</div><div class="nd-sheet-row-sub">${m.sub}</div></div><div style="color:#C4C5BB;font-size:15px;">→</div>`;
+    row.innerHTML = `<div style="flex:1;min-width:0;"><div class="nd-sheet-row-lbl">${m.label}</div><div class="nd-sheet-row-sub">${m.sub}</div></div><div style="color:#8A8B83;font-size:15px;">→</div>`;
     row.addEventListener('click', () => {
       localActiveTab = m.key; saveLocalActiveTab(m.key);
       closeLainnyaSheet();
@@ -4276,6 +4653,8 @@ function renderPengaturanSection(container){
     <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;">Dipakai untuk hitung mundur, alokasi dana, dan progress di Beranda.</p>
     <div class="field-inline"><label>Tanggal target nikah</label><input type="date" class="mini-input txt" id="fWeddingDate"></div>
     <div class="field-inline"><label>Jumlah target tamu</label><input type="number" class="mini-input" id="fGuestTarget"></div>
+    <div class="field-inline"><label>Hitung "per orang" pakai</label><select class="mini-input txt" id="fGuestBasis" style="width:170px;"><option value="target">Target tamu</option><option value="hadir">Tamu konfirmasi hadir</option></select></div>
+    <div id="guestBasisHint" style="font-size:11.5px;color:var(--ink-dim);margin:-2px 0 6px;line-height:1.5;"></div>
     <div class="field-inline"><label>Budget maksimal acara (Rp)</label><input type="number" class="mini-input" id="fTargetBudget"></div>
     <div class="field-inline"><label>Dana risiko (%)</label><input type="number" class="mini-input" id="fRiskPct" style="width:70px;"></div>
     <div class="field-inline"><label>Dana setelah nikah (%)</label><input type="number" class="mini-input" id="fPostPct" style="width:70px;"></div>
@@ -4286,6 +4665,14 @@ function renderPengaturanSection(container){
   cardTarget.querySelector('#fTargetBudget').value = data.targetBudget || 0;
   cardTarget.querySelector('#fRiskPct').value = data.riskPercent || 0;
   cardTarget.querySelector('#fPostPct').value = data.postWeddingPercent || 0;
+  const basisSel = cardTarget.querySelector('#fGuestBasis'), basisHint = cardTarget.querySelector('#guestBasisHint');
+  basisSel.value = data.guestBasis === 'hadir' ? 'hadir' : 'target';
+  function paintBasisHint(){
+    const conf = tamuStats().confirmed;
+    basisHint.textContent = `Dipakai catering/souvenir yang dihitung per orang. Sekarang: ${guestBasisCount()} orang` + (data.guestBasis === 'hadir' && conf === 0 ? ' (belum ada tamu konfirmasi hadir, jadi sementara pakai target tamu)' : '') + '.';
+  }
+  paintBasisHint();
+  basisSel.addEventListener('change', e => { data.guestBasis = e.target.value; paintBasisHint(); scheduleSave(); });
   cardTarget.querySelector('#fWeddingDate').addEventListener('input', e => { data.weddingDate = e.target.value; scheduleSave(); });
   cardTarget.querySelector('#fGuestTarget').addEventListener('input', e => { data.guestTarget = Number(e.target.value)||0; scheduleSave(); });
   cardTarget.querySelector('#fTargetBudget').addEventListener('input', e => { data.targetBudget = Number(e.target.value)||0; scheduleSave(); });
@@ -4380,7 +4767,7 @@ function renderPengaturanSection(container){
     const item = document.createElement('button');
     const isActive = data.themeND === key;
     item.style.cssText = 'flex:1;min-width:70px;text-align:center;cursor:pointer;background:none;border:none;padding:0;font-family:inherit;';
-    item.innerHTML = `<div style="height:52px;border-radius:16px;background:${t.grad};box-sizing:border-box;border:2.5px solid ${isActive ? '#181B17' : 'transparent'};"></div><div style="font-size:10.5px;margin-top:6px;font-weight:700;color:var(--ink-dim);">${t.label}</div>`;
+    item.innerHTML = `<div style="height:52px;border-radius:16px;background:${t.grad};box-sizing:border-box;border:2.5px solid ${isActive ? '#181B17' : 'transparent'};"></div><div style="font-size:11.5px;margin-top:6px;font-weight:700;color:var(--ink-dim);">${t.label}</div>`;
     item.addEventListener('click', () => {
       data.themeND = key;
       scheduleSave();
@@ -4461,6 +4848,92 @@ function renderPengaturanSection(container){
     cardBg.appendChild(row);
   });
   container.appendChild(cardBg);
+
+  // ===== Cetak ringkasan =====
+  const cardPrint = document.createElement('div');
+  cardPrint.className = 'card';
+  cardPrint.innerHTML = `
+    <h3 style="font-size:14px;">Cetak / Simpan PDF Ringkasan</h3>
+    <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;line-height:1.5;">Ringkasan Budget (harga, DP + tanggalnya, status, jatuh tempo) siap cetak atau disimpan sebagai PDF — cocok untuk keluarga atau diskusi dengan vendor. Angka yang dicetak selalu angka asli, walau tombol sembunyikan nominal sedang aktif.</p>
+    <label style="display:flex;gap:8px;align-items:center;font-size:12.5px;margin-top:10px;"><input type="checkbox" id="prSumber"> Sertakan sumber dana (tabungan masing-masing)</label>
+    <button class="add-row-btn" id="prBtn" style="margin-top:12px;">Cetak / Simpan PDF</button>`;
+  container.appendChild(cardPrint);
+  cardPrint.querySelector('#prBtn').addEventListener('click', () => printSummary({sumber: cardPrint.querySelector('#prSumber').checked}));
+
+  // ===== Riwayat versi =====
+  const cardHist = document.createElement('div');
+  cardHist.className = 'card';
+  function paintHist(){
+    const arr = histLoad();
+    cardHist.innerHTML = `
+      <h3 style="font-size:14px;">Riwayat & Urungkan</h3>
+      <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;line-height:1.5;">Salah hapus atau salah edit? Pulihkan kondisi sebelumnya dari sini. Riwayat disimpan di HP/browser ini saja (maks. 15 versi), dan hilang kalau kamu Keluar.</p>
+      <div id="histList"></div>`;
+    const list = cardHist.querySelector('#histList');
+    if(arr.length === 0){ list.innerHTML = '<div class="empty-note">Belum ada riwayat. Muncul otomatis setelah kamu mengubah data.</div>'; return; }
+    arr.forEach((e, i) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid var(--border);';
+      const c = e.c || {};
+      row.innerHTML = `<div style="min-width:0;"><div style="font-size:13px;font-weight:700;">${fmtHistTime(e.t)}</div>
+        <div style="font-size:11.5px;color:var(--ink-dim);margin-top:2px;">${e.note} · ${c.item||0} item · ${c.rincian||0} rincian · ${c.tamu||0} tamu</div></div>
+        <button class="add-row-btn" style="width:auto;margin:0;padding:8px 14px;flex:none;">Pulihkan</button>`;
+      row.querySelector('button').addEventListener('click', () => {
+        if(!confirm(`Pulihkan data ke kondisi ${fmtHistTime(e.t)}? Kondisi sekarang tetap tersimpan di riwayat, jadi bisa dibatalkan.`)) return;
+        Promise.resolve(histRestore(i)).then(() => { showToast('Data dipulihkan.'); paintHist(); }).catch(() => showToast('Gagal memulihkan, coba lagi.'));
+      });
+      list.appendChild(row);
+    });
+  }
+  paintHist();
+  container.appendChild(cardHist);
+
+  // ===== Backup foto moodboard =====
+  const cardMB = document.createElement('div');
+  cardMB.className = 'card';
+  cardMB.innerHTML = `
+    <h3 style="font-size:14px;">Backup Foto Moodboard</h3>
+    <p style="font-size:12px;color:var(--ink-dim);margin-top:6px;line-height:1.5;">Foto moodboard disimpan terpisah dan <strong>tidak ikut</strong> backup data di bawah. Unduh file ini sesekali sebagai cadangan foto.</p>
+    <button class="add-row-btn" id="mbBackupBtn" style="margin-top:12px;">Unduh foto moodboard (.json)</button>
+    <label style="display:block;font-size:12px;color:var(--ink-dim);margin-top:12px;margin-bottom:6px;">Pulihkan dari file backup foto:</label>
+    <input type="file" id="mbRestoreFile" accept=".json,application/json" style="width:100%;color:var(--ink-dim);font-size:12px;">
+    <div id="mbBackupMsg" style="font-size:12px;margin-top:8px;color:var(--ink-dim);"></div>`;
+  container.appendChild(cardMB);
+  cardMB.querySelector('#mbBackupBtn').addEventListener('click', () => {
+    const msg = cardMB.querySelector('#mbBackupMsg');
+    if(moodboard.length === 0){ msg.textContent = 'Belum ada foto moodboard.'; return; }
+    const payload = {kind:'moodboard-backup', version:1, savedAt:new Date().toISOString(), items:moodboard.map(m => ({id:m.id, cat:m.cat, note:m.note||'', img:m.img, createdAt:m.createdAt||0, by:m.by||''}))};
+    const blob = new Blob([JSON.stringify(payload)], {type:'application/json'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = 'moodboard-backup-' + new Date().toISOString().slice(0,10) + '.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    msg.textContent = `${moodboard.length} foto diunduh.`;
+  });
+  cardMB.querySelector('#mbRestoreFile').addEventListener('change', (e) => {
+    const file = e.target.files[0]; if(!file) return;
+    const msg = cardMB.querySelector('#mbBackupMsg');
+    const reader = new FileReader();
+    reader.onload = async (ev) => {
+      let p; try{ p = JSON.parse(ev.target.result); }catch(err){ msg.textContent = 'File tidak valid.'; return; }
+      if(!p || p.kind !== 'moodboard-backup' || !Array.isArray(p.items)){ msg.textContent = 'Ini bukan file backup foto moodboard.'; return; }
+      const have = new Set(moodboard.map(m => m.id));
+      const todo = p.items.filter(it => it && it.id && typeof it.img === 'string' && it.img.startsWith('data:image') && !have.has(it.id));
+      const room = MOOD_MAX - moodboard.length;
+      const use = todo.slice(0, Math.max(0, room));
+      let ok = 0;
+      for(const it of use){
+        const cleanId = String(it.id).replace(/[^\w-]/g,'').slice(0,60); // wajib berawalan mb_ supaya tidak pernah menimpa dokumen data utama
+        const item = {id: cleanId.startsWith('mb_') ? cleanId : ('mb_' + (cleanId || (Date.now().toString(36) + ok))), kind:'moodboard', cat: MOOD_CATS.includes(it.cat) ? it.cat : 'Lainnya', note: String(it.note||'').slice(0,200), img: it.img, createdAt: Number(it.createdAt)||Date.now(), by: currentUserEmail || ''};
+        try{
+          if(moodIsLocal()) moodboard.push(item); else await moodSave(item);
+          ok++;
+        }catch(err){ console.error('Gagal memulihkan foto', err); }
+      }
+      msg.textContent = `${ok} foto dipulihkan` + (todo.length > use.length ? `, ${todo.length - use.length} dilewati (batas ${MOOD_MAX} foto)` : '') + (p.items.length - todo.length > 0 ? `, ${p.items.length - todo.length} sudah ada` : '') + '.';
+    };
+    reader.readAsText(file);
+  });
 
   const cardIO = document.createElement('div');
   cardIO.className = 'card';
@@ -4567,6 +5040,7 @@ function renderPengaturanSection(container){
     });
     data.dokumen = migrateDokumenSides(data.dokumen);
     migrateVendorsToBudget(); normalizeDetails(); delete data.pembayaran;
+    forceNextSave = true;
     scheduleSave();
     msg.textContent = 'Data berhasil diimpor.';
     msg.style.color = 'var(--sage)';
@@ -4585,11 +5059,55 @@ function renderPengaturanSection(container){
   cardDanger.querySelector('#resetBtn').addEventListener('click', () => {
     if(confirm('Reset semua data ke template awal? Perubahan yang sudah diisi akan hilang.')){
       data = defaultData();
+      forceNextSave = true;
       scheduleSave();
       render();
       showToast('Data direset ke template awal.');
     }
   });
+}
+
+
+/* ================= CETAK / PDF RINGKASAN ================= */
+function buildPrintSummary(opts){
+  const rp = n => 'Rp ' + (Number(n)||0).toLocaleString('id-ID');           // cetak selalu tampil angka asli
+  const tgl = d => d ? formatTanggalPendekND(d) : '';
+  const stLabel = d => ({lunas:'Lunas', dp:'DP', belum:'Belum'}[detailState(d)]);
+  let totalAll = 0, paidAll = 0, rows = '';
+  data.budget.forEach(b => {
+    const t = budgetItemTotals(b);
+    if(t.total === 0 && !(b.subItems||[]).length) return;
+    totalAll += t.total; paidAll += t.paid;
+    rows += `<tr class="pp-item"><td colspan="2">${esc(b.item || '(tanpa nama)')}</td><td class="r">${rp(t.total)}</td><td class="r">${rp(t.paid)}</td><td></td></tr>`;
+    (b.subItems||[]).forEach(si => (si.details||[]).forEach(d => {
+      ensureDps(d);
+      const total = detailTotal(d), paid = detailPaid(d);
+      const lines = [];
+      d.dps.forEach((x, i) => { if(Number(x.amt) > 0) lines.push(`DP ${i+1}: ${rp(x.amt)}${x.date ? ' (' + tgl(x.date) + ')' : ''}${opts.sumber && x.src ? ' · ' + esc(danaLabel(x.src)) : ''}`); });
+      if(d.status === 'Sudah' && d.lunasDate) lines.push('Lunas: ' + tgl(d.lunasDate) + (opts.sumber && d.lunasSrc ? ' · ' + esc(danaLabel(d.lunasSrc)) : ''));
+      if(d.payNote) lines.push('Catatan: ' + esc(d.payNote));
+      const sub = [si.name, d.perOrang ? `${rp(d.price)} × ${Number(d.qty) > 0 ? Number(d.qty) : guestBasisCount()} orang` : ''].filter(Boolean).map(esc).join(' · ');
+      rows += `<tr><td class="pp-ind">${esc(d.name || si.name || '(rincian)')}<div class="pp-sub">${sub}</div>${lines.length ? '<div class="pp-sub">' + lines.join('<br>') + '</div>' : ''}</td>
+        <td>${esc(d.phone || '')}</td><td class="r">${rp(total)}</td><td class="r">${rp(paid)}</td><td>${stLabel(d)}${d.dueDate && d.status !== 'Sudah' ? '<div class="pp-sub">Tempo ' + tgl(d.dueDate) + '</div>' : ''}</td></tr>`;
+    }));
+  });
+  const days = daysUntilWedding();
+  return `
+    <h1>${esc(data.greetingName || 'Rencana Nikah')}</h1>
+    <div class="pp-meta">${data.weddingDate ? 'Tanggal nikah: ' + esc(formatTanggalPanjangND(data.weddingDate)) + (days !== null ? ' (H-' + days + ')' : '') : ''} · Dicetak ${esc(new Date().toLocaleDateString('id-ID', {day:'numeric', month:'long', year:'numeric'}))}</div>
+    <div class="pp-sum"><div><span>Total rincian</span><b>${rp(totalAll)}</b></div><div><span>Sudah dibayar</span><b>${rp(paidAll)}</b></div><div><span>Sisa dibayar</span><b>${rp(Math.max(totalAll - paidAll, 0))}</b></div><div><span>Budget maksimal</span><b>${rp(data.targetBudget)}</b></div></div>
+    <table class="pp-table"><thead><tr><th>Item / rincian</th><th>Kontak</th><th class="r">Harga</th><th class="r">Dibayar</th><th>Status</th></tr></thead><tbody>${rows || '<tr><td colspan="5">Belum ada rincian.</td></tr>'}</tbody></table>
+    ${opts.sumber ? (() => { const fs = fundSummary(); return '<h2>Sumber dana</h2><table class="pp-table"><tbody>' + ['s1','s2'].map(k => `<tr><td>${esc(danaLabel(k))}</td><td class="r">Terkumpul ${rp(fs.kumpul[k])}</td><td class="r">Terpakai ${rp(fs.use[k])}</td><td class="r">Sisa ${rp(fs.kumpul[k] - fs.use[k])}</td></tr>`).join('') + '</tbody></table>'; })() : ''}
+    <div class="pp-foot">Ringkasan ini dibuat dari aplikasi Rencana Nikah. Angka dapat berubah sesuai pembaruan terakhir.</div>`;
+}
+function printSummary(opts){
+  let area = document.getElementById('printArea');
+  if(!area){ area = document.createElement('div'); area.id = 'printArea'; document.body.appendChild(area); }
+  area.innerHTML = buildPrintSummary(opts || {});
+  const done = () => { document.body.classList.remove('printing'); window.removeEventListener('afterprint', done); };
+  window.addEventListener('afterprint', done);
+  document.body.classList.add('printing');
+  setTimeout(() => { try{ window.print(); }catch(e){ done(); } }, 60);
 }
 
 function createInlineSaveButton(cls, onSuccess){
