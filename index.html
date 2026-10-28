@@ -354,10 +354,15 @@ body.nd-hide-blobs .nd-blob{display:none;}
 .nd-tamu-num{font:800 30px 'Sora';margin-top:5px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
 .nd-tamu-num small{font-size:15px;opacity:.6;font-weight:500;}
 .nd-tamu-meta{text-align:right;font-size:11.5px;opacity:.82;line-height:1.5;}
-.nd-tamu-groups{display:flex;gap:8px;margin-top:15px;}
+.nd-tamu-groups{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:15px;}
+.nd-tamu-groups .nd-tamu-grp{grid-column:span 2;}
+.nd-tamu-groups .nd-tamu-grp:nth-child(4){grid-column:2 / span 2;}
+.nd-tamu-groups .nd-tamu-grp:nth-child(5){grid-column:4 / span 2;}
+.nd-tamu-inv{margin-top:10px;font-size:11.5px;opacity:.85;text-align:center;}
+.nd-tamu-inv b{font-weight:700;}
 .nd-tamu-grp{flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;}
 .nd-tamu-grp-n{font:800 16px 'Sora';font-variant-numeric:tabular-nums;}
-.nd-tamu-grp-l{font-size:10.5px;opacity:.72;margin-top:2px;letter-spacing:.03em;}
+.nd-tamu-grp-l{font-size:10px;opacity:.72;margin-top:2px;letter-spacing:.03em;white-space:nowrap;}
 
 .nd-prog-tile{background:#fff;border-radius:20px;padding:14px;cursor:pointer;box-shadow:0 8px 20px -10px rgba(23,27,24,.08);display:flex;align-items:center;justify-content:space-between;border:none;font-family:inherit;text-align:left;}
 .nd-prog-lbl{font-size:11px;color:#6F7068;font-weight:700;letter-spacing:.03em;}
@@ -589,6 +594,8 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #confirmOverlay .cf-btns button{flex:1;min-height:46px;border-radius:100px;font:800 13px 'Sora',sans-serif;cursor:pointer;border:none;}
 #confirmOverlay .cf-no{background:#F1EEE7;color:#4B4C46;}
 #confirmOverlay .cf-yes{background:#C4574A;color:#fff;}
+#confirmOverlay .cf-yes.safe{background:var(--nd-accent,#7E8F63);}
+#confirmOverlay .cf-ico.safe{background:#EEF2E6;color:#5C6E45;}
 
 
 /* tombol aksi rincian: Buka + Detail, ukuran sama dan rata kanan */
@@ -596,6 +603,10 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #modalOverlay .rc-acts .rc-detail,#modalOverlay .rc-acts .rc-open{box-sizing:border-box;min-width:68px;height:34px;padding:0 10px;border-radius:100px;font:800 11.5px 'Plus Jakarta Sans',sans-serif;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;text-decoration:none;cursor:pointer;}
 #modalOverlay .rc-acts .rc-open{background:#fff;border:1.5px solid var(--nd-accent);color:var(--nd-accent);}
 #modalOverlay .rc-acts .rc-open:active{background:var(--nd-soft);}
+
+/* ===== Stepper jumlah tamu ===== */
+.tm-stepbtn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid #E4DFD5;background:#fff;color:var(--nd-accent);font:800 20px 'Sora',sans-serif;line-height:1;cursor:pointer;}
+.tm-stepbtn:active{background:var(--nd-soft);}
 
 /* ===== Cetak ringkasan ===== */
 #printArea{display:none;}
@@ -907,7 +918,8 @@ Daftar syarat administrasi nikah (KTP, KK, dll), dikelompokkan per pihak wanita 
 
 ## Lainnya
 
-- **Tamu** — daftar tamu per pihak, ada pencarian nama dan ringkasan yang sudah konfirmasi hadir. Untuk input banyak sekaligus, pakai **Import dari Excel**: download template, isi, lalu upload lagi. Tamu dari file **ditambahkan**, tidak menimpa yang sudah ada.
+- **Tamu** — daftar tamu dengan pencarian (nama, pihak, kategori, atau Fisik/Digital). Tiap tamu punya: **Pihak** (Pengantin Pria, Pengantin Wanita, Bersama, Orang Tua Pria, Orang Tua Wanita), **Kategori** (Keluarga, Teman, Kerja), **Jenis undangan** (Fisik atau Digital), **Jumlah orang**, status kirim undangan, dan konfirmasi hadir. **Jumlah orang adalah perkiraan**: isi kira-kira termasuk pasangan atau anak yang mungkin dibawa, lalu ubah setelah ada konfirmasi. Ringkasan di atas menghitung orang per pihak, sedangkan jumlah undangan Fisik dan Digital dihitung per undangan (per baris tamu), jadi bisa dipakai untuk menentukan berapa undangan yang perlu dicetak.
+  Untuk input banyak sekaligus, pakai **Import dari Excel**: download template (ada lembar *Petunjuk* berisi pilihan yang diterima), isi, lalu upload lagi. Kolom dikenali dari judulnya, jadi template lama tetap bisa diimpor. Baris contoh yang diawali "Contoh:" tidak ikut masuk. Tamu dengan nama dan pihak yang sama dengan yang sudah ada dilewati, jadi aman kalau file yang sama terupload dua kali. Kolom Jumlah boleh berisi teks seperti "2 orang". Tamu dari file **ditambahkan**, tidak menimpa yang sudah ada.
 - **Roadmap** — checklist persiapan lengkap dengan prioritas (Wajib/Penting/Tambahan/Luxury), status, dan deadline. Isi deadline supaya muncul di Agenda Terdekat.
 - **Timeline** — peta fase menuju hari H, dari H-180 sampai Hari H. Deadline juga masuk ke Agenda Terdekat.
 - **Moodboard** — kumpulan foto inspirasi (dekorasi, busana, makeup, venue, warna, seserahan). Pilih kategori, tekan **"+ Tambah foto"**, lalu pilih satu atau beberapa foto dari galeri HP; foto otomatis dikompres. Tap foto untuk memperbesar, ganti kategori, menulis catatan, atau menghapus. Tekan **"Unduh PowerPoint"** di kartu **Bagikan ke vendor** untuk mendapat file .pptx (sampul + satu bagian per kategori) yang bisa dikirim ke vendor; judul, pesan, kategori, dan catatan bisa diatur dulu. Maksimal 50 foto. Foto moodboard tidak ikut di Export/Import, jadi simpan sendiri kalau ingin cadangan.
@@ -1170,8 +1182,9 @@ function openMoodViewer(item){
     });
     note.addEventListener('blur', () => { clearTimeout(t); moodUpdate(item, {note:note.value}).catch(err => console.error(err)); });
     body.querySelector('#mbDel').addEventListener('click', () => {
-      if(!confirm('Hapus foto ini dari moodboard?')) return;
-      moodDelete(item).then(() => { closeModal(); }).catch(err => { alert('Gagal menghapus: ' + (err && err.message || err)); });
+      askConfirm({ title: 'Hapus foto ini?', message: 'Foto akan dihapus dari moodboard.' }, () => {
+        moodDelete(item).then(() => { closeModal(); }).catch(err => { showToast('Gagal menghapus: ' + (err && err.message || err)); });
+      });
     });
   });
 }
@@ -2981,18 +2994,15 @@ function renderDashboard(container){
   }
 
   // ==== Kartu tamu (gelap) ====
+  const tStatsFull = tamuStats();
   const tamuCard = document.createElement('button');
   tamuCard.className = 'nd-tamu-card';
   tamuCard.innerHTML = `
     <div class="nd-tamu-top">
       <div><div class="nd-tamu-lbl">TAMU TERDAFTAR</div><div class="nd-tamu-num">${d.tamuTotal} <small>/ ${data.guestTarget||0}</small></div></div>
-      <div class="nd-tamu-meta">${d.tamuConfirmed} konfirmasi hadir<br>${d.tamuTotal} terdaftar</div>
+      <div class="nd-tamu-meta">${d.tamuConfirmed} konfirmasi hadir<br>${tStatsFull.undangan} undangan</div>
     </div>
-    <div class="nd-tamu-groups">
-      <div class="nd-tamu-grp"><div class="nd-tamu-grp-n">${d.tamuGroups['Pengantin Pria']}</div><div class="nd-tamu-grp-l">PIHAK PRIA</div></div>
-      <div class="nd-tamu-grp"><div class="nd-tamu-grp-n">${d.tamuGroups['Pengantin Wanita']}</div><div class="nd-tamu-grp-l">PIHAK WANITA</div></div>
-      <div class="nd-tamu-grp"><div class="nd-tamu-grp-n">${d.tamuGroups['Bersama']}</div><div class="nd-tamu-grp-l">BERSAMA</div></div>
-    </div>
+    ${tamuTilesHTML(tStatsFull)}
   `;
   tamuCard.addEventListener('click', () => goToTab('tamu'));
   container.appendChild(tamuCard);
@@ -3278,12 +3288,12 @@ function renderTabunganSectionND(container){
       body.querySelector('#tPartner').addEventListener('input', e => { row.actualPartner = Number(e.target.value)||0; scheduleSave(); });
       body.querySelector('#tNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#tDel').addEventListener('click', () => {
-        if(confirm(`Hapus catatan tabungan "${row.month||'ini'}"?`)){
+        askConfirm({ title: `Hapus catatan tabungan "${row.month||'ini'}"?`, message: 'Catatan tabungan ini akan dihapus.' }, () => {
           const i = data.tabungan.indexOf(row);
           if(i > -1) data.tabungan.splice(i,1);
           scheduleSave();
           renderTabContent();
-        }
+        });
       });
       const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
       body.querySelector('#tSaveSlot').appendChild(saveBtn);
@@ -3307,6 +3317,7 @@ function renderTabunganSectionND(container){
   addBtn.textContent = '+ Tambah bulan tabungan';
   addBtn.addEventListener('click', () => {
     data.tabungan.push({id:uid(), open:true, month:'', targetSave:0, actualMe:0, actualPartner:0, location:'', note:''});
+    sectionPage.tabungan = Math.ceil(data.tabungan.length / PAGE_SIZE);
     scheduleSave();
     renderTabContent();
   });
@@ -3420,11 +3431,11 @@ function renderRoadmapSectionND(container){
       body.querySelector('#rDeadline').addEventListener('input', e => { row.deadline = e.target.value; scheduleSave(); });
       body.querySelector('#rNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#rDel').addEventListener('click', () => {
-        if(confirm(`Hapus roadmap "${row.name||'ini'}"?`)){
+        askConfirm({ title: `Hapus roadmap "${row.name||'ini'}"?`, message: 'Tahapan roadmap ini akan dihapus.' }, () => {
           const i = data.roadmap.indexOf(row);
           if(i>-1) data.roadmap.splice(i,1);
           scheduleSave(); renderTabContent();
-        }
+        });
       });
       const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
       body.querySelector('#rSaveSlot').appendChild(saveBtn);
@@ -3445,7 +3456,8 @@ function renderRoadmapSectionND(container){
   addBtn.style.cssText = 'width:calc(100% - 28px);margin:10px 14px 20px;padding:15px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px \'Sora\';cursor:pointer;font-family:inherit;';
   addBtn.textContent = '+ Tambah roadmap';
   addBtn.addEventListener('click', () => {
-    data.roadmap.push({id:uid(), open:true, name:'', priority:'Penting', deadline:'', status:'Belum mulai', note:''});
+    data.roadmap.push({id:uid(), open:true, name:'', priority: roadmapPriorityFilter === 'Semua' ? 'Penting' : roadmapPriorityFilter, deadline:'', status:'Belum mulai', note:''}); // ikut filter aktif supaya tidak tersembunyi
+    sectionPage.roadmap = Math.ceil(data.roadmap.length / PAGE_SIZE);
     scheduleSave(); renderTabContent();
   });
   container.appendChild(addBtn);
@@ -3545,11 +3557,11 @@ function renderTimelineSectionND(container){
       body.querySelector('#tlPic').addEventListener('input', e => { row.pic = e.target.value; scheduleSave(); });
       body.querySelector('#tlNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#tlDel').addEventListener('click', () => {
-        if(confirm(`Hapus periode "${row.periode||'ini'}"?`)){
+        askConfirm({ title: `Hapus periode "${row.periode||'ini'}"?`, message: 'Periode timeline ini akan dihapus.' }, () => {
           const i = data.timeline.indexOf(row);
           if(i>-1) data.timeline.splice(i,1);
           scheduleSave(); renderTabContent();
-        }
+        });
       });
       const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
       body.querySelector('#tlSaveSlot').appendChild(saveBtn);
@@ -3571,6 +3583,7 @@ function renderTimelineSectionND(container){
   addBtn.textContent = '+ Tambah periode';
   addBtn.addEventListener('click', () => {
     data.timeline.push({id:uid(), open:true, periode:'', fokus:'', checklist:'', deadline:'', status:'Belum mulai', pic:'', note:''});
+    sectionPage.timeline = Math.ceil(data.timeline.length / PAGE_SIZE);
     scheduleSave(); renderTabContent();
   });
   container.appendChild(addBtn);
@@ -3681,11 +3694,11 @@ function renderDokumenSectionND(container){
       body.querySelector('#dStatus').addEventListener('change', e => { row.status = e.target.value; scheduleSave(); });
       body.querySelector('#dNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#dDel').addEventListener('click', () => {
-        if(confirm(`Hapus dokumen "${row.name||'ini'}"?`)){
+        askConfirm({ title: `Hapus dokumen "${row.name||'ini'}"?`, message: 'Dokumen ini akan dihapus dari daftar.' }, () => {
           const i = data.dokumen.indexOf(row);
           if(i>-1) data.dokumen.splice(i,1);
           scheduleSave(); renderTabContent();
-        }
+        });
       });
       const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
       body.querySelector('#dSaveSlot').appendChild(saveBtn);
@@ -3707,9 +3720,108 @@ function renderDokumenSectionND(container){
   addBtn.textContent = '+ Tambah dokumen';
   addBtn.addEventListener('click', () => {
     data.dokumen.push({id:uid(), open:true, name:'', category:'Wajib', status:'Belum', side:dokumenSideFilterND, note:''});
+    sectionPage.dokumen = Math.ceil(data.dokumen.length / PAGE_SIZE);
     scheduleSave(); renderTabContent();
   });
   container.appendChild(addBtn);
+}
+
+
+// ===== Tamu: pilihan baku, normalisasi, dan pembaca baris Excel =====
+const TAMU_SIDES = [
+  {v:'Pengantin Pria',   tile:'PIHAK PRIA'},
+  {v:'Pengantin Wanita', tile:'PIHAK WANITA'},
+  {v:'Bersama',          tile:'BERSAMA'},
+  {v:'Orang Tua Pria',   tile:'ORTU PRIA'},
+  {v:'Orang Tua Wanita', tile:'ORTU WANITA'}
+];
+let tamuImportNote = null;
+const TAMU_PAGE_SIZE = 25;   // daftar tamu bisa ratusan: tampil 25 per halaman, bukan 8
+const TAMU_CATS = ['Keluarga','Teman','Kerja'];
+const TAMU_INVITE_TYPES = ['Fisik','Digital'];
+// <option> untuk select; kalau nilai lama (mis. kategori "Lainnya") tidak ada di daftar baru, tetap ditampilkan supaya tidak hilang diam-diam
+function tamuOptions(list, cur, blankLabel){
+  const arr = list.slice();
+  let html = blankLabel ? `<option value="" ${!cur?'selected':''}>${esc(blankLabel)}</option>` : '';
+  if(cur && arr.indexOf(cur) === -1) arr.push(cur);
+  return html + arr.map(o => `<option value="${esc(o)}" ${cur===o?'selected':''}>${esc(o)}</option>`).join('');
+}
+function normTamuSide(v){
+  const t = String(v||'').toLowerCase().replace(/[^a-z ]/g,' ').replace(/\s+/g,' ').trim();
+  if(!t) return {v:'Bersama', ok:true};
+  if(/orang ?tua|ortu/.test(t)){
+    if(/wanita|perempuan|istri|cewek/.test(t)) return {v:'Orang Tua Wanita', ok:true};
+    if(/pria|laki|suami|cowok/.test(t)) return {v:'Orang Tua Pria', ok:true};
+    return {v:'Bersama', ok:false};
+  }
+  if(/wanita|perempuan|istri|cewek/.test(t)) return {v:'Pengantin Wanita', ok:true};
+  if(/pria|laki|suami|cowok/.test(t)) return {v:'Pengantin Pria', ok:true};
+  if(/bersama|bareng|umum/.test(t)) return {v:'Bersama', ok:true};
+  return {v:'Bersama', ok:false};
+}
+function normTamuCat(v){
+  const t = String(v||'').toLowerCase();
+  if(!t.trim()) return {v:'Teman', ok:true};
+  if(/keluarga|family|saudara/.test(t)) return {v:'Keluarga', ok:true};
+  if(/teman|sahabat|friend/.test(t)) return {v:'Teman', ok:true};
+  if(/kerja|kantor|rekan|office/.test(t)) return {v:'Kerja', ok:true};
+  return {v:'Teman', ok:false};
+}
+function normTamuInviteType(v){
+  const t = String(v||'').toLowerCase();
+  if(/fisik|cetak|kertas|print/.test(t)) return 'Fisik';
+  if(/digital|online|whatsapp|\bwa\b|link/.test(t)) return 'Digital';
+  return '';
+}
+// rows = hasil sheet_to_json(header:1). Kolom dikenali dari JUDULNYA (bukan urutan), jadi template lama & baru sama-sama bisa diimpor.
+function parseTamuCount(v){
+  if(typeof v === 'number') return Math.max(1, Math.round(v) || 1);
+  const m = String(v==null?'':v).replace(',', '.').match(/\d+(\.\d+)?/);   // "2 orang" -> 2, "3,5" -> 4
+  return m ? Math.max(1, Math.round(Number(m[0])) || 1) : 1;
+}
+function parseTamuRows(rows, existing){
+  const out = {items:[], skippedExample:0, skippedEmpty:0, skippedDup:0, badSide:0, badCat:0};
+  if(!rows || !rows.length) return out;
+  const norm = x => String(x==null?'':x).toLowerCase().trim();
+  // baris judul dicari di 6 baris pertama (kadang ada judul besar di atas tabel)
+  let hIdx = rows.slice(0, 6).findIndex(r => Array.isArray(r) && r.some(c => /^nama/.test(norm(c))));
+  if(hIdx < 0) hIdx = 0;
+  const head = (rows[hIdx]||[]).map(norm);
+  const seen = new Set((existing||[]).map(t => norm(t.name) + '|' + (t.side||'Bersama')));
+  const find = re => head.findIndex(h => re.test(h));
+  let col = {name:find(/^nama/), side:find(/^(pihak|sisi)/), cat:find(/^kategori/), count:find(/^(jumlah|jml)/),
+             type:find(/jenis|tipe/), status:find(/^status/), undangan:find(/^undangan$/), conf:find(/^(konfirmasi|kehadiran)/), note:find(/^(catatan|ket)/)};
+  let start = hIdx + 1;
+  if(col.name < 0){ col = {name:0, side:1, cat:2, count:3, type:-1, status:-1, undangan:4, conf:5, note:6}; start = 0; } // tanpa baris judul: urutan lama
+  const get = (r, i) => (i >= 0 && r[i] != null) ? r[i] : '';
+  rows.slice(start).forEach(r => {
+    if(!r) return;
+    const name = String(get(r, col.name)).trim();
+    if(!name){ if(r.some(c => String(c==null?'':c).trim())) out.skippedEmpty++; return; }
+    if(/^contoh\s*:/i.test(name)){ out.skippedExample++; return; }
+    const side = normTamuSide(get(r, col.side));
+    const dupKey = norm(name) + '|' + side.v;
+    if(seen.has(dupKey)){ out.skippedDup++; return; }   // nama + pihak yang sama sudah ada: jangan dobel
+    seen.add(dupKey);
+    if(!side.ok) out.badSide++;
+    const cat = normTamuCat(get(r, col.cat)); if(!cat.ok) out.badCat++;
+    let type = col.type >= 0 ? normTamuInviteType(get(r, col.type)) : '';
+    let statusRaw = col.status >= 0 ? norm(get(r, col.status)) : '';
+    if(col.undangan >= 0){ // kolom lama "Undangan": isinya bisa Belum/Sudah (template lama) atau Fisik/Digital
+      const u = get(r, col.undangan), t = normTamuInviteType(u);
+      if(t && !type) type = t; else if(!t && !statusRaw) statusRaw = norm(u);
+    }
+    const confRaw = norm(get(r, col.conf));
+    out.items.push({
+      id: uid(), open:false, name, side:side.v, category:cat.v,
+      count: parseTamuCount(get(r, col.count)),
+      inviteType: type,
+      invited: /^(sudah|terkirim|dikirim|ya)/.test(statusRaw) ? 'Sudah' : 'Belum',
+      confirmed: /tidak/.test(confRaw) ? 'Tidak Hadir' : (/hadir/.test(confRaw) ? 'Hadir' : 'Belum'),
+      note: String(get(r, col.note)||'')
+    });
+  });
+  return out;
 }
 
 const TAMU_CONFIRM_CYCLE = ['Belum','Hadir','Tidak Hadir'];
@@ -3722,22 +3834,18 @@ function renderTamuSectionND(container){
   header.innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:flex-end;">
       <div>
-        <div style="font:800 10.5px 'Sora';letter-spacing:.1em;opacity:.72;">TAMU TERDAFTAR</div>
+        <div style="font:800 10.5px 'Sora';letter-spacing:.1em;opacity:.72;">TOTAL ORANG (PERKIRAAN)</div>
         <div style="font:800 30px 'Sora';margin-top:5px;letter-spacing:-.03em;">${stats.total} <span style="font-size:15px;opacity:.6;font-weight:500;">/ ${data.guestTarget||0}</span></div>
       </div>
-      <div style="text-align:right;font-size:11.5px;opacity:.82;line-height:1.5;">${stats.confirmed} konfirmasi hadir</div>
+      <div style="text-align:right;font-size:11.5px;opacity:.82;line-height:1.5;">${stats.confirmed} konfirmasi hadir<br>${stats.undangan} undangan</div>
     </div>
-    <div style="display:flex;gap:8px;margin-top:15px;">
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Pria']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">PIHAK PRIA</div></div>
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Pengantin Wanita']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">PIHAK WANITA</div></div>
-      <div style="flex:1;background:rgba(255,255,255,.14);border-radius:16px;padding:10px 8px;text-align:center;"><div style="font:800 16px 'Sora';">${stats.groups['Bersama']}</div><div style="font-size:10.5px;opacity:.72;margin-top:2px;">BERSAMA</div></div>
-    </div>
+    ${tamuTilesHTML(stats)}
   `;
   container.appendChild(header);
 
   const searchWrap = document.createElement('div');
   searchWrap.style.cssText = 'margin:14px 14px 0;';
-  searchWrap.innerHTML = `<input type="text" id="tamuSearchND" placeholder="Cari nama tamu..." value="${tamuSearch.replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#fff;border:none;border-radius:100px;padding:13px 18px;font-size:13px;box-shadow:0 6px 16px -8px rgba(23,27,24,.15);font-family:'Plus Jakarta Sans',sans-serif;">`;
+  searchWrap.innerHTML = `<input type="text" id="tamuSearchND" placeholder="Cari nama, pihak, kategori, atau Fisik/Digital..." value="${tamuSearch.replace(/"/g,'&quot;')}" style="width:100%;box-sizing:border-box;background:#fff;border:none;border-radius:100px;padding:13px 18px;font-size:13px;box-shadow:0 6px 16px -8px rgba(23,27,24,.15);font-family:'Plus Jakarta Sans',sans-serif;">`;
   container.appendChild(searchWrap);
   searchWrap.querySelector('#tamuSearchND').addEventListener('input', e => { tamuSearch = e.target.value; renderTabContent(); });
 
@@ -3750,23 +3858,38 @@ function renderTamuSectionND(container){
     <button id="tamuTemplateBtnND" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px 'Sora';cursor:pointer;font-family:inherit;">Download Template Excel</button>
     <label style="display:block;font-size:12px;color:#6F7068;margin-top:12px;margin-bottom:6px;">Upload file yang sudah diisi:</label>
     <input type="file" id="tamuExcelFileND" accept=".xlsx,.xls,.csv" style="width:100%;font-size:12px;">
-    <div id="tamuExcelMsgND" style="font-size:12px;margin-top:8px;"></div>
+    <div id="tamuExcelMsgND" style="font-size:12px;margin-top:8px;line-height:1.45;"></div>
   `;
   container.appendChild(cardExcel);
+  if(tamuImportNote){ const m0 = cardExcel.querySelector('#tamuExcelMsgND'); m0.textContent = tamuImportNote.text; m0.style.color = tamuImportNote.color; }
   cardExcel.querySelector('#tamuTemplateBtnND').addEventListener('click', () => {
     const msg = cardExcel.querySelector('#tamuExcelMsgND');
     msg.textContent = 'Memuat library Excel...'; msg.style.color = '#6F7068';
     loadXLSX().then(() => {
       msg.textContent = '';
       const wsData = [
-        ['Nama','Pihak','Kategori','Jumlah','Undangan','Konfirmasi','Catatan'],
-        ['Contoh: Budi Santoso','Pengantin Pria','Teman','2','Belum','Belum',''],
-        ['Contoh: Siti Aminah','Pengantin Wanita','Keluarga','4','Belum','Belum',''],
+        ['Nama','Pihak','Kategori','Jumlah','Jenis Undangan','Status Kirim','Konfirmasi','Catatan'],
+        ['Contoh: Budi Santoso','Pengantin Pria','Teman','2','Digital','Belum','Belum','Perkiraan bawa pasangan'],
+        ['Contoh: Siti Aminah','Orang Tua Wanita','Keluarga','4','Fisik','Belum','Belum',''],
       ];
       const ws = XLSX.utils.aoa_to_sheet(wsData);
-      ws['!cols'] = [{wch:24},{wch:18},{wch:14},{wch:8},{wch:10},{wch:14},{wch:26}];
+      ws['!cols'] = [{wch:24},{wch:18},{wch:12},{wch:9},{wch:15},{wch:13},{wch:13},{wch:28}];
+      const guide = XLSX.utils.aoa_to_sheet([
+        ['Kolom','Isi yang diterima'],
+        ['Pihak', TAMU_SIDES.map(x => x.v).join(' / ')],
+        ['Kategori', TAMU_CATS.join(' / ')],
+        ['Jumlah', 'Perkiraan jumlah orang yang datang, termasuk pasangan/anak yang mungkin dibawa. Boleh diubah nanti.'],
+        ['Jenis Undangan', TAMU_INVITE_TYPES.join(' / ')],
+        ['Status Kirim', 'Belum / Sudah (undangan sudah diberikan atau dikirim)'],
+        ['Konfirmasi', 'Belum / Hadir / Tidak Hadir'],
+        ['Catatan', 'Bebas'],
+        ['', ''],
+        ['Baris contoh', 'Baris yang namanya diawali "Contoh:" tidak ikut diimpor. Hapus atau timpa dengan data asli.'],
+      ]);
+      guide['!cols'] = [{wch:16},{wch:90}];
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, 'Tamu');
+      XLSX.utils.book_append_sheet(wb, guide, 'Petunjuk');
       XLSX.writeFile(wb, 'template-daftar-tamu.xlsx');
     }).catch(() => { msg.textContent = 'Gagal memuat library Excel. Cek koneksi internet.'; msg.style.color = '#C4574A'; });
   });
@@ -3783,20 +3906,16 @@ function renderTamuSectionND(container){
           const wb = XLSX.read(ev.target.result, {type:'array'});
           const ws = wb.Sheets[wb.SheetNames[0]];
           const rows = XLSX.utils.sheet_to_json(ws, {header:1});
-          let added = 0;
-          rows.slice(1).forEach(r => {
-            if(!r || !r[0]) return;
-            data.tamu.push({
-              id: uid(), open:false,
-              name: String(r[0]||''), side: String(r[1]||'Bersama'),
-              category: String(r[2]||'Teman'), count: Number(r[3])||1,
-              invited: String(r[4]||'Belum'), confirmed: String(r[5]||'Belum'),
-              note: String(r[6]||'')
-            });
-            added++;
-          });
+          const res = parseTamuRows(rows, data.tamu);
+          res.items.forEach(it => data.tamu.push(it));
+          const added = res.items.length;
           scheduleSave();
-          if(msg){ msg.textContent = `${added} tamu berhasil ditambahkan.`; msg.style.color = '#3E7A4E'; }
+          const notes = [];
+          if(res.skippedDup) notes.push(`${res.skippedDup} baris dilewati karena nama & pihak sudah ada (tidak dobel)`);
+          if(res.skippedExample) notes.push(`${res.skippedExample} baris "Contoh:" dilewati`);
+          if(res.badSide) notes.push(`${res.badSide} baris Pihak tidak dikenali, diisi "Bersama"`);
+          if(res.badCat) notes.push(`${res.badCat} baris Kategori tidak dikenali, diisi "Teman"`);
+          tamuImportNote = { text: `${added} tamu berhasil ditambahkan.` + (notes.length ? ' Catatan: ' + notes.join('; ') + '.' : ''), color: (res.badSide || res.badCat) ? '#9A6A12' : '#3E7A4E' }; // disimpan di variabel karena halaman dirender ulang setelah import
           renderTabContent();
         }catch(err){
           if(msg){ msg.textContent = 'Gagal membaca file. Pastikan formatnya sesuai template.'; msg.style.color = '#C4574A'; }
@@ -3811,7 +3930,7 @@ function renderTamuSectionND(container){
   container.appendChild(listWrap);
 
   const filtered = tamuSearch.trim()
-    ? data.tamu.filter(t => (t.name||'').toLowerCase().includes(tamuSearch.trim().toLowerCase()) || (t.category||'').toLowerCase().includes(tamuSearch.trim().toLowerCase()))
+    ? data.tamu.filter(t => { const q = tamuSearch.trim().toLowerCase(); return [t.name, t.category, t.side, t.inviteType].some(v => (v||'').toLowerCase().includes(q)); })
     : data.tamu;
 
   if(filtered.length === 0){
@@ -3822,7 +3941,7 @@ function renderTamuSectionND(container){
   }
 
   const page = sectionPage.tamu || 1;
-  const end = page * PAGE_SIZE;
+  const end = page * TAMU_PAGE_SIZE;
   const visible = filtered.slice(0, end);
   const confirmColors = {'Belum':'#6F7068','Hadir':'#3E7A4E','Tidak Hadir':'#C4574A'};
   const confirmBg = {'Belum':'#F4F1EB','Hadir':'#EAF4E8','Tidak Hadir':'#FBEAE7'};
@@ -3838,11 +3957,11 @@ function renderTamuSectionND(container){
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
         <div style="font:700 13.5px 'Sora';color:#181B17;">${esc(row.name || '(nama belum diisi)')}</div>
-        <div style="font-size:11px;color:#6F7068;margin-top:3px;">${esc([row.side, row.category, (row.count||1)+' orang'].filter(Boolean).join(' · '))}</div>
+        <div class="tm-sub" style="font-size:11px;color:#6F7068;margin-top:3px;">${esc([row.side, row.category, (row.count||1)+' orang', row.inviteType ? 'Undangan ' + row.inviteType.toLowerCase() : 'Jenis undangan belum dipilih'].filter(Boolean).join(' · '))}</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px;align-items:flex-end;flex:none;">
         <button id="tmConfirm" style="font:700 10.5px 'Sora';padding:4px 9px;border-radius:100px;background:${confirmBg[row.confirmed]||'#F4F1EB'};color:${confirmColors[row.confirmed]||'#8A8B85'};border:none;cursor:pointer;">${esc(row.confirmed)}</button>
-        <button id="tmInviteToggle" style="font-size:10.5px;color:${row.invited==='Sudah'?'#3E7A4E':'#74756D'};background:none;border:none;cursor:pointer;padding:0;">${row.invited==='Sudah'?'✓ sudah diundang':'belum diundang'}</button>
+        <button id="tmInviteToggle" style="font-size:10.5px;color:${row.invited==='Sudah'?'#3E7A4E':'#74756D'};background:none;border:none;cursor:pointer;padding:0;">${row.invited==='Sudah'?'✓ sudah dikirim':'belum dikirim'}</button>
       </div>
     `;
     head.querySelector('#tmInviteToggle').addEventListener('click', (ev) => {
@@ -3865,24 +3984,26 @@ function renderTamuSectionND(container){
       body.innerHTML = `
         <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Nama</div>
         <input type="text" id="tmName" value="${esc(row.name||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Pihak</div>
+        <select id="tmSide" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">${TAMU_SIDES.map(x=>`<option value="${x.v}" ${row.side===x.v?'selected':''}>${x.v}</option>`).join('')}${row.side && !TAMU_SIDES.some(x=>x.v===row.side) ? `<option value="${esc(row.side)}" selected>${esc(row.side)}</option>` : ''}</select>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Pihak</div>
-            <select id="tmSide" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-              ${['Pengantin Pria','Pengantin Wanita','Bersama'].map(o=>`<option value="${o}" ${row.side===o?'selected':''}>${o}</option>`).join('')}
-            </select></div>
           <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Kategori</div>
-            <select id="tmCat" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-              ${['Keluarga','Teman','Kerja','Lainnya'].map(o=>`<option value="${o}" ${row.category===o?'selected':''}>${o}</option>`).join('')}
-            </select></div>
+            <select id="tmCat" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">${tamuOptions(TAMU_CATS, row.category)}</select></div>
+          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Jenis undangan</div>
+            <select id="tmType" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">${tamuOptions(TAMU_INVITE_TYPES, row.inviteType, 'Pilih…')}</select></div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px;">
-          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Jumlah</div><input type="number" id="tmCount" value="${Number(row.count)||1}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;"></div>
-          <div><div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Undangan</div>
-            <select id="tmInvited" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-              <option value="Belum" ${row.invited==='Belum'?'selected':''}>Belum</option>
-              <option value="Sudah" ${row.invited==='Sudah'?'selected':''}>Sudah</option>
-            </select></div>
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Jumlah orang (perkiraan)</div>
+        <div class="tm-step" style="display:flex;align-items:center;gap:8px;">
+          <button type="button" class="tm-stepbtn" data-d="-1" aria-label="Kurangi">−</button>
+          <input type="number" id="tmCount" inputmode="numeric" min="1" value="${Number(row.count)||1}" style="flex:1;min-width:0;text-align:center;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:14px;font-weight:700;">
+          <button type="button" class="tm-stepbtn" data-d="1" aria-label="Tambah">+</button>
         </div>
+        <div style="font-size:11px;color:#8A8B85;margin-top:5px;line-height:1.4;">Tulis kira-kira, termasuk pasangan atau anak yang mungkin dibawa. Bisa diubah lagi setelah ada konfirmasi.</div>
+        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Status kirim undangan</div>
+        <select id="tmInvited" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
+          <option value="Belum" ${row.invited==='Belum'?'selected':''}>Belum dikirim / diberikan</option>
+          <option value="Sudah" ${row.invited==='Sudah'?'selected':''}>Sudah dikirim / diberikan</option>
+        </select>
         <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Konfirmasi</div>
         <select id="tmConfirmSel" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
           ${TAMU_CONFIRM_CYCLE.map(o=>`<option value="${o}" ${row.confirmed===o?'selected':''}>${o}</option>`).join('')}
@@ -3894,18 +4015,25 @@ function renderTamuSectionND(container){
       `;
       card.appendChild(body);
       body.querySelector('#tmName').addEventListener('input', e => { row.name = e.target.value; scheduleSave(); });
-      body.querySelector('#tmSide').addEventListener('change', e => { row.side = e.target.value; scheduleSave(); });
-      body.querySelector('#tmCat').addEventListener('change', e => { row.category = e.target.value; scheduleSave(); });
-      body.querySelector('#tmCount').addEventListener('input', e => { row.count = Number(e.target.value)||1; scheduleSave(); });
+      const refreshSub = () => { const el = head.querySelector('.tm-sub'); if(el) el.textContent = [row.side, row.category, (row.count||1)+' orang', row.inviteType ? 'Undangan ' + row.inviteType.toLowerCase() : 'Jenis undangan belum dipilih'].filter(Boolean).join(' · '); };
+      body.querySelector('#tmSide').addEventListener('change', e => { row.side = e.target.value; scheduleSave(); refreshSub(); });
+      body.querySelector('#tmCat').addEventListener('change', e => { row.category = e.target.value; scheduleSave(); refreshSub(); });
+      body.querySelector('#tmType').addEventListener('change', e => { row.inviteType = e.target.value; scheduleSave(); refreshSub(); });
+      body.querySelector('#tmCount').addEventListener('input', e => { row.count = Math.max(1, Math.round(Number(e.target.value)) || 1); scheduleSave(); refreshSub(); });
+      body.querySelectorAll('.tm-stepbtn').forEach(btn => btn.addEventListener('click', () => {
+        const inp = body.querySelector('#tmCount');
+        const n = Math.max(1, (Number(inp.value) || 1) + Number(btn.dataset.d));
+        inp.value = n; row.count = n; scheduleSave(); refreshSub();
+      }));
       body.querySelector('#tmInvited').addEventListener('change', e => { row.invited = e.target.value; scheduleSave(); });
       body.querySelector('#tmConfirmSel').addEventListener('change', e => { row.confirmed = e.target.value; scheduleSave(); });
       body.querySelector('#tmNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#tmDel').addEventListener('click', () => {
-        if(confirm(`Hapus tamu "${row.name||'ini'}"?`)){
+        askConfirm({ title: `Hapus tamu "${row.name||'ini'}"?`, message: 'Data tamu ini akan dihapus dari daftar.' }, () => {
           const i = data.tamu.indexOf(row);
           if(i>-1) data.tamu.splice(i,1);
           scheduleSave(); renderTabContent();
-        }
+        });
       });
       const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
       body.querySelector('#tmSaveSlot').appendChild(saveBtn);
@@ -3917,7 +4045,7 @@ function renderTamuSectionND(container){
   if(end < filtered.length){
     const moreBtn = document.createElement('button');
     moreBtn.style.cssText = 'width:calc(100% - 28px);margin:4px 14px 0;padding:13px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px \'Sora\';cursor:pointer;font-family:inherit;';
-    moreBtn.textContent = `Muat ${Math.min(PAGE_SIZE, filtered.length-end)} lagi`;
+    moreBtn.textContent = `Muat ${Math.min(TAMU_PAGE_SIZE, filtered.length-end)} lagi`;
     moreBtn.addEventListener('click', () => { sectionPage.tamu = page + 1; renderTabContent(); });
     listWrap.appendChild(moreBtn);
   }
@@ -3926,8 +4054,11 @@ function renderTamuSectionND(container){
   addBtn.style.cssText = 'width:calc(100% - 28px);margin:10px 14px 20px;padding:15px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px \'Sora\';cursor:pointer;font-family:inherit;';
   addBtn.textContent = '+ Tambah tamu';
   addBtn.addEventListener('click', () => {
-    data.tamu.push({id:uid(), open:true, name:'', side:'Bersama', category:'Teman', count:1, invited:'Belum', confirmed:'Belum', note:''});
+    data.tamu.push({id:uid(), open:true, name:'', side:'Bersama', category:'Teman', count:1, inviteType:'', invited:'Belum', confirmed:'Belum', note:''});
+    tamuSearch = '';                                                   // pencarian aktif akan menyembunyikan tamu baru
+    sectionPage.tamu = Math.ceil(data.tamu.length / TAMU_PAGE_SIZE);   // pastikan baris terakhir ikut tampil
     scheduleSave(); renderTabContent();
+    setTimeout(() => { const el = document.getElementById('tmName'); if(el){ el.scrollIntoView({block:'center', behavior:'smooth'}); el.focus({preventScroll:true}); } }, 60);
   });
   container.appendChild(addBtn);
 }
@@ -4063,7 +4194,9 @@ function renderBudgetSectionND(container){
   addBtn.textContent = '+ Tambah item budget';
   addBtn.addEventListener('click', () => {
     const nr = {id:uid(), open:true, category:'Penting', item:'', note:'', subItems:[]};
+    data.budget.forEach(r => { r.open = false; });   // akordeon: kartu lain terlipat
     data.budget.push(nr);
+    sectionPage.budget = Math.ceil(data.budget.length / PAGE_SIZE);
     scheduleSave();
     renderTabContent();
     openRenameItemModal(nr, true);
@@ -4079,10 +4212,13 @@ function askConfirm(opts, onYes){
   ov.id = 'confirmOverlay';
   ov.innerHTML = `
     <div class="cf-box" role="alertdialog" aria-modal="true" aria-labelledby="cfTitle">
-      <div class="cf-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5M14 11v5"/></svg></div>
+      <div class="cf-ico ${opts.kind === 'safe' ? 'safe' : ''}" aria-hidden="true">${
+        opts.kind === 'warn' ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>'
+        : opts.kind === 'safe' ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>'
+        : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5M14 11v5"/></svg>'}</div>
       <div class="cf-title" id="cfTitle">${esc(opts.title || 'Hapus item ini?')}</div>
       <div class="cf-msg">${esc(opts.message || '')}</div>
-      <div class="cf-btns"><button type="button" class="cf-no">Batal</button><button type="button" class="cf-yes">${esc(opts.okText || 'Ya, hapus')}</button></div>
+      <div class="cf-btns"><button type="button" class="cf-no">Batal</button><button type="button" class="cf-yes ${opts.kind === 'safe' ? 'safe' : ''}">${esc(opts.okText || 'Ya, hapus')}</button></div>
     </div>`;
   document.body.appendChild(ov);
   const close = () => { ov.remove(); document.removeEventListener('keydown', onKey, true); };
@@ -4135,11 +4271,11 @@ function renderDokumenSection(container){
     bulkBar.className = 'bulk-bar';
     bulkBar.innerHTML = `<span>${selSet.size} dokumen dipilih</span><button class="bulk-del-btn">Hapus yang dipilih</button>`;
     bulkBar.querySelector('.bulk-del-btn').addEventListener('click', () => {
-      if(confirm(`Hapus ${selSet.size} dokumen terpilih?`)){
+      askConfirm({ title: `Hapus ${selSet.size} dokumen?`, message: 'Semua dokumen yang dipilih akan dihapus.' }, () => {
         data.dokumen = data.dokumen.filter(r => !selSet.has(r.id));
         selSet.clear();
         scheduleSave(); renderTabContent();
-      }
+      });
     });
     container.appendChild(bulkBar);
   }
@@ -4285,16 +4421,25 @@ function renderDokumenSection(container){
 }
 
 function tamuStats(){
-  const groups = {'Pengantin Pria':0, 'Pengantin Wanita':0, 'Bersama':0};
+  const groups = {};
+  TAMU_SIDES.forEach(x => groups[x.v] = 0);
   let total = 0, confirmed = 0;
+  const inv = {Fisik:0, Digital:0, kosong:0};   // dihitung per UNDANGAN (baris), bukan per orang
   data.tamu.forEach(t => {
     const side = (t.side && groups[t.side] !== undefined) ? t.side : 'Bersama';
     const c = Number(t.count)||0;
     groups[side] += c;
     total += c;
     if(t.confirmed === 'Hadir') confirmed += c;
+    if(t.inviteType === 'Fisik') inv.Fisik++; else if(t.inviteType === 'Digital') inv.Digital++; else inv.kosong++;
   });
-  return {groups, total, confirmed};
+  return {groups, total, confirmed, inv, undangan: data.tamu.length};
+}
+// Kotak ringkasan 5 pihak + baris jenis undangan (dipakai di Beranda dan halaman Tamu)
+function tamuTilesHTML(stats){
+  const tiles = TAMU_SIDES.map(x => `<div class="nd-tamu-grp"><div class="nd-tamu-grp-n">${stats.groups[x.v]||0}</div><div class="nd-tamu-grp-l">${x.tile}</div></div>`).join('');
+  const inv = stats.undangan ? `<div class="nd-tamu-inv">Undangan <b>Fisik ${stats.inv.Fisik}</b> · <b>Digital ${stats.inv.Digital}</b>${stats.inv.kosong ? ` · belum dipilih ${stats.inv.kosong}` : ''}</div>` : '';
+  return `<div class="nd-tamu-groups">${tiles}</div>${inv}`;
 }
 
 function renderTamuSection(container){
@@ -4429,11 +4574,11 @@ function renderTamuGroups(groupsWrap){
     bulkBar.className = 'bulk-bar';
     bulkBar.innerHTML = `<span>${selSet.size} tamu dipilih</span><button class="bulk-del-btn">Hapus yang dipilih</button>`;
     bulkBar.querySelector('.bulk-del-btn').addEventListener('click', () => {
-      if(confirm(`Hapus ${selSet.size} tamu terpilih?`)){
+      askConfirm({ title: `Hapus ${selSet.size} tamu?`, message: 'Semua tamu yang dipilih akan dihapus.' }, () => {
         data.tamu = data.tamu.filter(r => !selSet.has(r.id));
         selSet.clear();
         scheduleSave(); renderTamuGroups(groupsWrap);
-      }
+      });
     });
     groupsWrap.appendChild(bulkBar);
   }
@@ -4555,7 +4700,7 @@ function renderTamuGroups(groupsWrap){
     addBtn.className = 'add-row-btn';
     addBtn.textContent = '+ Tambah tamu';
     addBtn.addEventListener('click', () => {
-      data.tamu.push({id:uid(), open:true, name:'', side:g.side, category:'Teman', count:1, invited:'Belum', confirmed:'Belum', note:''});
+      data.tamu.push({id:uid(), open:true, name:'', side:g.side, category:'Teman', count:1, inviteType:'', invited:'Belum', confirmed:'Belum', note:''});
       scheduleSave(); renderTamuGroups(groupsWrap);
     });
     card.appendChild(addBtn);
@@ -4575,11 +4720,11 @@ function renderRecordSection(container, sectionKey){
     bulkBar.className = 'bulk-bar';
     bulkBar.innerHTML = `<span>${selSet.size} item dipilih</span><button class="bulk-del-btn">Hapus yang dipilih</button>`;
     bulkBar.querySelector('.bulk-del-btn').addEventListener('click', () => {
-      if(confirm(`Hapus ${selSet.size} item terpilih?`)){
+      askConfirm({ title: `Hapus ${selSet.size} item?`, message: 'Semua item yang dipilih akan dihapus.' }, () => {
         data[sectionKey] = rows.filter(r => !selSet.has(r.id));
         selSet.clear();
         scheduleSave(); renderTabContent();
-      }
+      });
     });
     container.appendChild(bulkBar);
   }
@@ -5067,11 +5212,11 @@ function renderPengaturanSection(container){
   const removeBtn = cardPhoto.querySelector('#photoRemoveBtn');
   if(removeBtn){
     removeBtn.addEventListener('click', () => {
-      if(confirm('Hapus foto pre-wedding dari layar sambutan?')){
+      askConfirm({ title: 'Hapus foto pre-wedding?', message: 'Foto akan dihapus dari layar sambutan.' }, () => {
         data.photoUrl = '';
         scheduleSave();
         renderTabContent();
-      }
+      });
     });
   }
 
@@ -5131,8 +5276,9 @@ function renderPengaturanSection(container){
         <div style="font-size:11.5px;color:var(--ink-dim);margin-top:2px;">${e.note} · ${c.item||0} item · ${c.rincian||0} rincian · ${c.tamu||0} tamu</div></div>
         <button class="add-row-btn" style="width:auto;margin:0;padding:8px 14px;flex:none;">Pulihkan</button>`;
       row.querySelector('button').addEventListener('click', () => {
-        if(!confirm(`Pulihkan data ke kondisi ${fmtHistTime(e.t)}? Kondisi sekarang tetap tersimpan di riwayat, jadi bisa dibatalkan.`)) return;
-        Promise.resolve(histRestore(i)).then(() => { showToast('Data dipulihkan.'); paintHist(); }).catch(() => showToast('Gagal memulihkan, coba lagi.'));
+        askConfirm({ kind:'safe', okText:'Ya, pulihkan', title: `Pulihkan data ke ${fmtHistTime(e.t)}?`, message: 'Kondisi sekarang tetap tersimpan di riwayat, jadi bisa dibatalkan.' }, () => {
+          Promise.resolve(histRestore(i)).then(() => { showToast('Data dipulihkan.'); paintHist(); }).catch(() => showToast('Gagal memulihkan, coba lagi.'));
+        });
       });
       list.appendChild(row);
     });
@@ -5255,24 +5401,24 @@ function renderPengaturanSection(container){
       const msg = document.getElementById('ioMsg');
       if(!importInputEl || !msg){
         // Tampilan sempat berpindah (misal tab lain dibuka) sebelum file selesai dibaca.
-        alert('File sudah terbaca, tapi tampilan sempat berpindah. Buka lagi tab Pengaturan dan pilih filenya sekali lagi.');
+        showToast('File sudah terbaca, tapi tampilan sempat berpindah. Buka lagi tab Pengaturan dan pilih filenya sekali lagi.');
         return;
       }
       importInputEl.value = ev.target.result;
       msg.textContent = 'File terbaca. Tekan "Import Data" untuk menerapkannya.';
       msg.style.color = 'var(--gold)';
     };
-    reader.onerror = () => { alert('Gagal membaca file.'); };
+    reader.onerror = () => { showToast('Gagal membaca file.'); };
     reader.readAsText(file);
   });
   cardIO.querySelector('#copyExportBtn').addEventListener('click', async () => {
     const out = document.getElementById('exportOutput');
     try{
       await navigator.clipboard.writeText(out.value);
-      alert('Data berhasil disalin. Tempel di kolom Import pada versi lain.');
+      showToast('Data berhasil disalin. Tempel di kolom Import pada versi lain.');
     }catch(e){
       out.select();
-      alert('Gagal menyalin otomatis. Kotak teks di atas sudah diseleksi, salin manual saja (tekan lama lalu Copy).');
+      showToast('Gagal menyalin otomatis. Kotak teks di atas sudah diseleksi, salin manual saja (tekan lama lalu Copy).');
     }
   });
   cardIO.querySelector('#importBtn').addEventListener('click', () => {
@@ -5283,7 +5429,7 @@ function renderPengaturanSection(container){
     try{ parsed = JSON.parse(raw); }
     catch(e){ msg.textContent = 'Data tidak valid (format tidak dikenali). Pastikan menyalin lengkap dari Export.'; msg.style.color = 'var(--danger)'; return; }
     if(!parsed || !Array.isArray(parsed.roadmap)){ msg.textContent = 'Data tidak dikenali sebagai data rencana nikah yang valid.'; msg.style.color = 'var(--danger)'; return; }
-    if(!confirm('Import akan menimpa semua data yang ada sekarang di sini. Lanjutkan?')) return;
+    askConfirm({ kind:'warn', okText:'Ya, timpa', title:'Timpa semua data?', message:'Import akan menimpa semua data yang ada sekarang di sini.' }, () => {
     const base = defaultData();
     data = Object.assign(base, parsed);
     ['roadmap','dokumen','budget','tabungan','tamu','timeline'].forEach(k => {
@@ -5297,6 +5443,7 @@ function renderPengaturanSection(container){
     msg.textContent = 'Data berhasil diimpor.';
     msg.style.color = 'var(--sage)';
     render();
+    });
   });
 
   const cardDanger = document.createElement('div');
@@ -5309,13 +5456,13 @@ function renderPengaturanSection(container){
   `;
   container.appendChild(cardDanger);
   cardDanger.querySelector('#resetBtn').addEventListener('click', () => {
-    if(confirm('Reset semua data ke template awal? Perubahan yang sudah diisi akan hilang.')){
+    askConfirm({ kind:'warn', okText:'Ya, reset', title:'Reset semua data?', message:'Semua isian akan kembali ke template awal. Kondisi sebelumnya masih bisa dipulihkan dari Riwayat perubahan.' }, () => {
       data = defaultData();
       forceNextSave = true;
       scheduleSave();
       render();
       showToast('Data direset ke template awal.');
-    }
+    });
   });
 }
 
