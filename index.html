@@ -546,6 +546,50 @@ body.nd-hide-blobs .nd-blob{display:none;}
 #modalOverlay .rc-item.open .rc-detail{background:var(--nd-grad);color:#fff;}
 #modalOverlay .rc-item .rc-full{margin:0;padding:4px 12px 12px;border-top:1px solid #F0ECE4;background:#FDFCFA;}
 
+
+/* ===== Nama item budget: tap nama / pensil = ubah ===== */
+.bn-name{font:700 13.5px 'Sora',sans-serif;color:#181B17;border-bottom:1.5px dashed #D8D2C4;padding-bottom:1px;cursor:text;}
+.bn-edit{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#F1EEE7;color:var(--nd-accent);cursor:pointer;flex:none;}
+.bn-edit:hover,.bn-name:hover + .bn-edit{background:var(--nd-soft);}
+
+
+/* ===== Detail Rincian: versi ringkas (hemat tempat) ===== */
+#modalOverlay .modal-head{margin-bottom:2px;}
+#modalOverlay .modal-title{font-size:18px;}
+#modalOverlay .modal-close{width:32px;height:32px;}
+#modalOverlay .modal-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0 2px;padding:8px;border-radius:16px;text-align:left;}
+#modalOverlay .ms-cell{background:#fff;border-radius:12px;padding:7px 9px;min-width:0;}
+#modalOverlay .ms-cell span{display:block;font-size:10px;font-weight:700;letter-spacing:.03em;color:#8A8B85;text-transform:uppercase;}
+#modalOverlay .ms-cell b{display:block;font:800 12.5px 'Sora',sans-serif;color:var(--nd-deep-ink);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#modalOverlay .subitem-card{margin-top:8px;padding:8px 8px;border-radius:16px;}
+#modalOverlay .subitem-head{gap:4px;}
+#modalOverlay .subitem-name-input{font-size:14px;padding:2px 0;border-bottom-width:1px;}
+#modalOverlay .subitem-total{font-size:11px;margin-top:0;}
+#modalOverlay .sub-del{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;padding:0;color:#A5A69F;flex:none;}
+#modalOverlay .sub-del:hover{background:#FBEDEA;color:#C4574A;}
+#modalOverlay .subitem-toggle{width:24px;text-align:center;}
+#modalOverlay .rc-item{margin-top:6px;border-radius:14px;}
+#modalOverlay .rc-sum{padding:8px 8px 8px 12px;gap:8px;}
+#modalOverlay .rc-sum-name{font-size:13.5px;}
+#modalOverlay .rc-sum-sub{margin-top:2px;gap:2px 6px;font-size:11.5px;}
+#modalOverlay .rc-chip{font-size:10px;padding:2px 7px;}
+#modalOverlay a.rc-open{text-decoration:none;display:inline-block;}
+#modalOverlay .rc-copy{margin:0;padding:2px 8px;font-size:10.5px;border-color:#E4DFD5;}
+#modalOverlay .rc-detail{padding:6px 11px;font-size:11.5px;}
+#modalOverlay .add-detail-btn{margin-top:6px;padding:8px;font-size:12px;border-radius:12px;}
+#modalOverlay .add-subitem-btn{margin-top:10px;padding:10px;font-size:12.5px;}
+
+/* ===== Dialog konfirmasi ===== */
+#confirmOverlay{position:fixed;inset:0;z-index:1300;background:rgba(23,27,24,.5);display:flex;align-items:center;justify-content:center;padding:24px;}
+#confirmOverlay .cf-box{width:100%;max-width:340px;background:#fff;border-radius:26px;padding:22px 20px 18px;text-align:center;box-shadow:0 24px 60px -20px rgba(0,0,0,.45);font-family:'Plus Jakarta Sans','Sora',sans-serif;}
+#confirmOverlay .cf-ico{width:46px;height:46px;border-radius:50%;background:#FBEDEA;color:#C4574A;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+#confirmOverlay .cf-title{font:800 16px 'Sora',sans-serif;color:#181B17;line-height:1.35;word-break:break-word;}
+#confirmOverlay .cf-msg{font-size:12.5px;color:#6F7068;line-height:1.5;margin-top:6px;}
+#confirmOverlay .cf-btns{display:flex;gap:10px;margin-top:18px;}
+#confirmOverlay .cf-btns button{flex:1;min-height:46px;border-radius:100px;font:800 13px 'Sora',sans-serif;cursor:pointer;border:none;}
+#confirmOverlay .cf-no{background:#F1EEE7;color:#4B4C46;}
+#confirmOverlay .cf-yes{background:#C4574A;color:#fff;}
+
 /* ===== Cetak ringkasan ===== */
 #printArea{display:none;}
 @media print{
@@ -822,11 +866,11 @@ Warna: **hijau** = aman/cukup, **kuning** = perlu perhatian atau belum lengkap, 
 
 ## Budget
 
-Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi langsung di item** — lewat **Detail Rincian**:
+Daftar pos pengeluaran (Venue, Catering, Mahar, dst). **Nominal tidak diisi langsung di item** — lewat **Detail Rincian**. Untuk **mengubah nama item**, tap namanya (atau ikon pensil di sebelahnya), nanti muncul popup kecil. Semua item dianggap penting, jadi tidak ada kategori atau catatan lagi. Untuk menghapus, buka item lalu tap **"Hapus item ini"** di bagian bawah (muncul popup konfirmasi "Ya, hapus / Batal" dulu). Perubahan tersimpan otomatis, jadi tidak perlu tombol Simpan.
 
 1. Tap satu item Budget sampai terbuka, lalu tap **"Kelola Detail Rincian"**. Popup muncul dari bawah.
 2. Tambah **sub-item** (misal "Alat sholat"), lalu di dalamnya tambah **rincian** (misal "Sajadah").
-3. Tiap rincian punya: **Nama, Link Toko/Vendor, No HP, Nominal, status bayar, DP, dan Jatuh tempo pelunasan**.
+3. Di daftar rincian, kalau link toko sudah diisi muncul tombol **Salin** (copy link) dan **Buka ↗** (langsung buka di tab baru). Tiap rincian punya: **Nama, Link Toko/Vendor, No HP, Nominal, status bayar, DP, dan Jatuh tempo pelunasan**.
 4. Tekan **"Simpan"** di bawah popup kalau sudah selesai.
 
 Cara pakai bagian pembayaran:
@@ -1336,6 +1380,10 @@ function renderBudgetDetailModal(sheet, row){
   sheet.appendChild(head);
   head.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
 
+  const summary = document.createElement('div');
+  summary.className = 'modal-summary';
+  sheet.appendChild(summary);
+
   const subWrap = document.createElement('div');
   sheet.appendChild(subWrap);
 
@@ -1362,7 +1410,7 @@ function renderBudgetDetailModal(sheet, row){
           <input type="text" class="subitem-name-input" value="${esc(sub.name||'')}" placeholder="Nama sub-item (misal: Alat sholat)">
           <div class="subitem-total">${(sub.details||[]).length} rincian · ${rupiah(subTotal)}</div>
         </div>
-        <button class="detail-del" title="Hapus sub-item">Hapus</button>
+        <button class="detail-del sub-del" title="Hapus sub-item" aria-label="Hapus sub-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/></svg></button>
         <div class="subitem-toggle${isOpen ? ' open' : ''}">+</div>
       `;
       head.addEventListener('click', () => { sub.open = !sub.open; renderSubItems(); });
@@ -1371,9 +1419,15 @@ function renderBudgetDetailModal(sheet, row){
       nameInput.addEventListener('input', e => { sub.name = e.target.value; scheduleSave(); });
       head.querySelector('.detail-del').addEventListener('click', (ev) => {
         ev.stopPropagation();
-        if(confirm(`Hapus sub-item "${sub.name||'ini'}" beserta semua rinciannya?`)){
-          row.subItems.splice(subIdx,1); scheduleSave(); renderSubItems();
-        }
+        const n = (sub.details||[]).length;
+        askConfirm({
+          title: `Hapus sub-item "${sub.name||'ini'}"?`,
+          message: n ? `${n} rincian di dalamnya ikut terhapus.` : 'Sub-item ini kosong dan akan dihapus.'
+        }, () => {
+          const i = row.subItems.indexOf(sub);
+          if(i > -1) row.subItems.splice(i,1);
+          scheduleSave(); renderSubItems(); updateModalSummary();
+        });
       });
       subCard.appendChild(head);
 
@@ -1452,18 +1506,24 @@ function renderBudgetDetailModal(sheet, row){
             <div class="rc-sum-main" role="button" tabindex="0">
               <div class="rc-sum-name"></div>
               <div class="rc-sum-sub"></div>
-              <button type="button" class="rc-copy" style="display:none;">Salin link</button>
             </div>
             <button type="button" class="rc-detail" aria-expanded="false">Detail ▾</button>`;
-          const sName = sum.querySelector('.rc-sum-name'), sSub = sum.querySelector('.rc-sum-sub'), copyBtn = sum.querySelector('.rc-copy'), detailBtn = sum.querySelector('.rc-detail');
+          const sName = sum.querySelector('.rc-sum-name'), sSub = sum.querySelector('.rc-sum-sub'), detailBtn = sum.querySelector('.rc-detail');
+          const copyBtn = document.createElement('button'); copyBtn.type = 'button'; copyBtn.className = 'rc-copy'; copyBtn.textContent = 'Salin'; copyBtn.style.display = 'none';
+          const openBtn = document.createElement('a'); openBtn.className = 'rc-copy rc-open'; openBtn.textContent = 'Buka ↗'; openBtn.target = '_blank'; openBtn.rel = 'noopener noreferrer'; openBtn.style.display = 'none';
           function refreshSum(){
             sName.textContent = det.name || '(belum diberi nama)';
             sName.classList.toggle('empty', !det.name);
             const st = detailState(det);
-            const lbl = {lunas:'Lunas', dp:'Sudah DP', belum:'Belum dibayar'}[st];
+            const lbl = {lunas:'Lunas', dp:'Sudah DP', belum:'Belum'}[st];
             sSub.innerHTML = `<span class="rc-sum-price">${esc(rupiah(detailTotal(det)))}</span><span class="rc-chip rc-chip-${st}">${lbl}</span>` +
               (det.dueDate && st !== 'lunas' ? `<span class="rc-sum-due">Tempo ${esc(formatTanggalPendekND(det.dueDate))}</span>` : '');
-            copyBtn.style.display = (det.link || '').trim() ? '' : 'none';
+            sSub.appendChild(copyBtn); sSub.appendChild(openBtn);
+            const lk = (det.link || '').trim();
+            copyBtn.style.display = lk ? '' : 'none';
+            // hanya http(s); kalau diketik tanpa awalan (mis. shopee.co.id/x) otomatis diberi https://
+            const href = !lk ? '' : (/^https?:\/\//i.test(lk) ? lk : (/^[\w.-]+\.[a-z]{2,}/i.test(lk) && !/^[a-z][a-z0-9+.-]*:/i.test(lk) ? 'https://' + lk : ''));
+            if(href){ openBtn.href = href; openBtn.style.display = ''; } else { openBtn.removeAttribute('href'); openBtn.style.display = 'none'; }
           }
           function setOpen(o){
             if(o) rcOpen.add(det.id); else rcOpen.delete(det.id);
@@ -1478,8 +1538,8 @@ function renderBudgetDetailModal(sheet, row){
           copyBtn.addEventListener('click', async (ev) => {
             ev.stopPropagation();
             const ok = await copyText((det.link || '').trim());
-            copyBtn.textContent = ok ? 'Tersalin ✓' : 'Gagal, salin manual';
-            setTimeout(() => { copyBtn.textContent = 'Salin link'; }, 1600);
+            copyBtn.textContent = ok ? 'Tersalin ✓' : 'Gagal';
+            setTimeout(() => { copyBtn.textContent = 'Salin'; }, 1600);
           });
           item.appendChild(sum);
           item.appendChild(dRow);
@@ -1581,7 +1641,11 @@ function renderBudgetDetailModal(sheet, row){
           refreshSum();
           setOpen(rcOpen.has(det.id));
           dRow.querySelector('.detail-del').addEventListener('click', () => {
-            sub.details.splice(detIdx,1); scheduleSave(); renderDetails(); refreshTotals();
+            askConfirm({ title: `Hapus rincian "${det.name||'ini'}"?`, message: 'Data harga dan pembayarannya ikut terhapus.' }, () => {
+              const i = sub.details.indexOf(det);
+              if(i > -1) sub.details.splice(i,1);
+              scheduleSave(); renderDetails(); refreshTotals();
+            });
           });
           detailsWrap.appendChild(item);
         });
@@ -1613,18 +1677,12 @@ function renderBudgetDetailModal(sheet, row){
   });
   sheet.appendChild(addSubBtn);
 
-  const summary = document.createElement('div');
-  summary.className = 'modal-summary';
-  sheet.appendChild(summary);
   function updateModalSummary(){
     const t = budgetItemTotals(row);
     summary.innerHTML = `
-      <div style="font-size:11px;color:var(--ink-dim);">Total keseluruhan</div>
-      <div class="n">${rupiah(t.total)}</div>
-      <div class="stat-grid" style="margin-top:10px;">
-        <div class="stat-box"><div class="lbl">Sudah dibayar</div><div class="val small">${rupiah(t.paid)}</div></div>
-        <div class="stat-box"><div class="lbl">Sisa dibayar</div><div class="val small">${rupiah(t.belum)}</div></div>
-      </div>
+      <div class="ms-cell"><span>Total</span><b>${rupiah(t.total)}</b></div>
+      <div class="ms-cell"><span>Dibayar</span><b>${rupiah(t.paid)}</b></div>
+      <div class="ms-cell"><span>Sisa</span><b>${rupiah(t.belum)}</b></div>
     `;
   }
   updateModalSummary();
@@ -3899,27 +3957,13 @@ function renderBudgetSectionND(container){
     }
   }
 
-  // Filter chips
-  const filterRow = document.createElement('div');
-  filterRow.style.cssText = 'display:flex;gap:7px;margin:14px 14px 0;overflow-x:auto;padding-bottom:2px;';
-  BUDGET_CATS.forEach(cat => {
-    const chip = document.createElement('button');
-    const active = budgetCategoryFilter === cat;
-    chip.textContent = cat;
-    chip.style.cssText = `flex:none;padding:8px 15px;border-radius:100px;border:none;font:700 12px 'Sora';cursor:pointer;font-family:inherit;` +
-      (active ? `background:var(--nd-grad);color:#fff;` : `background:#fff;color:#6E6F68;box-shadow:0 4px 12px -6px rgba(23,27,24,.15);`);
-    chip.addEventListener('click', () => { budgetCategoryFilter = cat; renderTabContent(); });
-    filterRow.appendChild(chip);
-  });
-  container.appendChild(filterRow);
-
   // List
   const listWrap = document.createElement('div');
   listWrap.style.marginTop = '10px';
   container.appendChild(listWrap);
 
   const allRows = data.budget;
-  const filtered = budgetCategoryFilter === 'Semua' ? allRows : allRows.filter(r => r.category === budgetCategoryFilter);
+  const filtered = allRows; // semua item dianggap penting: tidak ada pemisahan kategori
 
   if(filtered.length === 0){
     const empty = document.createElement('div');
@@ -3927,7 +3971,7 @@ function renderBudgetSectionND(container){
     empty.style.textAlign = 'center';
     empty.style.color = '#6F7068';
     empty.style.fontSize = '13px';
-    empty.textContent = 'Belum ada item budget di kategori ini.';
+    empty.textContent = 'Belum ada item budget. Tekan "+ Tambah item budget" di bawah.';
     listWrap.appendChild(empty);
   }
 
@@ -3952,53 +3996,47 @@ function renderBudgetSectionND(container){
     head.innerHTML = `
       <div style="flex:1;min-width:0;">
         <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap;">
-          <span style="font:700 13.5px 'Sora';color:#181B17;">${esc(row.item || '(belum diberi nama)')}</span>
-          <span style="font:700 10.5px 'Sora';letter-spacing:.04em;padding:3px 8px;border-radius:100px;background:#F4F1EB;color:#8A8B85;">${esc(row.category || '-')}</span>
+          <span class="bn-name" role="button" tabindex="0" title="Ubah nama item">${esc(row.item || '(belum diberi nama)')}</span>
+          <span class="bn-edit" role="button" tabindex="0" aria-label="Ubah nama item" title="Ubah nama item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
         </div>
         <div style="font-size:11.5px;color:#6F7068;margin-top:4px;">${rupiah(t.total)} · <span style="color:${badge.cls==='s-done'?'#3E7A4E':badge.cls==='s-mid'?'#9C7A1E':'#6F7068'};font-weight:600;">${badge.text}</span></div>
         <div class="nd-bar-track" style="height:5px;margin-top:8px;"><div class="nd-bar-fill" style="width:${miniPct}%"></div></div>
       </div>
       <div style="font-size:18px;color:var(--nd-accent);flex:none;transform:rotate(${isOpen?'45deg':'0deg'});transition:transform .15s;">+</div>
     `;
-    head.addEventListener('click', () => { row.open = !row.open; renderTabContent(); });
+    head.addEventListener('click', (ev) => {
+      if(ev.target.closest('.bn-name, .bn-edit')){ ev.stopPropagation(); openRenameItemModal(row); return; } // tap nama / pensil = ubah nama (popup)
+      row.open = !row.open; renderTabContent();
+    });
+    head.addEventListener('keydown', (ev) => { if((ev.key === 'Enter' || ev.key === ' ') && ev.target.closest && ev.target.closest('.bn-name, .bn-edit')){ ev.preventDefault(); ev.stopPropagation(); openRenameItemModal(row); } });
     card.appendChild(head);
 
     if(isOpen){
       const body = document.createElement('div');
       body.style.cssText = 'padding:0 18px 18px;';
       body.innerHTML = `
-        <div style="font-size:11.5px;color:#6F7068;margin-bottom:4px;">Kategori</div>
-        <select style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;" id="bCat">
-          ${['Wajib','Penting','Tambahan','Luxury'].map(c => `<option value="${c}" ${row.category===c?'selected':''}>${c}</option>`).join('')}
-        </select>
-        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Nama item</div>
-        <input type="text" id="bItem" value="${esc(row.item||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div style="font-size:11.5px;color:#6F7068;margin:10px 0 4px;">Catatan</div>
-        <input type="text" id="bNote" value="${esc(row.note||'')}" style="width:100%;box-sizing:border-box;background:#FAF9F6;border:1px solid #ECE7DE;border-radius:14px;color:#181B17;padding:10px 11px;font-size:13px;">
-        <div class="nd-chiprow" style="margin-top:14px;">
+        <div class="nd-chiprow" style="margin-top:4px;">
           <div class="nd-chip"><div class="nd-chip-lbl">Total</div><div class="nd-chip-val">${rupiah(t.total)}</div></div>
           <div class="nd-chip"><div class="nd-chip-lbl">Sudah dibayar</div><div class="nd-chip-val">${rupiah(t.paid)}</div></div>
           <div class="nd-chip"><div class="nd-chip-lbl">Sisa dibayar</div><div class="nd-chip-val">${rupiah(t.belum)}</div></div>
         </div>
         <button id="bDetail" style="width:100%;margin-top:14px;padding:13px;border-radius:100px;border:1px dashed #D8D2C4;background:none;color:#6E6F68;font:700 12.5px 'Sora';cursor:pointer;font-family:inherit;">Kelola Detail Rincian (${(row.subItems||[]).length} sub-item)</button>
-        <div id="bSaveSlot" style="margin-top:12px;"></div>
-        <button id="bDel" style="width:100%;margin-top:10px;padding:12px;border-radius:100px;border:1px solid #F5DAD6;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;">Hapus item budget</button>
+        <button id="bDel" style="display:block;margin:16px auto 0;padding:8px 14px;border:none;background:none;color:#C4574A;font:700 12px 'Sora';cursor:pointer;font-family:inherit;text-decoration:underline;text-underline-offset:3px;">Hapus item ini</button>
       `;
       card.appendChild(body);
-      body.querySelector('#bCat').addEventListener('change', e => { row.category = e.target.value; scheduleSave(); });
-      body.querySelector('#bItem').addEventListener('input', e => { row.item = e.target.value; scheduleSave(); });
-      body.querySelector('#bNote').addEventListener('input', e => { row.note = e.target.value; scheduleSave(); });
       body.querySelector('#bDetail').addEventListener('click', () => openBudgetDetailModal(row));
       body.querySelector('#bDel').addEventListener('click', () => {
-        if(confirm(`Hapus item budget "${row.item||'ini'}"?`)){
+        const nSub = (row.subItems||[]).reduce((n,si)=>n+((si&&si.details)||[]).length,0);
+        askConfirm({
+          title: `Hapus "${row.item||'item ini'}"?`,
+          message: nSub ? `${nSub} rincian pembayaran di dalamnya ikut terhapus. Tindakan ini tidak bisa dibatalkan dari layar ini.` : 'Item ini akan dihapus dari daftar budget.'
+        }, () => {
           const idx = data.budget.indexOf(row);
           if(idx > -1) data.budget.splice(idx,1);
           scheduleSave();
           renderTabContent();
-        }
+        });
       });
-      const saveBtn = createInlineSaveButton('item-save-btn', () => { row.open = false; renderTabContent(); });
-      body.querySelector('#bSaveSlot').appendChild(saveBtn);
     }
 
     listWrap.appendChild(card);
@@ -4018,11 +4056,60 @@ function renderBudgetSectionND(container){
   addBtn.style.cssText = 'width:calc(100% - 28px);margin:10px 14px 20px;padding:15px;border-radius:100px;border:1px dashed var(--nd-accent);background:var(--nd-soft);color:var(--nd-deep-ink);font:700 13px \'Sora\';cursor:pointer;font-family:inherit;';
   addBtn.textContent = '+ Tambah item budget';
   addBtn.addEventListener('click', () => {
-    data.budget.push({id:uid(), open:true, category: budgetCategoryFilter==='Semua'?'Penting':budgetCategoryFilter, item:'', note:'', subItems:[]});
+    const nr = {id:uid(), open:true, category:'Penting', item:'', note:'', subItems:[]};
+    data.budget.push(nr);
     scheduleSave();
     renderTabContent();
+    openRenameItemModal(nr, true);
   });
   container.appendChild(addBtn);
+}
+
+
+// Dialog konfirmasi hapus (pengganti confirm() bawaan browser). Berdiri sendiri di atas modal lain.
+function askConfirm(opts, onYes){
+  const old = document.getElementById('confirmOverlay'); if(old) old.remove();
+  const ov = document.createElement('div');
+  ov.id = 'confirmOverlay';
+  ov.innerHTML = `
+    <div class="cf-box" role="alertdialog" aria-modal="true" aria-labelledby="cfTitle">
+      <div class="cf-ico" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5M14 11v5"/></svg></div>
+      <div class="cf-title" id="cfTitle">${esc(opts.title || 'Hapus item ini?')}</div>
+      <div class="cf-msg">${esc(opts.message || '')}</div>
+      <div class="cf-btns"><button type="button" class="cf-no">Batal</button><button type="button" class="cf-yes">${esc(opts.okText || 'Ya, hapus')}</button></div>
+    </div>`;
+  document.body.appendChild(ov);
+  const close = () => { ov.remove(); document.removeEventListener('keydown', onKey, true); };
+  const onKey = (ev) => { if(ev.key === 'Escape'){ ev.stopPropagation(); close(); } };
+  document.addEventListener('keydown', onKey, true);
+  ov.addEventListener('click', (ev) => { if(ev.target === ov) close(); });
+  ov.querySelector('.cf-no').addEventListener('click', close);
+  ov.querySelector('.cf-yes').addEventListener('click', () => { close(); onYes(); });
+  setTimeout(() => { const b = ov.querySelector('.cf-no'); if(b) b.focus(); }, 30);
+}
+
+// Popup kecil untuk mengubah nama item budget (tap nama atau ikon pensil)
+function openRenameItemModal(row, isNew){
+  openModal((sheet) => {
+    sheet.innerHTML = `
+      <div class="modal-head"><div class="modal-title">${isNew ? 'Nama item baru' : 'Ubah nama item'}</div><button class="modal-close" id="modalCloseBtn" aria-label="Tutup">&times;</button></div>
+      <div class="rc-field"><label for="renItem">Nama item budget</label><input type="text" id="renItem" maxlength="60" placeholder="Misal: Seserahan, Venue, Catering" value="${esc(row.item || '')}"></div>
+      <div style="display:flex;gap:10px;margin-top:18px;">
+        <button type="button" class="add-row-btn" id="renCancel" style="margin:0;flex:1;">Batal</button>
+        <button type="button" class="item-save-btn" id="renSave" style="flex:1.4;">Simpan nama</button>
+      </div>`;
+    const inp = sheet.querySelector('#renItem');
+    const save = () => {
+      row.item = inp.value.trim();
+      scheduleSave();
+      closeModal(); // closeModal sudah render ulang tab
+    };
+    sheet.querySelector('#modalCloseBtn').addEventListener('click', closeModal);
+    sheet.querySelector('#renCancel').addEventListener('click', closeModal);
+    sheet.querySelector('#renSave').addEventListener('click', save);
+    inp.addEventListener('keydown', (ev) => { if(ev.key === 'Enter'){ ev.preventDefault(); save(); } });
+    setTimeout(() => { inp.focus(); inp.select(); }, 60);
+  });
 }
 
 let tamuSearch = '';
